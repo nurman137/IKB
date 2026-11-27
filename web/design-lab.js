@@ -14,7 +14,7 @@ const shared={
   choices:[['no','Tidak selalu; kekakuan harus diperiksa terpisah'],['yes','Ya, karena tegangannya sudah rendah'],['strength','Kekuatan saja cukup untuk memutuskan rancangan']],correct:'no',
   explanation:'Kekuatan bergantung pada tegangan (M/Z atau Tc/J), sedangkan deformasi bergantung pada kekakuan (EI atau GJ) dan sangat sensitif terhadap panjang. Pada kasus Kapal, orientasi rebah masih memenuhi n ≥ 2 tetapi melendut melebihi batas L/1000. Setiap kriteria dinilai sendiri-sendiri.',
   reflection:'Alternatif mana yang kamu pilih, apa trade-off massa, kekuatan dan kekakuannya, dan verifikasi apa yang masih diperlukan?',
-  source:'https://ocw.mit.edu/courses/2-001-mechanics-materials-i-fall-2006/',sourceLabel:'MIT OCW 2.001 Mechanics & Materials I (torsi, lentur dan desain awal)',
+  sources:[['https://ocw.mit.edu/courses/2-001-mechanics-materials-i-fall-2006/48c47be2a2e70576edc4678ec4c099af_lec22.pdf','MIT OCW 2.001, Lecture 24: Torsion (Twisting)'],['https://ocw.mit.edu/courses/2-001-mechanics-materials-i-fall-2006/3734eab076925fc3721f7a79068abf79_lec19.pdf','MIT OCW 2.001, Lecture 21: Moment–curvature dan lendutan balok'],['https://ocw.mit.edu/courses/2-001-mechanics-materials-i-fall-2006/0536dc7d752d099f72b85de5d8876f22_lec17.pdf','MIT OCW 2.001, Lecture 18: Failure of materials (von Mises)']],
   dataNote:'Data awal berasal dari register M0 dan merupakan asumsi latihan.',
 };
 

@@ -17,7 +17,7 @@ export const thermalConfig={
     choices:[['compression','Tekan, karena pipa ingin memanjang tetapi ditahan'],['tension','Tarik, karena pipa memuai'],['zero','Nol, karena tidak ada beban luar']],correct:'compression',
     explanation:'Pipa ingin memanjang αΔT·L, tetapi tumpuan menahannya pada panjang awal. Tumpuan harus mendorong pipa kembali, sehingga σ = −EαΔT bernilai negatif (tekan). Pada pipa bebas tidak ada yang menahan, sehingga σ = 0 walaupun pipa memuai.',
     reflection:'Mengapa pipa yang bebas memuai tidak mengalami tegangan termal aksial, sedangkan pipa yang ditahan mengalaminya?',
-    source:'https://ocw.mit.edu/courses/2-001-mechanics-materials-i-fall-2006/',sourceLabel:'MIT OCW 2.001 Mechanics & Materials I, materi regangan termal dan struktur terkekang',
+    sources:[['https://ocw.mit.edu/courses/2-001-mechanics-materials-i-fall-2006/bd0c65066e01f2a16313d1903725b14d_lec14.pdf','MIT OCW 2.001, Lecture 15: Stress–strain–temperature relationships'],['https://ocw.mit.edu/courses/2-001-mechanics-materials-i-fall-2006/8ee771f4edfda8df0e9f1b38c491dc46_lec7.pdf','MIT OCW 2.001, Lecture 7: Force–deformation dan struktur statis tak tentu']],
     limitation:'Hanya dua kondisi ekstrem: bebas penuh dan terkekang penuh. Tumpuan parsial atau elastis tidak diinterpolasi; memerlukan model pegas. σ terkekang disembunyikan bila |σ| ≥ Sᵧ latihan. Pipa tekan dapat tertekuk sebelum luluh; tekuk belum dievaluasi. Tidak menghitung tekanan internal, gradien temperatur melintasi dinding, gesekan tumpuan, belokan atau ekspansi loop, fatigue termal, atau gaya pada nozel peralatan. Bukan analisis tegangan sistem perpipaan.',
     dataNote:'Data d, dᵢ, L, ΔT, E dan α berasal dari register M0 dan merupakan asumsi latihan.',
   },

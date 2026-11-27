@@ -2,7 +2,7 @@
 
 Ruang belajar Ilmu Kekuatan Bahan, Politeknik Negeri Batam, untuk konteks **Teknik Mesin** dan **Perkapalan**.
 
-**Status 27 November 2026: M0–M6 selesai — kesepuluh modul aktif. M7–M8 belum dimulai.** Fondasi situs dapat dijalankan lokal; belum diterbitkan. Publikasi mengikuti tahap kesiapan rilis yang disepakati.
+**Status 27 November 2026: M0–M8 selesai — versi `1.0.0-rc.1` siap ditinjau sebelum publikasi.** Kesepuluh modul aktif, dengan progres per perangkat, glosarium, mode presentasi dan cetak ringkasan. Situs belum dipublikasikan. Fondasi situs dapat dijalankan lokal; belum diterbitkan. Publikasi mengikuti tahap kesiapan rilis yang disepakati.
 
 ## Modul yang sudah aktif
 
@@ -29,21 +29,20 @@ Kesepuluh modul sudah aktif untuk Mesin dan Kapal, masing-masing dengan halaman 
 
 Data contoh dipisahkan dari soal latihan. Hasil dan visual mengikuti satu model hitung per kasus.
 
-Progres belajar, penilaian kelas, LMS dan akun belum tersedia. Situs belum dipublikasikan.
+Progres belajar tersimpan hanya di perangkat pengguna; penilaian kelas, LMS dan akun tidak tersedia.
 
 ## Menjalankan
 
 Memerlukan Node.js ≥20. Tanpa dependensi npm eksternal; tidak perlu `npm install`.
 
 ```sh
-npm run build
-npm test
-npm run dev
+npm test        # build + seluruh tes
+npm run dev     # http://127.0.0.1:5173/
 ```
 
 Server default: `http://127.0.0.1:5173/`. Host/port opsional: `npm run dev -- --host 127.0.0.1 --port 4173`.
 
-Output `dist/` dapat disajikan pada hosting statis. Tiap rute memiliki `index.html` sendiri untuk kunjungan langsung/reload tanpa aturan SPA fallback. Setelah mengubah source, build kembali dan muat ulang browser.
+`npm run build` saja membangun `dist/`; untuk subdirektori gunakan `IKB_BASE=/IKB/ npm run build`. Output `dist/` dapat disajikan pada hosting statis. Tiap rute memiliki `index.html` sendiri untuk kunjungan langsung/reload tanpa aturan SPA fallback. Setelah mengubah source, build kembali dan muat ulang browser.
 
 ## Struktur
 
@@ -65,10 +64,11 @@ Output `dist/` dapat disajikan pada hosting statis. Tiap rute memiliki `index.ht
 | `web/bending-view.js`, `web/bending-visuals.js` | Antarmuka, balok, lendutan, σ(y) dan diagram V/M modul 06 |
 | `web/lab-core.js`, `web/lab-view.js` | Kerangka laboratorium bersama (validasi, satuan, penilaian, halaman) untuk modul 07–09 |
 | `web/section-*.js`, `web/thermal-*.js`, `web/combined-*.js`, `web/design-*.js` | Model, visual dan konfigurasi modul 07, 08, 09, 10 |
-| `web/m4.css` | Gaya bersama modul 05–09 |
-| `scripts/build.mjs` | Build 32 halaman dan 404 |
+| `web/m4.css` | Gaya bersama modul 05–10 |
+| `web/progress.js`, `web/glossary.js`, `web/m7.css` | Progres per perangkat, glosarium, mode presentasi dan gaya cetak |
+| `scripts/build.mjs` | Build 34 halaman dan 404 (`IKB_BASE` untuk subdirektori) |
 | `scripts/serve.mjs` | Server pengembangan |
-| `tests/foundation.test.mjs`, `tests/axial.test.mjs`, `tests/foundation-models.test.mjs`, `tests/torsion.test.mjs`, `tests/bending.test.mjs`, `tests/m5-modules.test.mjs`, `tests/design.test.mjs` | Pemeriksaan fondasi, aksial, model M3, torsi, lentur, penampang, temperatur, beban gabungan dan studio desain |
+| `tests/foundation.test.mjs`, `tests/axial.test.mjs`, `tests/foundation-models.test.mjs`, `tests/torsion.test.mjs`, `tests/bending.test.mjs`, `tests/m5-modules.test.mjs`, `tests/design.test.mjs`, `tests/m7.test.mjs`, `tests/release.test.mjs` | Pemeriksaan semua model, fitur M7, dan gerbang rilis (20 kasus/133 keluaran M0, build statis, rujukan) |
 | `docs/m0/reference_cases.json` | Data acuan, bukan fungsi hitung aplikasi |
 
 Contoh rute: `/modul/02/`, `/modul/02/perhitungan/mesin/`, dan `/modul/02/perhitungan/kapal/`. Pola tersedia untuk modul 01–10. Konteks modul dapat dipilih lewat `?kasus=mesin` atau `?kasus=kapal`.
@@ -86,12 +86,12 @@ Contoh rute: `/modul/02/`, `/modul/02/perhitungan/mesin/`, dan `/modul/02/perhit
 | [Serah terima M3](docs/m3/serah_terima.md) | Tiga modul baru, enam kasus dan hasil pemeriksaan |
 | [Serah terima M4](docs/m4/serah_terima.md) | Modul 05–07, fixture daya–rpm, berongga dan beban merata |
 | [Serah terima M5](docs/m5/serah_terima.md) | Modul 07–09, kerangka laboratorium bersama, fixture profil/termal/gabungan |
-| [Serah terima M6](docs/m6/serah_terima.md) | Modul 10 Studio Desain, aturan keputusan, pendamping SolidWorks dan hasil pemeriksaan terbaru |
+| [Serah terima M6](docs/m6/serah_terima.md) | Modul 10 Studio Desain, aturan keputusan, pendamping SolidWorks |
+| [Serah terima M7](docs/m7/serah_terima.md) | Progres per perangkat, glosarium, mode presentasi, cetak ringkasan |
+| [Serah terima M8](docs/m8/serah_terima.md) | Validasi rilis, aksesibilitas, hosting, rujukan, panduan publikasi dan daftar periksa |
 
 Nilai default adalah asumsi latihan. Model ideal tidak menyatakan kelayakan desain industri atau kepatuhan aturan klasifikasi kapal. Identitas institusi memakai teks; tanda kubus adalah identitas laboratorium, bukan logo resmi Polibatam.
 
 ## Langkah berikutnya
 
-**M7 — Fitur pembelajaran terpadu:** progres per perangkat, mode presentasi, glosarium, cetak ringkasan perhitungan aktif dan perbandingan yang relevan, tanpa mengklaim rekap nilai kelas. Setelah itu **M8 — validasi dan persiapan rilis**.
-
-> Catatan: `npm test` membaca sebagian berkas dari `dist/`, jadi jalankan `npm run build` lebih dahulu.
+Pengembangan M0–M8 selesai. Sebelum publikasi: tinjauan dosen atas isi dan preset latihan, uji perangkat fisik dan pembaca layar, serta keputusan domain, akses dan logo. Lihat [daftar periksa M8](docs/m8/serah_terima.md#daftar-periksa-sebelum-publikasi) dan panduan publikasinya.

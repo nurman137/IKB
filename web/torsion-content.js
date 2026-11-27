@@ -13,7 +13,7 @@ export const torsionContent={
   explanation:'τmax = Tc/J tidak memuat L, sehingga tegangan geser tetap. θ = TL/(GJ) sebanding dengan L: poros dua kali lebih panjang terpuntir dua kali lebih besar. Regangan geser γ = cθ/L juga tetap.',
   answerLabels:['Tegangan geser maksimum τmax (MPa)','Sudut puntir θ (derajat)'],
   reflection:'Mengapa memperpanjang poros memperbesar puntiran, tetapi tidak memperbesar tegangan geser?',
-  source:'https://ocw.mit.edu/courses/3-11-mechanics-of-materials-fall-1999/0e0845a9e3abe430080eaffb0c5015ba_MIT3_11F99_torsion.pdf',sourceLabel:'David Roylance, Shear and Torsion, MIT OCW 3.11',
+  sources:[['https://ocw.mit.edu/courses/2-001-mechanics-materials-i-fall-2006/48c47be2a2e70576edc4678ec4c099af_lec22.pdf','MIT OCW 2.001, Lecture 24: Torsion (Twisting)'],['https://ocw.mit.edu/courses/3-11-mechanics-of-materials-fall-1999/0e0845a9e3abe430080eaffb0c5015ba_MIT3_11F99_torsion.pdf','David Roylance, Shear and Torsion, MIT OCW 3.11']],
   limitation:'Rumus τ = Tr/J dan θ = TL/(GJ) hanya untuk penampang lingkaran pejal atau cincin konsentris dengan torsi dan penampang seragam sepanjang L. Penampang tak melingkar, alur pasak, bahu poros dan sambungan flens memerlukan faktor konsentrasi atau analisis lain. Deformasi disembunyikan bila √3·τmax ≥ Sᵧ latihan atau γ > 1%. Dinding sangat tipis dapat tertekuk sebelum luluh; tekuk, fatigue, getaran torsional dan putaran kritis belum dievaluasi. Bukan pemeriksaan aturan klasifikasi poros propeler.',
 };
 
