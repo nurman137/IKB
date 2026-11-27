@@ -21,5 +21,9 @@ http.createServer(async(req,res)=>{
     const body=await readFile(file);
     res.writeHead(200,{'Content-Type':mime[path.extname(file)]||'application/octet-stream','Cache-Control':'no-cache'});
     res.end(req.method==='HEAD'?undefined:body);
-  }catch{res.writeHead(404,{'Content-Type':'text/html; charset=utf-8'});res.end('<!doctype html><html lang="id"><title>Halaman tidak ditemukan</title><h1>Halaman tidak ditemukan</h1><a href="/">Kembali ke ruang belajar</a></html>');}
+  }catch{
+    // Mirror common static hosts: unknown paths receive dist/404.html with status 404.
+    let body;try{body=await readFile(path.join(root,'404.html'));}catch{body='<!doctype html><html lang="id"><title>Halaman tidak ditemukan</title><h1>Halaman tidak ditemukan</h1><a href="/">Kembali ke ruang belajar</a></html>';}
+    res.writeHead(404,{'Content-Type':'text/html; charset=utf-8'});res.end(req.method==='HEAD'?undefined:body);
+  }
 }).listen(port,host,()=>console.log(`IKB preview: http://${host}:${port}`));

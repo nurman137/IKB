@@ -1,3 +1,4 @@
+import {progress} from './progress.js';
 import {axialFields,defaultUnits,toCanonical,convertUnit,evaluateAxial,exercises,gradeExercise,prediction} from './axial-model.js';
 import {axialDiagram,elasticGraph} from './axial-visuals.js';
 import {icon} from './figures.js';
@@ -99,7 +100,7 @@ export function mountAxial({shell,context,session,dataset,url,isCalculation}){
   byId('toggle-steps').addEventListener('click',()=>{const ds=[...byId('axial-steps').querySelectorAll('details')],open=!ds.every(d=>d.open);ds.forEach(d=>d.open=open);byId('toggle-steps').textContent=open?'Ringkas langkah':'Tampilkan semua langkah';});
   if(!isCalculation){
     const form=byId('prediction-form');
-    form.addEventListener('submit',e=>{e.preventDefault();const choice=new FormData(form).get('prediction');const feedback=byId('prediction-feedback');if(!choice){feedback.textContent='Pilih satu prediksi dahulu.';return;}const r=prediction(context,choice);feedback.textContent=`${r.correct?'Prediksimu tepat.':'Coba tinjau hubungan antarbesaran.'} ${r.explanation}`;feedback.classList.toggle('correct',r.correct);});
+    form.addEventListener('submit',e=>{e.preventDefault();const choice=new FormData(form).get('prediction');const feedback=byId('prediction-feedback');if(!choice){feedback.textContent='Pilih satu prediksi dahulu.';return;}const r=prediction(context,choice);feedback.textContent=`${r.correct?'Prediksimu tepat.':'Coba tinjau hubungan antarbesaran.'} ${r.explanation}`;feedback.classList.toggle('correct',r.correct);progress.record('02',context,'prediction',r.correct);});
     const practice=byId('exercise-form'),solution=byId('exercise-solution');
     practice.closest('section').id='latihan';
     practice.addEventListener('submit',e=>{
@@ -111,7 +112,7 @@ export function mountAxial({shell,context,session,dataset,url,isCalculation}){
         byId(`feedback-${k}`).classList.toggle('wrong',!g.correct);
         if(g.correct)correct++;
       }
-      byId('exercise-feedback').textContent=`${correct} dari 2 jawaban benar. ${correct===2?'Jelaskan alasan fisiknya pada refleksi di bawah.':'Perbaiki langkahmu atau buka pembahasan setelah mencoba.'}`;
+      progress.record('02',context,'exercise',correct);byId('exercise-feedback').textContent=`${correct} dari 2 jawaban benar. ${correct===2?'Jelaskan alasan fisiknya pada refleksi di bawah.':'Perbaiki langkahmu atau buka pembahasan setelah mencoba.'}`;
       byId('show-solution').hidden=!Object.values(grades).every(g=>g.valid);
       solution.hidden=true;
     });
@@ -120,7 +121,7 @@ export function mountAxial({shell,context,session,dataset,url,isCalculation}){
       solution.innerHTML=`<h3>Pembahasan latihan</h3>${steps(evaluateAxial(input),exerciseRaw,defaultUnits,new Set(['0','1','2','3','4','5']))}`;solution.hidden=false;
     });
     const reflection=byId('reflection');reflection.value=session.get(`ikb-reflection-02-${context}`)||'';
-    reflection.addEventListener('input',()=>session.set(`ikb-reflection-02-${context}`,reflection.value));
+    reflection.addEventListener('input',()=>{session.set(`ikb-reflection-02-${context}`,reflection.value);progress.record('02',context,'reflection',reflection.value.trim().length>0);});
   }
   update();
 }

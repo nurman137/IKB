@@ -16,6 +16,8 @@ export function parseRoute(pathname,base='/') {
   const parts=path.replace(/index\.html$/,'').split('/').filter(Boolean);
   if(!parts.length)return {type:'home'};
   if(parts.length===1&&parts[0]==='tentang')return {type:'about'};
+  if(parts.length===1&&parts[0]==='progres')return {type:'progress'};
+  if(parts.length===1&&parts[0]==='glosarium')return {type:'glossary'};
   if(parts[0]==='modul'&&modules.some(m=>m.id===parts[1])) {
     if(parts.length===2)return {type:'module',id:parts[1]};
     if(parts.length===4&&parts[2]==='perhitungan'&&['mesin','kapal'].includes(parts[3]))return {type:'calculation',id:parts[1],context:parts[3]};
