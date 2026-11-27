@@ -1,0 +1,427 @@
+{
+  "version": "0.1",
+  "date_wib": "2026-11-27",
+  "status": "Data acuan M0, bukan hasil uji aplikasi",
+  "cases": [
+    {
+      "id": "01-M",
+      "input": {
+        "P_N": 10000,
+        "L_mm": 1200,
+        "a_mm": 400
+      },
+      "expected": {
+        "RA_N": 6666.666666666667,
+        "RB_N": 3333.3333333333335,
+        "M_at_load_Nmm": 2666666.6666666665
+      },
+      "expected_status": "Nilai acuan analitis M0; belum merupakan hasil uji aplikasi"
+    },
+    {
+      "id": "01-K",
+      "input": {
+        "P_N": 20000,
+        "L_mm": 2000,
+        "a_mm": 800
+      },
+      "expected": {
+        "RA_N": 12000,
+        "RB_N": 8000,
+        "M_at_load_Nmm": 9600000
+      },
+      "expected_status": "Nilai acuan analitis M0; belum merupakan hasil uji aplikasi"
+    },
+    {
+      "id": "02-M",
+      "input": {
+        "F_N": 20000,
+        "d_mm": 20,
+        "L_mm": 500,
+        "E_MPa": 200000
+      },
+      "expected": {
+        "A_mm2": 314.1592653589793,
+        "sigma_MPa": 63.66197723675813,
+        "epsilon": 0.00031830988618379065,
+        "delta_mm": 0.15915494309189532
+      },
+      "expected_status": "Nilai acuan analitis M0; belum merupakan hasil uji aplikasi"
+    },
+    {
+      "id": "02-K",
+      "input": {
+        "F_N": 30000,
+        "d_mm": 24,
+        "L_mm": 1200,
+        "E_MPa": 200000
+      },
+      "expected": {
+        "A_mm2": 452.3893421169302,
+        "sigma_MPa": 66.31455962162306,
+        "epsilon": 0.0003315727981081153,
+        "delta_mm": 0.3978873577297384
+      },
+      "expected_status": "Nilai acuan analitis M0; belum merupakan hasil uji aplikasi"
+    },
+    {
+      "id": "03-M",
+      "input": {
+        "F_N": 10000,
+        "d_mm": 20,
+        "L_mm": 500,
+        "E_MPa": 200000,
+        "nu": 0.3
+      },
+      "expected": {
+        "A_mm2": 314.1592653589793,
+        "sigma_MPa": 31.830988618379067,
+        "epsilon": 0.00015915494309189532,
+        "delta_mm": 0.07957747154594766,
+        "k_N_per_mm": 125663.70614359173,
+        "epsilon_lateral": -0.000047746482927568594,
+        "delta_d_mm": -0.0009549296585513718,
+        "G_MPa": 76923.07692307692,
+        "delta_if_E70000_mm": 0.22736420441699332
+      },
+      "expected_status": "Nilai acuan analitis M0; belum merupakan hasil uji aplikasi"
+    },
+    {
+      "id": "03-K",
+      "input": {
+        "F_N": 15000,
+        "d_mm": 25,
+        "L_mm": 1000,
+        "E_MPa": 200000,
+        "nu": 0.3
+      },
+      "expected": {
+        "A_mm2": 490.8738521234052,
+        "sigma_MPa": 30.557749073643905,
+        "epsilon": 0.0001527887453682195,
+        "delta_mm": 0.15278874536821954,
+        "k_N_per_mm": 98174.77042468103,
+        "epsilon_lateral": -0.00004583662361046585,
+        "delta_d_mm": -0.0011459155902616464,
+        "G_MPa": 76923.07692307692,
+        "delta_if_E70000_mm": 0.43653927248062724
+      },
+      "expected_status": "Nilai acuan analitis M0; belum merupakan hasil uji aplikasi"
+    },
+    {
+      "id": "04-M",
+      "input": {
+        "F_N": 12000,
+        "d_mm": 12,
+        "n_planes": 1,
+        "t_center_mm": 8
+      },
+      "expected": {
+        "A_pin_mm2": 113.09733552923255,
+        "tau_avg_MPa": 106.1032953945969,
+        "bearing_center_MPa": 125
+      },
+      "expected_status": "Nilai acuan analitis M0; belum merupakan hasil uji aplikasi"
+    },
+    {
+      "id": "04-K",
+      "input": {
+        "F_N": 40000,
+        "d_mm": 20,
+        "n_planes": 2,
+        "t_center_mm": 12,
+        "t_each_outer_mm": 10
+      },
+      "expected": {
+        "A_pin_mm2": 314.1592653589793,
+        "tau_avg_MPa": 63.66197723675813,
+        "bearing_center_MPa": 166.66666666666666,
+        "bearing_each_outer_MPa": 100
+      },
+      "expected_status": "Nilai acuan analitis M0; belum merupakan hasil uji aplikasi"
+    },
+    {
+      "id": "05-M",
+      "input": {
+        "T_Nmm": 200000,
+        "d_mm": 30,
+        "di_mm": 0,
+        "L_mm": 600,
+        "E_MPa": 200000,
+        "nu": 0.3
+      },
+      "expected": {
+        "J_mm4": 79521.56404399163,
+        "tauMax_MPa": 37.72561614030112,
+        "theta_rad": 0.019617320392956585,
+        "theta_deg": 1.123989663872334
+      },
+      "expected_status": "Nilai acuan analitis M0; belum merupakan hasil uji aplikasi"
+    },
+    {
+      "id": "05-K",
+      "input": {
+        "T_Nmm": 1500000,
+        "d_mm": 60,
+        "di_mm": 0,
+        "L_mm": 2000,
+        "E_MPa": 200000,
+        "nu": 0.3
+      },
+      "expected": {
+        "J_mm4": 1272345.024703866,
+        "tauMax_MPa": 35.3677651315323,
+        "theta_rad": 0.03065206311399466,
+        "theta_deg": 1.7562338498005217
+      },
+      "expected_status": "Nilai acuan analitis M0; belum merupakan hasil uji aplikasi"
+    },
+    {
+      "id": "06-M",
+      "input": {
+        "P_N": 8000,
+        "L_mm": 1500,
+        "b_mm": 60,
+        "h_mm": 120,
+        "E_MPa": 200000
+      },
+      "expected": {
+        "A_mm2": 7200,
+        "I_mm4": 8640000,
+        "R_N": 4000,
+        "Mmax_Nmm": 3000000,
+        "sigmaMax_MPa": 20.833333333333332,
+        "deltaMax_mm": 0.3255208333333333
+      },
+      "expected_status": "Nilai acuan analitis M0; belum merupakan hasil uji aplikasi"
+    },
+    {
+      "id": "06-K",
+      "input": {
+        "P_N": 20000,
+        "L_mm": 3000,
+        "b_mm": 100,
+        "h_mm": 200,
+        "E_MPa": 200000
+      },
+      "expected": {
+        "A_mm2": 20000,
+        "I_mm4": 66666666.666666664,
+        "R_N": 10000,
+        "Mmax_Nmm": 15000000,
+        "sigmaMax_MPa": 22.5,
+        "deltaMax_mm": 0.84375
+      },
+      "expected_status": "Nilai acuan analitis M0; belum merupakan hasil uji aplikasi"
+    },
+    {
+      "id": "07-M",
+      "input": {
+        "P_N": 2000,
+        "L_mm": 1000,
+        "b_mm": 40,
+        "h_mm": 100,
+        "E_MPa": 200000
+      },
+      "expected": {
+        "orientation_A": {
+          "A_mm2": 4000,
+          "I_mm4": 3333333.3333333335,
+          "R_N": 1000,
+          "Mmax_Nmm": 500000,
+          "sigmaMax_MPa": 7.5,
+          "deltaMax_mm": 0.0625
+        },
+        "orientation_B": {
+          "A_mm2": 4000,
+          "I_mm4": 533333.3333333334,
+          "R_N": 1000,
+          "Mmax_Nmm": 500000,
+          "sigmaMax_MPa": 18.75,
+          "deltaMax_mm": 0.390625
+        }
+      },
+      "expected_status": "Nilai acuan analitis M0; belum merupakan hasil uji aplikasi"
+    },
+    {
+      "id": "07-K",
+      "input": {
+        "P_N": 5000,
+        "L_mm": 2000,
+        "b_mm": 60,
+        "h_mm": 160,
+        "E_MPa": 200000
+      },
+      "expected": {
+        "orientation_A": {
+          "A_mm2": 9600,
+          "I_mm4": 20480000,
+          "R_N": 2500,
+          "Mmax_Nmm": 2500000,
+          "sigmaMax_MPa": 9.765625,
+          "deltaMax_mm": 0.20345052083333334
+        },
+        "orientation_B": {
+          "A_mm2": 9600,
+          "I_mm4": 2880000,
+          "R_N": 2500,
+          "Mmax_Nmm": 2500000,
+          "sigmaMax_MPa": 26.041666666666668,
+          "deltaMax_mm": 1.4467592592592593
+        }
+      },
+      "expected_status": "Nilai acuan analitis M0; belum merupakan hasil uji aplikasi"
+    },
+    {
+      "id": "08-M",
+      "input": {
+        "d_mm": 40,
+        "di_mm": 32,
+        "L_mm": 2000,
+        "deltaT_C": 40,
+        "E_MPa": 200000,
+        "alpha_per_C": 0.000012
+      },
+      "expected": {
+        "A_mm2": 452.3893421169302,
+        "delta_free_mm": 0.9600000000000001,
+        "sigma_fully_fixed_MPa": -96,
+        "reactionMagnitude_N": 43429.3768432253,
+        "delta_fully_fixed_mm": 0
+      },
+      "expected_status": "Nilai acuan analitis M0; belum merupakan hasil uji aplikasi"
+    },
+    {
+      "id": "08-K",
+      "input": {
+        "d_mm": 76,
+        "di_mm": 64,
+        "L_mm": 3000,
+        "deltaT_C": 50,
+        "E_MPa": 200000,
+        "alpha_per_C": 0.000012
+      },
+      "expected": {
+        "A_mm2": 1319.4689145077132,
+        "delta_free_mm": 1.8000000000000003,
+        "sigma_fully_fixed_MPa": -120,
+        "reactionMagnitude_N": 158336.26974092558,
+        "delta_fully_fixed_mm": 0
+      },
+      "expected_status": "Nilai acuan analitis M0; belum merupakan hasil uji aplikasi"
+    },
+    {
+      "id": "09-M",
+      "input": {
+        "F_N": 0,
+        "M_Nmm": 300000,
+        "T_Nmm": 200000,
+        "d_mm": 40,
+        "Sy_MPa": 250,
+        "n_required": 2
+      },
+      "expected": {
+        "A_mm2": 1256.6370614359173,
+        "I_mm4": 125663.70614359173,
+        "J_mm4": 251327.41228718346,
+        "sigma_edge_A_MPa": 47.7464829275686,
+        "sigma_edge_B_MPa": -47.7464829275686,
+        "tau_surface_MPa": 15.915494309189533,
+        "sigma_vm_max_MPa": 55.1328895421792,
+        "n_yield": 4.534498410585545
+      },
+      "expected_status": "Nilai acuan analitis M0; belum merupakan hasil uji aplikasi"
+    },
+    {
+      "id": "09-K",
+      "input": {
+        "F_N": -50000,
+        "M_Nmm": 0,
+        "T_Nmm": 2000000,
+        "d_mm": 70,
+        "Sy_MPa": 250,
+        "n_required": 2
+      },
+      "expected": {
+        "A_mm2": 3848.4510006474966,
+        "I_mm4": 1178588.1189482957,
+        "J_mm4": 2357176.2378965914,
+        "sigma_edge_A_MPa": -12.99224025239962,
+        "sigma_edge_B_MPa": -12.99224025239962,
+        "tau_surface_MPa": 29.69654914834199,
+        "sigma_vm_max_MPa": 53.05142223103681,
+        "n_yield": 4.712409007835078
+      },
+      "expected_status": "Nilai acuan analitis M0; belum merupakan hasil uji aplikasi"
+    },
+    {
+      "id": "10-M",
+      "input": {
+        "T_Nmm": 150000,
+        "d_mm": 35,
+        "di_A_mm": 0,
+        "di_B_mm": 20,
+        "L_mm": 800,
+        "E_MPa": 200000,
+        "nu": 0.3,
+        "rho_kg_m3": 7850,
+        "Sy_MPa": 250,
+        "n_required": 2,
+        "theta_limit_deg": 2
+      },
+      "expected": {
+        "alternative_A": {
+          "J_mm4": 147323.51486853696,
+          "tauMax_MPa": 17.817929489005195,
+          "theta_rad": 0.010588940953465945,
+          "theta_deg": 0.6067016261468325,
+          "mass_kg": 6.04206807101657,
+          "n_yield": 8.1006924730773
+        },
+        "alternative_B": {
+          "J_mm4": 131615.55160058802,
+          "tauMax_MPa": 19.944451609837515,
+          "theta_rad": 0.011852702670989151,
+          "theta_deg": 0.6791098388711163,
+          "mass_kg": 4.06914788456218,
+          "n_yield": 7.236978490108625
+        }
+      },
+      "expected_status": "Nilai acuan analitis M0; belum merupakan hasil uji aplikasi"
+    },
+    {
+      "id": "10-K",
+      "input": {
+        "P_N": 15000,
+        "L_mm": 2500,
+        "b_A_mm": 80,
+        "h_A_mm": 180,
+        "b_B_mm": 180,
+        "h_B_mm": 80,
+        "E_MPa": 200000,
+        "Sy_MPa": 250,
+        "n_required": 2,
+        "deflection_limit_mm": 2.5,
+        "deflection_limit_basis": "L/1000, kriteria latihan yang dipilih untuk kasus ini"
+      },
+      "expected": {
+        "alternative_A": {
+          "A_mm2": 14400,
+          "I_mm4": 38880000,
+          "R_N": 7500,
+          "Mmax_Nmm": 9375000,
+          "sigmaMax_MPa": 21.70138888888889,
+          "deltaMax_mm": 0.6279337062757202
+        },
+        "alternative_B": {
+          "A_mm2": 14400,
+          "I_mm4": 7680000,
+          "R_N": 7500,
+          "Mmax_Nmm": 9375000,
+          "sigmaMax_MPa": 48.828125,
+          "deltaMax_mm": 3.1789143880208335
+        }
+      },
+      "expected_status": "Nilai acuan analitis M0; belum merupakan hasil uji aplikasi"
+    }
+  ]
+}
