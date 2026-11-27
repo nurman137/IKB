@@ -100,3 +100,7 @@ Pengembangan M0–M8 selesai. Sebelum publikasi: tinjauan dosen atas isi dan pre
 ## Koreksi sebelum penerbitan Sleekdune
 
 Versi rc.2 memperkuat batas regangan/lendutan kecil modul 06/07/10, menyelaraskan keterangan panah termal, dan mensyaratkan prediksi serta latihan pada konteks yang sama untuk ketuntasan. Lihat [catatan koreksi](docs/m8/koreksi_prarilis.md).
+
+## Pengembangan FE (branch pengembangan)
+
+[F0 — Spesifikasi 20 kasus](docs/fe/f0/README.md) dan [F1 — Fondasi solver](docs/fe/f1/README.md) tersedia pada branch FE. F1 mencakup BEAM2, patch PS2 T3, Worker dan harness pengembang lokal `/assets/fe/dev.html`. FE belum terhubung ke kasus mahasiswa dan belum diterbitkan ke situs publik. Lanjutkan F2a untuk percontohan modul 06.
