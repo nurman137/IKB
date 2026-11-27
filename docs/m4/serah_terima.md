@@ -1,6 +1,6 @@
-# M4 — Torsi, Lentur dan Penampang (sebagian: modul 05)
+# M4 — Torsi, Lentur dan Penampang (sebagian: modul 05 dan 06)
 
-Tanggal: 27 November 2026 (WIB). Status: **modul 05 Torsi & Poros selesai** dengan satu kasus Mesin dan satu Kapal. Modul 06 Lentur Balok dan 07 Bentuk Penampang belum dimulai, sehingga M4 secara keseluruhan **belum selesai**. Modul 01–05 aktif; 06–10 masih kerangka. Situs belum dipublikasikan.
+Tanggal: 27 November 2026 (WIB). Status: **modul 05 Torsi & Poros dan modul 06 Lentur Balok selesai**, masing-masing dengan satu kasus Mesin dan satu Kapal. Modul 07 Bentuk Penampang belum dimulai, sehingga M4 secara keseluruhan **belum selesai**. Modul 01–06 aktif; 07–10 masih kerangka. Situs belum dipublikasikan.
 
 ## Fitur modul 05
 
@@ -29,7 +29,7 @@ Nilai baru dihitung terpisah dengan Python dalam satuan SI, tidak memakai fungsi
 
 ## Pemeriksaan yang dilakukan
 
-- **36 kelompok tes otomatis lulus** (26 sebelumnya + 10 baru untuk modul 05). Tes membutuhkan `npm run build` lebih dahulu karena sebagian tes fondasi membaca `dist/`.
+- **36 kelompok tes otomatis lulus saat modul 05 selesai** (26 sebelumnya + 10 baru untuk modul 05). Tes membutuhkan `npm run build` lebih dahulu karena sebagian tes fondasi membaca `dist/`.
 - Kedua kasus M0 cocok pada 8 keluaran acuan dengan toleransi abs 1e-9 + rel 1e-6. Fixture daya, berongga dan latihan juga cocok.
 - Aturan verifikasi M0 diperiksa: L×2 → θ×2 dengan τ tetap; poros pejal d×2 → τ/8 dan θ/16; T×2 → keduanya ×2; T = 0 → τ = θ = 0; daya sama pada setengah putaran → T×2.
 - Eksklusivitas mode diperiksa: input mode yang tidak aktif boleh tidak valid tanpa memengaruhi hasil. n = 0 ditolak; P = 0 sah.
@@ -44,6 +44,52 @@ Poros bulat pejal atau cincin konsentris, seragam sepanjang L, torsi statis murn
 
 - [David Roylance, Shear and Torsion, MIT OCW 3.11](https://ocw.mit.edu/courses/3-11-mechanics-of-materials-fall-1999/0e0845a9e3abe430080eaffb0c5015ba_MIT3_11F99_torsion.pdf): torsi poros melingkar, J, τ = Tr/J dan θ = TL/(GJ). Gambar dan uraian UI dibuat sendiri.
 
+## Modul 06 — Lentur Balok
+
+### Fitur
+
+- Dua konfigurasi beban yang saling eksklusif dengan rumus, diagram dan latihan terpisah: **beban titik di tengah** (R = P/2, Mmax = PL/4, δ = PL³/(48EI)) dan **beban merata penuh** (R = wL/2, Mmax = wL²/8, δ = 5wL⁴/(384EI)).
+- Balok sendi–rol dengan kurva lendutan dari rumus aktif (perbesaran 1/100/500/1000×, dibatasi ruang gambar), reaksi, dan beban titik atau merata.
+- Penampang persegi panjang berproporsi b:h dengan distribusi σ(y): tekan di serat atas, tarik di serat bawah, nol di sumbu netral.
+- Diagram V dan M: loncatan V dan M segitiga untuk beban titik; V linier dan M parabola untuk beban merata.
+- Hasil: R, Mmax, I, Z, σ serat bawah/atas, δmax, L/δ (informasi, bukan kriteria) dan L/h.
+- Tabel "coba ubah satu parameter": h×2, b×2, L×2 (P atau w tetap), dan putar penampang b↔h dengan luas sama. Penampang yang diputar menjadi jembatan ke modul 07.
+- Prediksi (h digandakan), tujuh langkah, dua latihan (Mesin: beban titik; Kapal: beban merata), pembahasan dan refleksi.
+
+### Data acuan
+
+| Kasus | Sumber | Hasil utama |
+| --- | --- | --- |
+| 06-M | M0 | R = 4.000 N; Mmax = 3.000.000 N·mm; I = 8.640.000 mm⁴; σmax = 20,8333333 MPa; δmax = 0,325520833 mm |
+| 06-K | M0 | R = 10.000 N; Mmax = 15.000.000 N·mm; I = 66.666.666,7 mm⁴; σmax = 22,5 MPa; δmax = 0,84375 mm |
+| 10-K A/B | M0 | Dipakai ulang untuk menguji model titik pada kedua orientasi; semua 12 keluaran cocok |
+| Beban merata Mesin | Baru, latihan | w = 5 kN/m pada geometri 06-M → R = 3.750 N; Mmax = 1.406.250 N·mm; σmax = 9,765625 MPa; δmax = 0,190734863 mm |
+| Beban merata Kapal | Baru, latihan | w = 6 kN/m pada geometri 06-K → R = 9.000 N; Mmax = 6.750.000 N·mm; σmax = 10,125 MPa; δmax = 0,474609375 mm |
+| Kurva lendutan | Baru | 06-M, x = L/4: titik 0,223795573 mm; merata 5 kN/m 0,13589859 mm |
+| Putar 06-M (b = 120, h = 60) | Baru | σmax = 41,6666667 MPa; δmax = 1,30208333 mm |
+| Latihan Mesin | Baru | P = 12 kN, L = 2 m, b = 80 mm, h = 160 mm → σmax = 17,578125 MPa; δmax = 0,366210938 mm |
+| Latihan Kapal | Baru | w = 8 kN/m, L = 4 m, b = 120 mm, h = 240 mm → σmax = 13,8888889 MPa; δmax = 0,964506173 mm |
+
+Nilai baru dihitung terpisah dengan Python dalam satuan SI.
+
+### Pemeriksaan
+
+- **11 kelompok tes baru lulus; total 47.** Kedua kasus 06 cocok pada 12 keluaran M0, dan 10-K A/B pada 12 keluaran.
+- Aturan verifikasi: h×2 → σ/4 dan δ/8; b×2 → σ/2 dan δ/2; E tidak mengubah σ; beban merata dengan L×2 → σ×4 dan δ×16. Pada beban total sama, beban merata memberi M/2 dan 5/8 δ.
+- Relasi balok: lendutan nol di tumpuan dan maksimum di tengah, simetri v(x), dM/dx = V, loncatan V sebesar P di tengah, M ujung nol.
+- Domain: σ ≥ Sᵧ atau L/h < 10 menyembunyikan δ, dengan σ tetap ditampilkan dan alasan tertulis. L/h = 10 tepat masih valid. Beban nol memberi δ = 0 dan L/δ tidak terdefinisi. Geometri nol/negatif, beban negatif dan angka ekstrem membersihkan hasil.
+- Browser: kedua halaman perhitungan, ganti konfigurasi, gandakan h, putar penampang, input invalid, reset, lepas/pulihkan beban, satuan m, reload, prediksi, latihan dan pembahasan. Tidak ada error konsol; lebar 390/320 px tanpa scroll horizontal. Modul 05 diperiksa ulang tanpa regresi.
+
+### Catatan pedagogis
+
+Pada kedua kasus default, h×2 membuat L/h turun menjadi 6,25 (Mesin) dan 7,5 (Kapal), sehingga δ pada baris itu disembunyikan dengan alasan tertulis, sesuai aturan kelangsingan M0. Prediksi tetap menjelaskan hubungan δ/8 dengan catatan L/h ≥ 10.
+
+### Batas model
+
+Balok prismatik persegi panjang, sendi–rol, elastis linier, Euler–Bernoulli, beban simetris ke bawah, berat sendiri tidak dihitung. Tidak menghitung tegangan geser balok, tekuk lateral-torsional, tekuk lokal, konsentrasi tegangan di tumpuan/beban, fatigue, getaran atau sambungan. L/δ bukan kriteria aturan klasifikasi.
+
+Rujukan konsep: [MIT OCW 2.001 Mechanics & Materials I](https://ocw.mit.edu/courses/2-001-mechanics-materials-i-fall-2006/), materi lentur balok. Gambar dan uraian UI dibuat sendiri.
+
 ## Langkah berikutnya
 
-Lanjutkan M4 dengan **modul 06 Lentur Balok**: beban titik di tengah dan beban merata penuh sebagai konfigurasi terpisah, diagram V/M, tegangan lentur, lendutan dan batas kelangsingan L/h ≥ 10. Siapkan fixture baru untuk beban merata sebelum modul dinyatakan selesai.
+Selesaikan M4 dengan **modul 07 Bentuk Penampang**: rotasi persegi panjang berluas sama, pipa, serta profil I/T/L ideal dengan centroid, teorema sumbu sejajar, dan Z atas/bawah yang eksplisit. Siapkan fixture baru untuk profil tak simetris sebelum modul dinyatakan selesai.

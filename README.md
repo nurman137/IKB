@@ -2,7 +2,7 @@
 
 Ruang belajar Ilmu Kekuatan Bahan, Politeknik Negeri Batam, untuk konteks **Teknik Mesin** dan **Perkapalan**.
 
-**Status 27 November 2026: M0–M3 selesai. M4 berjalan: modul 05 selesai, 06–07 belum. M5–M8 belum dimulai.** Fondasi situs dapat dijalankan lokal; belum diterbitkan. Publikasi mengikuti tahap kesiapan rilis yang disepakati.
+**Status 27 November 2026: M0–M3 selesai. M4 berjalan: modul 05–06 selesai, 07 belum. M5–M8 belum dimulai.** Fondasi situs dapat dijalankan lokal; belum diterbitkan. Publikasi mengikuti tahap kesiapan rilis yang disepakati.
 
 ## Modul yang sudah aktif
 
@@ -12,7 +12,7 @@ Ruang belajar Ilmu Kekuatan Bahan, Politeknik Negeri Batam, untuk konteks **Tekn
 - Kerangka solusi yang dapat dibuka/tutup; konteks dan input dipisahkan dalam sesi browser.
 - Tampilan responsif, menu ponsel, navigasi keyboard dan status pengembangan yang jelas.
 
-Lima modul sudah aktif untuk Mesin dan Kapal, masing-masing dengan halaman perhitungan tersendiri, input variabel, konversi satuan, langkah beserta penjelasan, prediksi, latihan, umpan balik dan pembahasan:
+Enam modul sudah aktif untuk Mesin dan Kapal, masing-masing dengan halaman perhitungan tersendiri, input variabel, konversi satuan, langkah beserta penjelasan, prediksi, latihan, umpan balik dan pembahasan:
 
 | Modul | Fitur inti |
 | --- | --- |
@@ -21,10 +21,11 @@ Lima modul sudah aktif untuk Mesin dan Kapal, masing-masing dengan halaman perhi
 | 03 — Elastisitas/Hukum Hooke | Kekakuan, Poisson, kontraksi lateral, modulus geser, energi dan pembanding E |
 | 04 — Geser dan Sambungan | Satu/dua bidang geser pin, tumpu pelat tengah dan luar, pembagian gaya |
 | 05 — Torsi dan Poros | Torsi langsung atau daya–putaran, poros pejal/berongga, J, τ(r), sudut puntir dan perbandingan parameter |
+| 06 — Lentur Balok | Beban titik di tengah atau merata penuh, diagram V/M, σ(y) penampang, kurva lendutan, batas L/h dan putar penampang |
 
 Data contoh dipisahkan dari soal latihan. Hasil dan visual mengikuti satu model hitung per kasus.
 
-Modul 06–10 masih berupa kerangka M1. Progres belajar, penilaian kelas, LMS dan akun belum tersedia. Situs belum dipublikasikan.
+Modul 07–10 masih berupa kerangka M1. Progres belajar, penilaian kelas, LMS dan akun belum tersedia. Situs belum dipublikasikan.
 
 ## Menjalankan
 
@@ -55,10 +56,13 @@ Output `dist/` dapat disajikan pada hosting statis. Tiap rute memiliki `index.ht
 | `web/foundation-model.js`, `web/foundation-content.js` | Model dan isi pembelajaran 01/03/04 |
 | `web/foundation-view.js`, `web/foundation-visuals.js`, `web/foundation.css` | Antarmuka dan diagram M3 |
 | `web/torsion-model.js`, `web/torsion-content.js` | Model hitung dan isi modul 05 |
-| `web/torsion-view.js`, `web/torsion-visuals.js`, `web/torsion.css` | Antarmuka, diagram poros dan distribusi τ modul 05 |
+| `web/torsion-view.js`, `web/torsion-visuals.js` | Antarmuka, diagram poros dan distribusi τ modul 05 |
+| `web/bending-model.js`, `web/bending-content.js` | Model hitung dan isi modul 06 |
+| `web/bending-view.js`, `web/bending-visuals.js` | Antarmuka, balok, lendutan, σ(y) dan diagram V/M modul 06 |
+| `web/m4.css` | Gaya bersama modul M4 |
 | `scripts/build.mjs` | Build 32 halaman dan 404 |
 | `scripts/serve.mjs` | Server pengembangan |
-| `tests/foundation.test.mjs`, `tests/axial.test.mjs`, `tests/foundation-models.test.mjs`, `tests/torsion.test.mjs` | Pemeriksaan fondasi, aksial, model M3 dan torsi |
+| `tests/foundation.test.mjs`, `tests/axial.test.mjs`, `tests/foundation-models.test.mjs`, `tests/torsion.test.mjs`, `tests/bending.test.mjs` | Pemeriksaan fondasi, aksial, model M3, torsi dan lentur |
 | `docs/m0/reference_cases.json` | Data acuan, bukan fungsi hitung aplikasi |
 
 Contoh rute: `/modul/02/`, `/modul/02/perhitungan/mesin/`, dan `/modul/02/perhitungan/kapal/`. Pola tersedia untuk modul 01–10. Konteks modul dapat dipilih lewat `?kasus=mesin` atau `?kasus=kapal`.
@@ -74,10 +78,10 @@ Contoh rute: `/modul/02/`, `/modul/02/perhitungan/mesin/`, dan `/modul/02/perhit
 | [Serah terima M1](docs/m1/serah_terima.md) | Cakupan fondasi dan pemeriksaan historis |
 | [Serah terima M2](docs/m2/serah_terima.md) | Fitur modul 02 dan hasil uji historis |
 | [Serah terima M3](docs/m3/serah_terima.md) | Tiga modul baru, enam kasus dan hasil pemeriksaan |
-| [Serah terima M4 (sebagian)](docs/m4/serah_terima.md) | Modul 05, fixture daya–rpm/berongga dan hasil pemeriksaan terbaru |
+| [Serah terima M4 (sebagian)](docs/m4/serah_terima.md) | Modul 05–06, fixture daya–rpm, berongga, beban merata dan hasil pemeriksaan terbaru |
 
 Nilai default adalah asumsi latihan. Model ideal tidak menyatakan kelayakan desain industri atau kepatuhan aturan klasifikasi kapal. Identitas institusi memakai teks; tanda kubus adalah identitas laboratorium, bukan logo resmi Polibatam.
 
 ## Langkah berikutnya
 
-**Lanjutan M4 — Lentur Balok dan Bentuk Penampang:** lengkapi modul 06 (balok dengan beban titik di tengah dan beban merata penuh sebagai konfigurasi terpisah, diagram V/M, tegangan lentur, lendutan) dan modul 07 (properti serta orientasi penampang). Pertahankan pola dua konteks dan validasi terpisah untuk setiap konfigurasi.
+**Penyelesaian M4 — Bentuk Penampang:** lengkapi modul 07 dengan rotasi persegi panjang berluas sama, pipa, serta profil I/T/L ideal (centroid, teorema sumbu sejajar, Z atas/bawah dan orientasi yang eksplisit). Pertahankan pola dua konteks dan validasi terpisah untuk setiap konfigurasi.
