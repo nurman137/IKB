@@ -2,7 +2,7 @@
 
 Ruang belajar Ilmu Kekuatan Bahan, Politeknik Negeri Batam, untuk konteks **Teknik Mesin** dan **Perkapalan**.
 
-**Status 27 November 2026: M0–M8 selesai — versi `1.0.0-rc.2` siap ditinjau sebelum publikasi.** Kesepuluh modul aktif, dengan progres per perangkat, glosarium, mode presentasi dan cetak ringkasan. Situs belum dipublikasikan. Fondasi situs dapat dijalankan lokal; belum diterbitkan. Publikasi mengikuti tahap kesiapan rilis yang disepakati.
+**Status 27 November 2026: M0–M8 telah diterbitkan di [IKB Polibatam](https://ikb-polibatam.sleekdune.chatgpt.site/). Pengembangan FE F0–F4 tersedia di branch `feat/fem-f0`, belum digabung atau diterbitkan.**
 
 ## Modul yang sudah aktif
 
@@ -66,7 +66,7 @@ Server default: `http://127.0.0.1:5173/`. Host/port opsional: `npm run dev -- --
 | `web/section-*.js`, `web/thermal-*.js`, `web/combined-*.js`, `web/design-*.js` | Model, visual dan konfigurasi modul 07, 08, 09, 10 |
 | `web/m4.css` | Gaya bersama modul 05–10 |
 | `web/progress.js`, `web/glossary.js`, `web/m7.css` | Progres per perangkat, glosarium, mode presentasi dan gaya cetak |
-| `scripts/build.mjs` | Build 34 halaman dan 404 (`IKB_BASE` untuk subdirektori) |
+| `scripts/build.mjs` | Build 50 halaman dan 404 (`IKB_BASE` untuk subdirektori) |
 | `scripts/serve.mjs` | Server pengembangan |
 | `tests/foundation.test.mjs`, `tests/axial.test.mjs`, `tests/foundation-models.test.mjs`, `tests/torsion.test.mjs`, `tests/bending.test.mjs`, `tests/m5-modules.test.mjs`, `tests/design.test.mjs`, `tests/m7.test.mjs`, `tests/release.test.mjs` | Pemeriksaan semua model, fitur M7, dan gerbang rilis (20 kasus/133 keluaran M0, build statis, rujukan) |
 | `docs/m0/reference_cases.json` | Data acuan, bukan fungsi hitung aplikasi |
@@ -94,7 +94,7 @@ Nilai default adalah asumsi latihan. Model ideal tidak menyatakan kelayakan desa
 
 ## Langkah berikutnya
 
-Pengembangan M0–M8 selesai. Sebelum publikasi: tinjauan dosen atas isi dan preset latihan, uji perangkat fisik dan pembaca layar, serta keputusan domain, akses dan logo. Lihat [daftar periksa M8](docs/m8/serah_terima.md#daftar-periksa-sebelum-publikasi) dan panduan publikasinya.
+Lanjutkan F5 untuk beban gabungan (09-M/K). FE pada branch pengembangan sudah mencakup 16 dari 20 kasus; F6 dijadwalkan untuk sambungan 04-M/K, disusul penyempurnaan F7 dan validasi rilis F8.
 
 
 ## Koreksi sebelum penerbitan Sleekdune
@@ -103,4 +103,4 @@ Versi rc.2 memperkuat batas regangan/lendutan kecil modul 06/07/10, menyelaraska
 
 ## Pengembangan FE (branch pengembangan)
 
-[F0 — Spesifikasi 20 kasus](docs/fe/f0/README.md), [F1 — Fondasi solver](docs/fe/f1/README.md), [F2a — Modul 06](docs/fe/f2a/README.md), [F2b — Lima kasus balok tambahan](docs/fe/f2b/README.md), dan [F3 — Axisymmetric tarik/termal](docs/fe/f3/README.md) tersedia pada branch FE. Total **13 dari 20 kasus** memiliki halaman FE: 01/02/03/06/07/08 Mesin dan Kapal, serta 10-K. AX2 menghitung kontraksi Poisson dan tegangan keliling; termal bebas/terkekang mempunyai reaksi dan energi yang dibedakan. **140 kelompok tes lulus.** Perubahan masih dalam draft PR pengembangan; situs publik belum diperbarui. Berikutnya F4 untuk TOR2 pada 05-M/K dan 10-M.
+[F0 — Spesifikasi 20 kasus](docs/fe/f0/README.md), [F1 — Fondasi solver](docs/fe/f1/README.md), [F2a — Modul 06](docs/fe/f2a/README.md), [F2b — Lima kasus balok tambahan](docs/fe/f2b/README.md), [F3 — Axisymmetric tarik/termal](docs/fe/f3/README.md), dan [F4 — Torsi penampang](docs/fe/f4/README.md) tersedia pada branch FE. Total **16 dari 20 kasus** memiliki halaman FE: 01/02/03/05/06/07/08 Mesin dan Kapal, serta 10-M/K. AX2 menangani tarik/termal, BEAM2 menangani lentur, dan TOR2 menangani torsi penampang pejal/berongga dengan perbandingan alternatif desain poros. **156 kelompok tes lulus**, termasuk 16 tes TOR2 dan benchmark 21 perhitungan. Perubahan masih dalam draft PR pengembangan; situs publik belum diperbarui dengan FE. Berikutnya F5 untuk COMB pada 09-M/K.

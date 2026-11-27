@@ -1,9 +1,10 @@
+import {solveTorsionFE} from './torsion-solver.js';
 import {axisElement,axisStress} from './axisymmetric-element.js';
 import {FEError,fail,sparse,multiply,multiplyCompensated,dot,norm,pcg,denseCholesky,bandedCholesky,tick} from './algebra.js';
 import {beamElement,triangleElement,beamDistributed} from './elements.js';
 import {triangle6Element,stressAt} from './triangle6.js';
 export const F1_LIMITS={freeDofs:10000,beamFreeDofs:384,elements:8000,nodes:10000};
-export const MODEL_VERSION='F3-0.1';
+export const MODEL_VERSION='F4-0.1';
 const validNumber=v=>typeof v==='number'&&Number.isFinite(v);
 function rank3(rows){const a=rows.map(r=>[...r]);let rank=0;for(let col=0;col<3;col++){let p=rank;for(let j=rank;j<a.length;j++)if(Math.abs(a[j][col])>Math.abs(a[p]?.[col]||0))p=j;if(Math.abs(a[p]?.[col]||0)<1e-10)continue;[a[rank],a[p]]=[a[p],a[rank]];const v=a[rank][col];for(let k=col;k<3;k++)a[rank][k]/=v;for(let j=0;j<a.length;j++)if(j!==rank){const v=a[j][col];for(let k=col;k<3;k++)a[j][k]-=v*a[rank][k];}rank++;}return rank;}
 export function validateModel(model){
@@ -35,6 +36,7 @@ export function validateModel(model){
  return {d,L,fixed,mpcs};
 }
 export async function solveFE(model,options={}){
+ if(model?.kernel==='TOR2')return solveTorsionFE(model,options);
  const start=performance.now();try{
  if(options.method!==undefined&&!['dense','pcg'].includes(options.method))fail('invalid_input','Metode solver tidak dikenal.');
  const {d,L,fixed,mpcs}=validateModel(model),cancel=options.cancel||(()=>false),progress=options.progress||(()=>{});if(cancel())fail('cancelled','Analisis dibatalkan.');
