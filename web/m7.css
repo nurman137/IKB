@@ -1,0 +1,38 @@
+@layer components {
+ .topbar-tools{display:flex;align-items:center;gap:18px}.present-toggle{border:1px solid var(--line);border-radius:7px;padding:8px 12px;min-height:40px;font-size:.8rem;background:#fff;color:var(--green);white-space:nowrap}.present-toggle[aria-pressed=true]{background:var(--green);color:#fff;border-color:var(--green)}
+ .card-progress{display:block;font-size:.75rem;color:#5e7055;margin:10px 0 2px}
+ .print-header{display:none}
+ .progress-table th a{text-decoration:underline;text-underline-offset:3px}.progress-table small{color:var(--muted);font-weight:400}.progress-table td{text-align:center}
+ .glossary-search{max-width:460px;margin:8px 0}.glossary-list{margin:18px 0 0;display:grid;gap:12px}.glossary-item{border:1px solid var(--line);border-radius:10px;padding:16px 18px;background:#fff}.glossary-item dt{font-weight:650;color:var(--ink)}.glossary-en{font-weight:400;font-style:italic;color:var(--muted);font-size:.88rem;margin-left:6px}.glossary-item dd{margin:8px 0 0}.glossary-item dd p{font-size:.9rem;margin-top:6px}.glossary-mods{display:flex;flex-wrap:wrap;gap:8px}.glossary-mods a{font-size:.78rem;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:#f5f7f1}
+ .sidebar-bottom a+a{margin-top:10px}.sidebar-bottom a[aria-current=page]{color:var(--green);font-weight:600}
+ /* Presentation mode: more room and larger type for projection; all controls stay usable. */
+ html.presenting .sidebar,html.presenting .menu-button,html.presenting .nav-backdrop{display:none!important}
+ html.presenting .workspace{margin-left:0}
+ html.presenting{font-size:19px}
+ html.presenting main{max-width:1700px}
+ html.presenting .foundation-svg{max-height:560px}
+ html.presenting .foundation-svg text{font-size:20px}
+}
+@layer responsive {
+ @media(max-width:760px){.present-toggle{padding:6px 9px;font-size:.72rem}.topbar-tools{gap:8px}}
+ @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}.button:hover{transform:none}}
+ @media print{
+  @page{margin:14mm}
+  body{background:#fff}
+  .sidebar,.topbar,footer,.nav-backdrop,.skip,.segmented,.module-toolbar,.back-link,.experiment-buttons,.foundation-controls,.release-row,.learning-box,.context-brief,.input-bounds,.text-button,.print-button,.load-gallery-buttons{display:none!important}
+  .workspace{margin-left:0}
+  main{padding:0;max-width:none;display:block}
+  .print-header{display:flex;flex-direction:column;gap:2px;border-bottom:2px solid #405d4c;padding-bottom:8px;margin-bottom:14px;font-size:10pt;color:#263e34}
+  .calculation-layout{display:block!important}
+  html{font-size:11.5px}
+  .input-panel,.axial-lab,.graph-panel,.lesson-panel,.steps,.axial-results,.model-note{box-shadow:none!important;margin-bottom:10px;padding:10px 12px!important;background:#fff!important}
+  .input-panel form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px 14px}.input-panel .input-field{margin:0}.input-panel label{font-size:9pt}.input-panel .input-wrap input,.input-panel .input-wrap select{padding:2px 6px;font-size:10pt}.input-panel .field-note,.input-panel>p.small{display:none}
+  .axial-lab,.graph-panel,.axial-results>div,.step,.equation,table{break-inside:avoid}
+  .foundation-svg{max-height:85mm!important}
+  .axial-results{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important}.axial-results>div{padding:8px!important}
+  .input-wrap select{appearance:none;background:none}
+  details>summary::marker{content:''}
+  a{text-decoration:none;color:inherit}
+  .model-note a::after{content:' (' attr(href) ')';font-size:8pt;word-break:break-all}
+ }
+}
