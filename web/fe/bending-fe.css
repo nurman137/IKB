@@ -11,3 +11,6 @@
 #tor-element{max-width:130px;min-height:42px;padding:8px;border:1px solid #aeb8ac;border-radius:6px;margin-bottom:8px}
 
 #comb-element{max-width:8rem;margin:.5rem 0 1rem;}
+
+#plate-element{max-width:8rem;margin:.5rem 0 1rem}.fe-learning{margin-top:2rem}.fe-learning fieldset{border:1px solid #d3dccb;padding:1rem}.fe-learning fieldset label{display:block;margin:.8rem 0}.fe-learning input[type=radio],.fe-learning input[type=checkbox]{width:auto;margin-right:.5rem}.fe-learning button{margin:.5rem 0}.fe-learning legend{font-size:1rem}.fe-learning select{max-width:100%}
+@media print{.fe-grid{display:block!important}.fe-controls,.fe-output,.fe-card{break-inside:auto;box-shadow:none!important}.fe-controls input,.fe-controls select{color:#000;border:1px solid #777}.fe-actions,.fe-learning button,.fe-learning fieldset,.fe-learning select,.fe-learning>label{display:none!important}.fe-lab svg{max-height:17cm}.fe-lab .table-scroll{overflow:visible}.fe-lab table{font-size:8pt}.fe-lab details{break-inside:auto}}

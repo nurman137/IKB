@@ -1,0 +1,13 @@
+{
+  "release": "FE-1.0.0-rc.1",
+  "artifact": "IKB-FE-1.0.0-rc.1.tar.gz",
+  "sha256": "ef8b332373c6397640aa6dab0e64be4e1bbf5ce5f3bb980043d003d382d73f57",
+  "bytes": 207317,
+  "contains": [
+    "dist/",
+    "README.md",
+    "docs/fe/f8/release_manifest.json"
+  ],
+  "reproduce": "npm run build && node scripts/audit-fe-release.mjs && node scripts/package-fe-release.mjs",
+  "published": false
+}

@@ -1,3 +1,4 @@
+import {publishFE} from './learning.js';
 import {beamElement} from './elements.js';
 import {triangle6Element} from './triangle6.js';
 import {bendingFields,canonicalBending,udlPresets} from '../bending-model.js';
@@ -25,7 +26,7 @@ export function mountBendingFE({shell,context,session,dataset,url}){
   const beam=el('fe-kernel').value==='BEAM2';el('fe-display').disabled=beam;if(beam)el('fe-display').value='deform';el('fe-nu').disabled=beam;el('fe-strip').disabled=beam;
   const a=makeBendingModel(p,el('fe-kernel').value,el('fe-level').value);el('fe-mesh').innerHTML=a.status==='ready'?bendingSVG(a,null):`<p>${esc(a.message||Object.values(a.errors||{}).join(' '))}</p>`;
  }
- function show(prepared,result,summary){
+ function show(prepared,result,summary){publishFE('06',context,prepared.data,[prepared.model],[result],[summary]);
   el('fe-state').textContent=summary.status==='solved_unverified'?'Solusi numerik tersedia; periksa kesetimbangan, domain, dan konvergensi.':summary.message||'Analisis tidak menghasilkan solusi.';
   lastPlot=summary.status==='solved_unverified'?{prepared,result}:null;el('fe-mesh').innerHTML=bendingSVG(prepared,lastPlot?result:null,el('fe-display').value);
   if(summary.status!=='solved_unverified'){el('fe-comparison').textContent=`${summary.status}: ${summary.message||'Hasil tidak digunakan.'}`;el('fe-steps').textContent='Hasil di luar domain/gagal tidak digunakan sebagai solusi sah.';return;}
@@ -40,7 +41,7 @@ export function mountBendingFE({shell,context,session,dataset,url}){
   clear('Menyiapkan analisis…');const token=epoch,input=getInput(),kernel=el('fe-kernel').value,levels=study?Object.keys(LEVELS):[el('fe-level').value],summaries=[];setBusy(true);
   try{for(const level of levels){const prepared=makeBendingModel(input,kernel,level);if(prepared.status!=='ready'){el('fe-state').textContent=prepared.message||Object.values(prepared.errors||{}).join(' ');break;}el('fe-state').textContent=`Menghitung mesh ${level}…`;const result=await controller.run(prepared.model);if(token!==epoch)return;const summary=summarizeBending(prepared,result);summaries.push(summary);show(prepared,result,summary);if(summary.status!=='solved_unverified')break;}
    if(study&&token===epoch){const c=meshConvergence(summaries);el('fe-study-output').innerHTML=`<div class="table-scroll"><table><thead><tr><th>Mesh</th><th>δ mm</th><th>σ atas MPa</th><th>Energi N·mm</th></tr></thead><tbody>${summaries.map((s,i)=>`<tr><th>${['Kasar','Sedang','Halus'][i]}</th><td>${fmt(s.delta_mm)}</td><td>${fmt(s.sigmaTop_MPa)}</td><td>${fmt(s.energy_Nmm)}</td></tr>`).join('')}</tbody></table></div><p>${esc(c.message)}</p><p>Perubahan sedang–halus: δ ${pct(c.delta)}, σ ROI ${pct(c.stress)}, energi ${pct(c.energy)}.</p>`;}
-  }catch{if(token===epoch){el('fe-state').textContent='Analisis gagal; hasil tidak digunakan.';el('fe-comparison').textContent='Hasil tidak tersedia.';}}finally{if(token===epoch)setBusy(false);}
+  }catch{publishFE('06',context,null,[],[],[]);if(token===epoch){el('fe-state').textContent='Analisis gagal; hasil tidak digunakan.';el('fe-comparison').textContent='Hasil tidak tersedia.';}}finally{if(token===epoch)setBusy(false);}
  }
  el('fe-form').addEventListener('submit',e=>{e.preventDefault();run(false);});el('fe-study').addEventListener('click',()=>run(true));
  el('fe-cancel').addEventListener('click',()=>clear('Analisis dibatalkan; hasil lama tidak digunakan.'));

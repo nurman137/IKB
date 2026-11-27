@@ -1,5 +1,13 @@
 // Glossary (M7). Definitions are written for this site's ideal models; [term, English, symbol, unit, definition, module ids].
 export const glossary=[
+ ['Mesh','mesh','—','—','Pembagian model menjadi elemen dan node. Lebih halus tidak otomatis membuat asumsi model benar.',['01','02','03','04','05','06','07','08','09','10']],
+ ['Derajat kebebasan FE','degree of freedom','DOF','bergantung kernel','Komponen tak diketahui: translasi/rotasi BEAM2, perpindahan PS2/AX2, atau fungsi warping TOR2.',['01','02','03','04','05','06','07','08','09','10']],
+ ['Konvergensi mesh','mesh convergence','—','%','Perubahan besaran pada lokasi tetap saat mesh diperhalus; harus dibedakan dari validasi asumsi fisik.',['04','05','06','09']],
+ ['Residual FE','residual','K u − f','N tereskala','Ukuran ketidakseimbangan aljabar pada DOF bebas; residual kecil saja tidak membuktikan model fisik tepat.',['01','02','03','04','05','06','07','08','09','10']],
+ ['Gauge warping','warping gauge','ψ','mm²','Pemilihan konstanta fungsi warping; rata-rata nol tidak sama dengan menjepit seluruh tepi.',['05','10']],
+ ['Plane stress','plane stress','PS2','MPa','Ideal pelat dengan tegangan arah tebal nol; bukan simulasi kontak pin atau solid 3D.',['04','06']],
+ ['Axisymmetric','axisymmetric','AX2','—','Mesh meridian untuk benda putar dengan bobot volume 2πr; bukan pelat datar pengganti batang bulat.',['02','03','08']],
+ ['Path tegangan tetap','fixed stress path','—','mm','Titik evaluasi ditentukan sebelum solve agar perbandingan mesh memakai lokasi fisik sama.',['04']],
   ['Beban luar','external load','F, P, w','N, N/mm','Gaya atau momen yang bekerja pada komponen dari luar, misalnya berat peralatan atau torsi motor.',['01']],
   ['Reaksi tumpuan','support reaction','R','N','Gaya dari tumpuan yang menyeimbangkan beban luar sehingga komponen tetap diam.',['01','06']],
   ['Diagram benda bebas','free-body diagram','—','—','Gambar komponen yang dipisahkan dari sekitarnya dengan semua gaya luar dan reaksi yang bekerja padanya.',['01']],
