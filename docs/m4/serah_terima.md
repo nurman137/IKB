@@ -1,6 +1,6 @@
-# M4 — Torsi, Lentur dan Penampang (sebagian: modul 05 dan 06)
+# M4 — Torsi, Lentur dan Penampang
 
-Tanggal: 27 November 2026 (WIB). Status: **modul 05 Torsi & Poros dan modul 06 Lentur Balok selesai**, masing-masing dengan satu kasus Mesin dan satu Kapal. Modul 07 Bentuk Penampang belum dimulai, sehingga M4 secara keseluruhan **belum selesai**. Modul 01–06 aktif; 07–10 masih kerangka. Situs belum dipublikasikan.
+Tanggal: 27 November 2026 (WIB). Status: **M4 selesai** — modul 05 Torsi & Poros, 06 Lentur Balok dan 07 Bentuk Penampang, masing-masing dengan satu kasus Mesin dan satu Kapal. Modul 07 dibangun di atas kerangka laboratorium bersama yang juga dipakai M5; rinciannya ada di [serah terima M5](../m5/serah_terima.md). Situs belum dipublikasikan. Situs belum dipublikasikan.
 
 ## Fitur modul 05
 
@@ -90,6 +90,15 @@ Balok prismatik persegi panjang, sendi–rol, elastis linier, Euler–Bernoulli,
 
 Rujukan konsep: [MIT OCW 2.001 Mechanics & Materials I](https://ocw.mit.edu/courses/2-001-mechanics-materials-i-fall-2006/), materi lentur balok. Gambar dan uraian UI dibuat sendiri.
 
+## Modul 07 — Bentuk Penampang
+
+Ringkasan; data dan pemeriksaan lengkap ada di [serah terima M5](../m5/serah_terima.md).
+
+- Empat bentuk: persegi panjang, profil I simetris, profil T (flens di atas) dan pipa. Kolom ukuran yang tidak dipakai disembunyikan.
+- Setiap bentuk dibandingkan pada luas yang sama: A (seperti digambar), B (diputar 90°) dan bujur sangkar berluas sama sebagai acuan netral.
+- Profil T memakai centroid dan teorema sumbu sejajar secara eksplisit, dengan Z atas dan bawah yang berbeda. Profil L tidak disediakan karena lentur tak simetris tidak dapat dimodelkan dengan satu I horizontal.
+- Kedua kasus M0 cocok pada 24 keluaran (orientasi A dan B).
+
 ## Langkah berikutnya
 
-Selesaikan M4 dengan **modul 07 Bentuk Penampang**: rotasi persegi panjang berluas sama, pipa, serta profil I/T/L ideal dengan centroid, teorema sumbu sejajar, dan Z atas/bawah yang eksplisit. Siapkan fixture baru untuk profil tak simetris sebelum modul dinyatakan selesai.
+M4 selesai. Lanjutan berada di M5 (modul 08–09, sudah selesai) dan M6 (modul 10 Studio Desain).
