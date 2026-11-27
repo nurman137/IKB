@@ -103,4 +103,4 @@ Versi rc.2 memperkuat batas regangan/lendutan kecil modul 06/07/10, menyelaraska
 
 ## Pengembangan FE (branch pengembangan)
 
-[F0 — Spesifikasi 20 kasus](docs/fe/f0/README.md) dan [F1 — Fondasi solver](docs/fe/f1/README.md) tersedia pada branch FE. F1 mencakup BEAM2, patch PS2 T3, Worker dan harness pengembang lokal `/assets/fe/dev.html`. FE belum terhubung ke kasus mahasiswa dan belum diterbitkan ke situs publik. Lanjutkan F2a untuk percontohan modul 06.
+[F0 — Spesifikasi 20 kasus](docs/fe/f0/README.md), [F1 — Fondasi solver](docs/fe/f1/README.md), dan [F2a — Percontohan modul 06](docs/fe/f2a/README.md) tersedia pada branch FE. Modul 06 kini memiliki halaman FE Mesin/Kapal, BEAM2 dan solid T6, transfer input, deformasi/kontur, perbandingan analitis serta studi tiga mesh. **107 kelompok tes lulus.** Perubahan masih dalam draft PR pengembangan; situs publik belum diperbarui. Berikutnya F2b untuk perluasan kasus 01, 07, dan 10-K.

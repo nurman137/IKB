@@ -1,0 +1,262 @@
+[
+  {
+    "context": "mesin",
+    "load": "point",
+    "level": "coarse",
+    "nodes": 1017,
+    "elements": 448,
+    "freeDofs": 2031,
+    "status": "solved_unverified",
+    "delta_mm": 0.3222519317387698,
+    "relative": [
+      0.010042065698499074,
+      0.021480943513942464,
+      0.018519081365903505
+    ],
+    "energy_Nmm": 1288.8040125488212,
+    "residual": 7.861526682972907e-10,
+    "iterations": 811
+  },
+  {
+    "context": "mesin",
+    "load": "point",
+    "level": "medium",
+    "nodes": 2093,
+    "elements": 960,
+    "freeDofs": 4183,
+    "status": "solved_unverified",
+    "delta_mm": 0.32227030123017114,
+    "relative": [
+      0.009985634620914199,
+      0.021514271954269762,
+      0.018485752154295484
+    ],
+    "energy_Nmm": 1289.0517128009988,
+    "residual": 8.884817361188313e-10,
+    "iterations": 1182
+  },
+  {
+    "context": "mesin",
+    "load": "point",
+    "level": "fine",
+    "nodes": 3485,
+    "elements": 1632,
+    "freeDofs": 6967,
+    "status": "solved_unverified",
+    "delta_mm": 0.3222726484241213,
+    "relative": [
+      0.009978424041099346,
+      0.020864066736424436,
+      0.01913594843127919
+    ],
+    "energy_Nmm": 1289.137725192562,
+    "residual": 8.803617674776413e-10,
+    "iterations": 1479
+  },
+  {
+    "context": "mesin",
+    "load": "point",
+    "convergence": {
+      "converged": true,
+      "delta": 0.0000072832552238761235,
+      "stress": 0.0006640602144771817,
+      "energy": 0.0000667208707667731,
+      "message": "Perubahan sedang–halus memenuhi ambang latihan. Ini bukan verifikasi kelayakan komponen."
+    }
+  },
+  {
+    "context": "mesin",
+    "load": "udl",
+    "level": "coarse",
+    "nodes": 1017,
+    "elements": 448,
+    "freeDofs": 2031,
+    "status": "solved_unverified",
+    "delta_mm": 0.18657220390835047,
+    "relative": [
+      0.021824323572987487,
+      0.02584353954990353,
+      0.02386863569577096
+    ],
+    "energy_Nmm": 443.4371987608096,
+    "residual": 8.099596012639054e-10,
+    "iterations": 819
+  },
+  {
+    "context": "mesin",
+    "load": "udl",
+    "level": "medium",
+    "nodes": 2093,
+    "elements": 960,
+    "freeDofs": 4183,
+    "status": "solved_unverified",
+    "delta_mm": 0.18658458305491965,
+    "relative": [
+      0.021759421193022863,
+      0.025552374123389867,
+      0.023533026566945166
+    ],
+    "energy_Nmm": 443.4794093610031,
+    "residual": 9.272247549483152e-10,
+    "iterations": 1191
+  },
+  {
+    "context": "mesin",
+    "load": "udl",
+    "level": "fine",
+    "nodes": 3485,
+    "elements": 1632,
+    "freeDofs": 6967,
+    "status": "solved_unverified",
+    "delta_mm": 0.1865857797615075,
+    "relative": [
+      0.021753147003987543,
+      0.02505169141222177,
+      0.023899278242070797
+    ],
+    "energy_Nmm": 443.4831614054447,
+    "residual": 7.543712851715637e-10,
+    "iterations": 1493
+  },
+  {
+    "context": "mesin",
+    "load": "udl",
+    "convergence": {
+      "converged": true,
+      "delta": 0.000006413707354238187,
+      "stress": 0.0005135479560894248,
+      "energy": 0.000008460398879035879,
+      "message": "Perubahan sedang–halus memenuhi ambang latihan. Ini bukan verifikasi kelayakan komponen."
+    }
+  },
+  {
+    "context": "kapal",
+    "load": "point",
+    "level": "coarse",
+    "nodes": 1161,
+    "elements": 512,
+    "freeDofs": 2319,
+    "status": "solved_unverified",
+    "delta_mm": 0.8342037930410827,
+    "relative": [
+      0.01131402306242048,
+      0.01954446644172773,
+      0.01378886949430122
+    ],
+    "energy_Nmm": 8338.41267333767,
+    "residual": 9.634997695203465e-10,
+    "iterations": 920
+  },
+  {
+    "context": "kapal",
+    "load": "point",
+    "level": "medium",
+    "nodes": 2509,
+    "elements": 1152,
+    "freeDofs": 5015,
+    "status": "solved_unverified",
+    "delta_mm": 0.8342339149062706,
+    "relative": [
+      0.011278323074049619,
+      0.017211206114169878,
+      0.016122127756868092
+    ],
+    "energy_Nmm": 8339.36257967764,
+    "residual": 9.619849151220345e-10,
+    "iterations": 1386
+  },
+  {
+    "context": "kapal",
+    "load": "point",
+    "level": "fine",
+    "nodes": 4165,
+    "elements": 1952,
+    "freeDofs": 8327,
+    "status": "solved_unverified",
+    "delta_mm": 0.8342378830779711,
+    "relative": [
+      0.01127362005573797,
+      0.017386172070264966,
+      0.015947162329168582
+    ],
+    "energy_Nmm": 8339.694245906343,
+    "residual": 9.807525200448932e-10,
+    "iterations": 1730
+  },
+  {
+    "context": "kapal",
+    "load": "point",
+    "convergence": {
+      "converged": true,
+      "delta": 0.0000047566428964022645,
+      "stress": 0.00017806176864386476,
+      "energy": 0.00003976959093748561,
+      "message": "Perubahan sedang–halus memenuhi ambang latihan. Ini bukan verifikasi kelayakan komponen."
+    }
+  },
+  {
+    "context": "kapal",
+    "load": "udl",
+    "level": "coarse",
+    "nodes": 1161,
+    "elements": 512,
+    "freeDofs": 2319,
+    "status": "solved_unverified",
+    "delta_mm": 0.46460667667248473,
+    "relative": [
+      0.021075644212707068,
+      0.02279086780409987,
+      0.01895379992128498
+    ],
+    "energy_Nmm": 2653.6451336469668,
+    "residual": 9.211423867197472e-10,
+    "iterations": 928
+  },
+  {
+    "context": "kapal",
+    "load": "udl",
+    "level": "medium",
+    "nodes": 2509,
+    "elements": 1152,
+    "freeDofs": 5015,
+    "status": "solved_unverified",
+    "delta_mm": 0.4646256241393783,
+    "relative": [
+      0.02103572197793543,
+      0.021161386161826515,
+      0.0204353287119964
+    ],
+    "energy_Nmm": 2653.7972975545645,
+    "residual": 8.815186444528933e-10,
+    "iterations": 1433
+  },
+  {
+    "context": "kapal",
+    "load": "udl",
+    "level": "fine",
+    "nodes": 4165,
+    "elements": 1952,
+    "freeDofs": 8327,
+    "status": "solved_unverified",
+    "delta_mm": 0.4646275572075899,
+    "relative": [
+      0.021031649011168576,
+      0.02118023119329234,
+      0.02022088621498585
+    ],
+    "energy_Nmm": 2653.8115993023816,
+    "residual": 9.220093485258484e-10,
+    "iterations": 1793
+  },
+  {
+    "context": "kapal",
+    "load": "udl",
+    "convergence": {
+      "converged": true,
+      "delta": 0.000004160468275343539,
+      "stress": 0.00021886820610221908,
+      "energy": 0.000005389134564386928,
+      "message": "Perubahan sedang–halus memenuhi ambang latihan. Ini bukan verifikasi kelayakan komponen."
+    }
+  }
+]

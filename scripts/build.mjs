@@ -10,7 +10,7 @@ await cp(path.join(root, 'web'), path.join(dist, 'assets'), { recursive: true, f
 const data = JSON.parse(await readFile(path.join(root, 'docs/m0/reference_cases.json'), 'utf8'));
 await writeFile(path.join(dist, 'assets/cases.json'), JSON.stringify(data));
 const template = await readFile(path.join(root, 'web/index.html'), 'utf8');
-const routes = ['', 'tentang', 'progres', 'glosarium', ...Array.from({ length: 10 }, (_, i) => {
+const routes = ['', 'tentang', 'progres', 'glosarium', 'modul/06/fe/mesin', 'modul/06/fe/kapal', ...Array.from({ length: 10 }, (_, i) => {
   const id = String(i + 1).padStart(2, '0');
   return [`modul/${id}`, `modul/${id}/perhitungan/mesin`, `modul/${id}/perhitungan/kapal`];
 }).flat()];

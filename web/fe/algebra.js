@@ -22,7 +22,7 @@ export async function pcg(A,b,{cancel=()=>false,progress=()=>{},maxIterations=Ma
  for(let it=1;it<=maxIterations;it++){
   const Ap=multiply(A,p),den=dot(p,Ap);if(!Number.isFinite(den)||den<=0)fail('solver_failed','Kelengkungan matriks tidak positif; periksa model dan tumpuan.');
   const alpha=rz/den;for(let i=0;i<n;i++){x[i]+=alpha*p[i];r[i]-=alpha*Ap[i];}
-  if(norm(r)<=target){const exact=multiply(A,x);for(let i=0;i<n;i++)r[i]=b[i]-exact[i];if(norm(r)<=target)return {x,iterations:it};}
+  if(norm(r)<=target){const exact=multiply(A,x);for(let i=0;i<n;i++)r[i]=b[i]-exact[i];if(norm(r)<=target)return {x,iterations:it};for(let i=0;i<n;i++){z[i]=r[i]/D[i];p[i]=z[i];}rz=dot(r,z);if(it%32===0){await tick();if(cancel())fail('cancelled','Analisis dibatalkan.');}continue;}
   for(let i=0;i<n;i++)z[i]=r[i]/D[i];const next=dot(r,z),beta=next/rz;for(let i=0;i<n;i++)p[i]=z[i]+beta*p[i];rz=next;
   if(it%32===0){progress({phase:'solve',iterations:it,residual:norm(r)/scale});await tick();if(cancel())fail('cancelled','Analisis dibatalkan.');}
  }
