@@ -26,7 +26,7 @@ export function createProgressStore(storage){
       const best=Math.max(0,...ctx.map(x=>x.exerciseBest||0));
       return {contexts:ctx,visited:any('visited'),calculation:any('calculation'),predictionAnswered:any('predictionAnswered'),predictionCorrect:any('predictionCorrect'),exerciseBest:best,exerciseAttempted:any('exerciseAttempted'),reflection:any('reflection'),
         // "Tuntas" = prediction answered and both exercise answers correct in at least one context. A study marker, not a grade.
-        complete:any('predictionAnswered')&&best===2};
+        complete:ctx.some(c=>c.predictionAnswered&&c.exerciseBest===2)};
     },
     clear(){try{storage.removeItem(PROGRESS_KEY);return true;}catch{return false;}},
   };

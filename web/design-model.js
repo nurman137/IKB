@@ -73,13 +73,13 @@ export function evaluateBeamDesign(input){
     const r=e.result,mass=d.rho_kg_m3*r.A_mm2*d.L_mm*1e-9,n=r.sigmaMax_MPa===0?null:d.Sy_MPa/r.sigmaMax_MPa;
     const strength=n===null?true:ok(n,d.n_required,'min'),stiffness=r.deltaMax_mm===null?null:ok(r.deltaMax_mm,d.deflection_limit_mm,'max');
     return {key,b_mm:d[`b_${key}_mm`],h_mm:d[`h_${key}_mm`],A_mm2:r.A_mm2,I_mm4:r.I_mm4,R_N:r.R_N,Mmax_Nmm:r.Mmax_Nmm,sigmaMax_MPa:r.sigmaMax_MPa,deltaMax_mm:r.deltaMax_mm,
-      mass_kg:mass,n_yield:n,slenderness:r.slenderness,elastic:e.checks.elastic,slender:e.checks.slender,strength,stiffness,allMet:e.status==='valid'&&strength&&stiffness===true};
+      mass_kg:mass,n_yield:n,slenderness:r.slenderness,elastic:e.checks.elastic,slender:e.checks.slender,smallStrain:e.checks.smallStrain,smallDeflection:e.checks.smallDeflection,inDomain:e.status==='valid',strength,stiffness,allMet:e.status==='valid'&&strength&&stiffness===true};
   });
   if(alts.includes(null)||!alts.every(a=>allFinite([a.I_mm4,a.sigmaMax_MPa,a.mass_kg,a.n_yield,a.deltaMax_mm])))return {status:'invalid',data:d,errors:{numeric:'Kombinasi angka terlalu ekstrem.'},result:null};
-  const [A,B]=alts,inDomain=alts.every(a=>a.elastic&&a.slender);
+  const [A,B]=alts,inDomain=alts.every(a=>a.inDomain);
   // Minimum depth for B at its width so that δ meets the limit (I = PL³/(48Eδ) → h = ∛(12I/b)).
   const hMinB=Math.cbrt(12*d.P_N*d.L_mm**3/(48*d.E_MPa*d.deflection_limit_mm)/d.b_B_mm);
-  return {status:inDomain?'valid':'outside',data:d,errors:{},reason:inDomain?'':'Salah satu alternatif di luar domain model (σ ≥ Sᵧ atau L/h < 10); lendutannya tidak diklaim.',
+  return {status:inDomain?'valid':'outside',data:d,errors:{},reason:inDomain?'':'Salah satu alternatif di luar domain model (luluh, L/h < 10, |σ|/E > 1%, atau |δ|/L > 2%); lendutannya tidak diklaim.',
     result:{kind:'beam',alternative_A:A,alternative_B:B,massSaving:A.mass_kg>0?1-B.mass_kg/A.mass_kg:null,stiffnessRatio:B.I_mm4/A.I_mm4,hMinB_mm:hMinB,decision:decide(alts)}};
 }
 

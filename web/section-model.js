@@ -1,4 +1,5 @@
 import {field,validateFields,allFinite,gradeAgainst} from './lab-core.js';
+import {beamDomain} from './beam-domain.js';
 
 // Canonical units: N, mm, MPa. Ideal sharp-cornered profiles (no fillets); teaching assumptions only.
 const len=(label,opts={})=>field(label,{mm:1,m:1000},{positive:true,max:1e5,...opts});
@@ -52,9 +53,10 @@ function beamCheck(props,d){
   const {A,I,yc,depth}=props,ctop=depth-yc,cbot=yc;
   const M=d.P_N*d.L_mm/4,sigmaTop=M===0?0:-M*ctop/I,sigmaBottom=M*cbot/I;
   const sigmaMax=Math.max(Math.abs(sigmaTop),Math.abs(sigmaBottom)),delta=d.P_N*d.L_mm**3/(48*d.E_MPa*I);
-  const elastic=sigmaMax<d.Sy_MPa*(1-1e-12),slender=d.L_mm/depth>=slendernessLimit;
+  const elastic=sigmaMax<d.Sy_MPa*(1-1e-12),slender=d.L_mm/depth>=slendernessLimit,domain=beamDomain(sigmaMax,d.E_MPa,delta,d.L_mm);
+  const inDomain=elastic&&slender&&domain.smallStrain&&domain.smallDeflection;
   return {A_mm2:A,I_mm4:I,yc_mm:yc,ctop_mm:ctop,cbot_mm:cbot,Ztop_mm3:I/ctop,Zbot_mm3:I/cbot,depth_mm:depth,R_N:d.P_N/2,Mmax_Nmm:M,
-    sigmaTop_MPa:sigmaTop,sigmaBottom_MPa:sigmaBottom,sigmaMax_MPa:sigmaMax,deltaMax_mm:elastic&&slender?delta:null,elastic,slender,slenderness:d.L_mm/depth,parts:props.parts};
+    sigmaTop_MPa:sigmaTop,sigmaBottom_MPa:sigmaBottom,sigmaMax_MPa:sigmaMax,deltaMax_mm:inDomain?delta:null,elastic,slender,...domain,inDomain,slenderness:d.L_mm/depth,parts:props.parts};
 }
 
 export function evaluateSection(input){
@@ -71,6 +73,8 @@ export function evaluateSection(input){
   if(![A,B,square].every(o=>o.I_mm4>0&&allFinite(Object.values(o).filter(v=>typeof v==='number'))))return {status:'invalid',data:d,errors:{numeric:'Kombinasi angka terlalu ekstrem.'},result:null};
   const reasons=[];
   if(!A.elastic)reasons.push('Orientasi A: tegangan lentur mencapai atau melampaui Sᵧ latihan.');
+  if(!A.smallStrain)reasons.push('Orientasi A: regangan nominal |σ|/E > 1%.');
+  if(!A.smallDeflection)reasons.push('Orientasi A: lendutan nominal |δ|/L > 2%.');
   if(!A.slender)reasons.push(`Orientasi A: L/tinggi < ${slendernessLimit}; lendutan tidak diklaim.`);
   return {status:reasons.length?'outside':'valid',data:d,errors:{},reason:reasons.join(' '),
     result:{shape:d.shape,orientation_A:A,orientation_B:B,square,ratio_I:A.I_mm4/B.I_mm4,ratio_delta:A.deltaMax_mm&&B.deltaMax_mm?B.deltaMax_mm/A.deltaMax_mm:null}};

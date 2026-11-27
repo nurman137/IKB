@@ -1,3 +1,4 @@
+import {beamDomainNote} from './beam-domain.js';
 import {bendingFields,inactiveBendingFields,slendernessLimit} from './bending-model.js';
 import {readNumber} from './model.js';
 const f=n=>new Intl.NumberFormat('id-ID',{maximumSignificantDigits:7}).format(n);
@@ -14,7 +15,7 @@ export const bendingContent={
   answerLabels:['Tegangan lentur maksimum σmax (MPa)','Lendutan maksimum δmax (mm)'],
   reflection:'Mengapa memperbesar tinggi balok lebih efektif daripada memperbesar lebarnya dengan faktor yang sama?',
   sources:[['https://ocw.mit.edu/courses/2-001-mechanics-materials-i-fall-2006/cdc72a2007bf26b85b8c6ac32c9df1ac_lec18.pdf','MIT OCW 2.001, Lecture 20: Beam Bending'],['https://ocw.mit.edu/courses/2-001-mechanics-materials-i-fall-2006/3734eab076925fc3721f7a79068abf79_lec19.pdf','MIT OCW 2.001, Lecture 21: Moment–curvature dan sumbu netral'],['https://ocw.mit.edu/courses/2-001-mechanics-materials-i-fall-2006/1340543ced026dab5c8444a53fe92153_lec20.pdf','MIT OCW 2.001, Lecture 22: Letak sumbu netral dan momen–kelengkungan']],
-  limitation:`Rumus σ = Mc/I dan lendutan Euler–Bernoulli dipakai untuk L/h ≥ ${slendernessLimit} sebagai batas pedagogis; di bawahnya lendutan disembunyikan karena deformasi geser tidak lagi kecil. Ambang ini bukan ketentuan universal. Lendutan dan bentuk terdeformasi juga disembunyikan bila σmax ≥ Sᵧ latihan. Tegangan dekat tumpuan dan titik beban dapat lebih tinggi secara lokal. Tidak menghitung tegangan geser balok, tekuk lateral-torsional, tekuk lokal pelat, fatigue, beban dinamis/getaran atau sambungan. Rasio L/δ ditampilkan sebagai informasi, bukan kriteria lulus aturan klasifikasi.`,
+  limitation:`Rumus σ = Mc/I dan lendutan Euler–Bernoulli dipakai untuk L/h ≥ ${slendernessLimit} sebagai batas pedagogis; di bawahnya lendutan disembunyikan karena deformasi geser tidak lagi kecil. Ambang ini bukan ketentuan universal. Lendutan dan bentuk terdeformasi juga disembunyikan bila σmax ≥ Sᵧ latihan. Tegangan dekat tumpuan dan titik beban dapat lebih tinggi secara lokal. Tidak menghitung tegangan geser balok, tekuk lateral-torsional, tekuk lokal pelat, fatigue, beban dinamis/getaran atau sambungan. Rasio L/δ ditampilkan sebagai informasi, bukan kriteria lulus aturan klasifikasi.` + ' ' + beamDomainNote,
 };
 
 export function bendingSteps(e,raw,units){

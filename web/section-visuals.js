@@ -46,7 +46,7 @@ export function stiffnessBars(e){
   const {orientation_A:A,orientation_B:B,square:S}=e.result,rows=[['A · seperti digambar',A],['B · diputar 90°',B],['Bujur sangkar luas sama',S]];
   const maxI=Math.max(...rows.map(([,r])=>r.I_mm4)),W=200,bar=(y,w,c)=>`<rect x="240" y="${y}" width="${Math.max(2,w)}" height="22" rx="3" fill="${c}"/>`;
   return svg(`${text(20,30,'Momen inersia I (panjang batang relatif)')}${rows.map(([label,r],i)=>`${text(20,72+i*44,label,'class="diagram-small"')}${bar(56+i*44,r.I_mm4/maxI*W,i===0?'#405d4c':i===1?'#c85d35':'#a6b59a')}${text(248+Math.max(2,r.I_mm4/maxI*W),73+i*44,`${f(r.I_mm4,4)} mm⁴`,'class="diagram-small"')}`).join('')}
-    ${text(20,220,'Lendutan tengah δ (mm)')}${rows.map(([label,r],i)=>text(20,252+i*24,`${label}: ${r.deltaMax_mm===null?(r.slender?'tidak dihitung (σ ≥ Sᵧ)':`tidak dihitung (L/tinggi = ${f(r.slenderness,3)} < 10)`):`${f(r.deltaMax_mm,4)} mm`}`,'class="diagram-small"')).join('')}`,
+    ${text(20,220,'Lendutan tengah δ (mm)')}${rows.map(([label,r],i)=>text(20,252+i*24,`${label}: ${r.deltaMax_mm===null?(r.slender?'tidak dihitung (di luar domain model)':`tidak dihitung (L/tinggi = ${f(r.slenderness,3)} < 10)`):`${f(r.deltaMax_mm,4)} mm`}`,'class="diagram-small"')).join('')}`,
     `Perbandingan momen inersia dan lendutan untuk orientasi A, B dan bujur sangkar berluas sama.`,330)+
     `<p class="figure-caption">Ketiga penampang mempunyai luas (dan massa per panjang) yang sama. δ ∝ 1/I pada beban, bentang dan E yang sama: batang terpanjang adalah yang paling kaku.</p>`;
 }

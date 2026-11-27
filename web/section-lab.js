@@ -1,3 +1,4 @@
+import {beamDomainNote} from './beam-domain.js';
 import {sectionFields,shapes,inactiveSectionFields,profilePresets,evaluateSection,sectionExercises,gradeSection,slendernessLimit} from './section-model.js';
 import {fmt as f} from './lab-core.js';
 import {readNumber} from './model.js';
@@ -25,7 +26,7 @@ export const sectionConfig={
     explanation:'I = bh³/12. Tinggi turun dari 100 menjadi 40 mm, sedangkan lebar naik dari 40 menjadi 100 mm, sehingga I turun dengan faktor (100/40)² = 6,25. δ = PL³/(48EI) naik dengan faktor yang sama. Luas menentukan massa; sebaran material terhadap sumbu netral menentukan kekakuan lentur.',
     reflection:'Mengapa luas yang sama tidak berarti kekakuan lentur yang sama?',
     sources:[['https://ocw.mit.edu/courses/2-001-mechanics-materials-i-fall-2006/3734eab076925fc3721f7a79068abf79_lec19.pdf','MIT OCW 2.001, Lecture 21: Moment–curvature dan momen inersia'],['https://ocw.mit.edu/courses/2-001-mechanics-materials-i-fall-2006/1340543ced026dab5c8444a53fe92153_lec20.pdf','MIT OCW 2.001, Lecture 22: Letak sumbu netral dan teorema sumbu sejajar']],
-    limitation:`Profil L dan penampang lain yang tak simetris terhadap dua sumbu tidak disediakan: lenturnya tidak dapat dimodelkan dengan satu I horizontal karena sumbu utamanya miring. Profil T dibebani searah sumbu simetrinya. Lendutan tidak diklaim bila L/tinggi < ${slendernessLimit} atau σ ≥ Sᵧ latihan. Tidak menghitung tekuk lokal flens/badan, tekuk lateral-torsional (penting untuk profil I/T pada sumbu kuat), tegangan geser, puntir, atau lebar efektif pelat geladak. Bukan pemilihan profil standar atau aturan klasifikasi.`,
+    limitation:`Profil L dan penampang lain yang tak simetris terhadap dua sumbu tidak disediakan: lenturnya tidak dapat dimodelkan dengan satu I horizontal karena sumbu utamanya miring. Profil T dibebani searah sumbu simetrinya. Lendutan tidak diklaim bila L/tinggi < ${slendernessLimit} atau σ ≥ Sᵧ latihan. Tidak menghitung tekuk lokal flens/badan, tekuk lateral-torsional (penting untuk profil I/T pada sumbu kuat), tegangan geser, puntir, atau lebar efektif pelat geladak. Bukan pemilihan profil standar atau aturan klasifikasi.` + ' ' + beamDomainNote,
     dataNote:'Data persegi panjang P, L, b, h dan E berasal dari register M0 dan merupakan asumsi latihan. Ukuran profil I, T dan pipa adalah preset latihan baru.',
   },
   preset(context,dataset){return {shape:'rect',...profilePresets[context],Sy_MPa:250,...dataset.cases.find(x=>x.id===`07-${context==='mesin'?'M':'K'}`).input};},
@@ -40,7 +41,7 @@ export const sectionConfig={
   variantTitle:'Bandingkan dengan dasar yang adil',
   variants(e){if(e.status==='invalid')return null;const r=e.result,wrap=o=>({status:'valid',result:o});return [['A · seperti digambar',wrap(r.orientation_A)],['B · diputar 90°',wrap(r.orientation_B)],['Bujur sangkar luas sama',wrap(r.square)]];},
   variantIntro:e=>`Ketiga baris memakai luas ${f(e.result.orientation_A.A_mm2)} mm², beban, bentang dan E yang sama. Rasio terhadap orientasi A ditampilkan dalam kurung.`,
-  variantColumns:[{title:'I',value:x=>x.result.I_mm4,unit:'mm⁴'},{title:'σmax',value:x=>x.result.sigmaMax_MPa,unit:'MPa'},{title:'δmax',value:x=>x.result.deltaMax_mm,unit:'mm',missing:x=>x.result.slender?'Tidak dihitung (σ ≥ Sᵧ)':`Tidak dihitung (L/tinggi = ${f(x.result.slenderness,3)} &lt; 10)`}],
+  variantColumns:[{title:'I',value:x=>x.result.I_mm4,unit:'mm⁴'},{title:'σmax',value:x=>x.result.sigmaMax_MPa,unit:'MPa'},{title:'δmax',value:x=>x.result.deltaMax_mm,unit:'mm',missing:x=>x.result.slender?'Tidak dihitung (di luar domain model)':`Tidak dihitung (L/tinggi = ${f(x.result.slenderness,3)} &lt; 10)`}],
   variantNote:'Perbandingan hanya adil bila luas, beban, bentang dan material sama. Bujur sangkar menjadi acuan netral; profil yang lebih kaku daripadanya memanfaatkan material lebih efisien terhadap arah beban ini.',
   steps(e,raw,units){
     const d=e.data,{orientation_A:A,orientation_B:B}=e.result,skip=new Set(inactiveSectionFields(d.shape));
@@ -52,7 +53,7 @@ export const sectionConfig={
       ['Hitung luas, titik berat dan momen inersia',propertySteps(d,A,B)],
       ['Hitung jarak serat terjauh dan modulus penampang',eq(`A: c atas = ${f(A.ctop_mm)} mm · c bawah = ${f(A.cbot_mm)} mm<br>Z atas = I/c atas = ${f(A.Ztop_mm3)} mm³ · Z bawah = I/c bawah = ${f(A.Zbot_mm3)} mm³<br>B: c = ${f(B.ctop_mm)} mm · Z = ${f(B.Ztop_mm3)} mm³`)+'<p>Z menggabungkan I dan jarak serat terjauh. Untuk penampang tak simetris, Z atas dan bawah berbeda; Z yang lebih kecil memberi tegangan lebih besar.</p>'],
       ['Hitung tegangan lentur',eq(`A: σ atas = −Mmax/Z atas = ${f(A.sigmaTop_MPa)} MPa · σ bawah = +Mmax/Z bawah = <strong>${f(A.sigmaBottom_MPa)} MPa</strong><br>B: σ atas = ${f(B.sigmaTop_MPa)} MPa · σ bawah = <strong>${f(B.sigmaBottom_MPa)} MPa</strong>`)+'<p>Momen positif menekan serat atas dan menarik serat bawah. Lokasi kritis: serat terjauh di tengah bentang.</p>'],
-      ['Hitung lendutan dan bandingkan',eq(`δ = PL³/(48EI)<br>A: δ = ${f(d.P_N)} × ${f(d.L_mm)}³/(48 × ${f(d.E_MPa)} × ${f(A.I_mm4)}) = <strong>${dl(A)}</strong><br>B: δ = <strong>${dl(B)}</strong>${e.result.ratio_delta?`<br>δ_B/δ_A = I_A/I_B = <strong>${f(e.result.ratio_delta)}</strong>`:''}`)+`<p>Lendutan berbanding terbalik dengan I. Klaim lendutan memerlukan L/tinggi ≥ ${slendernessLimit} dan σ < Sᵧ latihan pada orientasi tersebut.</p>`],
+      ['Hitung lendutan dan bandingkan',eq(`δ = PL³/(48EI)<br>A: δ = ${f(d.P_N)} × ${f(d.L_mm)}³/(48 × ${f(d.E_MPa)} × ${f(A.I_mm4)}) = <strong>${dl(A)}</strong><br>B: δ = <strong>${dl(B)}</strong>${e.result.ratio_delta?`<br>δ_B/δ_A = I_A/I_B = <strong>${f(e.result.ratio_delta)}</strong>`:''}`)+`<p>Lendutan berbanding terbalik dengan I. Klaim lendutan memerlukan L/tinggi ≥ ${slendernessLimit} dan σ < Sᵧ latihan pada orientasi tersebut. ${beamDomainNote}</p>`],
       ['Tafsirkan hasil dan batas kesimpulan','<p>Luas sama berarti massa per panjang sama, tetapi kekakuan bergantung pada seberapa jauh material dari sumbu netral. Profil I dan pipa efisien karena memindahkan material ke serat luar. Orientasi harus dibaca bersama arah beban. Tekuk lokal, tekuk lateral-torsional, geser dan sambungan belum dihitung; hasil bukan pemilihan profil atau pernyataan aman.</p>'],
     ];
   },

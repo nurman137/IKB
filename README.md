@@ -2,7 +2,7 @@
 
 Ruang belajar Ilmu Kekuatan Bahan, Politeknik Negeri Batam, untuk konteks **Teknik Mesin** dan **Perkapalan**.
 
-**Status 27 November 2026: M0–M8 selesai — versi `1.0.0-rc.1` siap ditinjau sebelum publikasi.** Kesepuluh modul aktif, dengan progres per perangkat, glosarium, mode presentasi dan cetak ringkasan. Situs belum dipublikasikan. Fondasi situs dapat dijalankan lokal; belum diterbitkan. Publikasi mengikuti tahap kesiapan rilis yang disepakati.
+**Status 27 November 2026: M0–M8 selesai — versi `1.0.0-rc.2` siap ditinjau sebelum publikasi.** Kesepuluh modul aktif, dengan progres per perangkat, glosarium, mode presentasi dan cetak ringkasan. Situs belum dipublikasikan. Fondasi situs dapat dijalankan lokal; belum diterbitkan. Publikasi mengikuti tahap kesiapan rilis yang disepakati.
 
 ## Modul yang sudah aktif
 
@@ -95,3 +95,8 @@ Nilai default adalah asumsi latihan. Model ideal tidak menyatakan kelayakan desa
 ## Langkah berikutnya
 
 Pengembangan M0–M8 selesai. Sebelum publikasi: tinjauan dosen atas isi dan preset latihan, uji perangkat fisik dan pembaca layar, serta keputusan domain, akses dan logo. Lihat [daftar periksa M8](docs/m8/serah_terima.md#daftar-periksa-sebelum-publikasi) dan panduan publikasinya.
+
+
+## Koreksi sebelum penerbitan Sleekdune
+
+Versi rc.2 memperkuat batas regangan/lendutan kecil modul 06/07/10, menyelaraskan keterangan panah termal, dan mensyaratkan prediksi serta latihan pada konteks yang sama untuk ketuntasan. Lihat [catatan koreksi](docs/m8/koreksi_prarilis.md).

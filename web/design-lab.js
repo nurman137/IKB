@@ -1,3 +1,4 @@
+import {beamDomainNote} from './beam-domain.js';
 import {shaftDesignFields,beamDesignFields,evaluateShaftDesign,evaluateBeamDesign,designExercises,gradeDesign} from './design-model.js';
 import {fmt as f} from './lab-core.js';
 import {readNumber} from './model.js';
@@ -61,7 +62,7 @@ const beamConfig={
   id:'10',prefix:'design',fields:beamDesignFields,mode:null,
   content:{...shared,
     assumption:'Balok persegi panjang sendi–rol, beban titik di tengah, elastis linier, Euler–Bernoulli (model modul 06). Kedua alternatif mempunyai luas yang sama. Kriteria latihan: n = Sᵧ/σmax ≥ target dan δ ≤ batas.',
-    limitation:'Batas lendutan 2,5 mm (L/1000) dan n ≥ 2 adalah kriteria latihan yang dipilih untuk membedakan alternatif, bukan kutipan aturan kelas kapal. Lendutan tidak diklaim bila L/h < 10 atau σ ≥ Sᵧ. Tidak memeriksa tegangan geser, tekuk lateral-torsional (penting untuk balok tinggi dan sempit), pelat geladak yang ikut bekerja, sambungan, berat sendiri atau beban dinamis/gelombang.'},
+    limitation:'Batas lendutan 2,5 mm (L/1000) dan n ≥ 2 adalah kriteria latihan yang dipilih untuk membedakan alternatif, bukan kutipan aturan kelas kapal. Lendutan tidak diklaim bila L/h < 10 atau σ ≥ Sᵧ. Tidak memeriksa tegangan geser, tekuk lateral-torsional (penting untuk balok tinggi dan sempit), pelat geladak yang ikut bekerja, sambungan, berat sendiri atau beban dinamis/gelombang.' + ' ' + beamDomainNote},
   preset:(context,dataset)=>{const {deflection_limit_basis,...input}=dataset.cases.find(x=>x.id==='10-K').input;return {rho_kg_m3:7850,...input};},
   presetNote:()=>'Batas lendutan default 2,5 mm = L/1000 untuk bentang awal; jika L diubah, batas tidak ikut berubah otomatis dan harus dinyatakan sendiri. ρ = 7.850 kg/m³ adalah preset latihan untuk menghitung massa (data M0 kasus ini tidak menetapkannya).',
   evaluate:evaluateBeamDesign,
@@ -77,7 +78,7 @@ const beamConfig={
   variants(e){if(e.status==='invalid')return null;const d=e.data,wrap=a=>({status:'valid',result:a});const fix=evaluateBeamDesign({...d,h_B_mm:Math.ceil(e.result.hMinB_mm)});return [['A · tegak',wrap(e.result.alternative_A)],['B · aktif',wrap(e.result.alternative_B)],...(fix.status==='invalid'?[]:[[`B dengan h = ${f(Math.ceil(e.result.hMinB_mm))} mm`,wrap(fix.result.alternative_B)]])];},
   variantTitle:'Apa yang dibutuhkan B agar memenuhi lendutan?',
   variantIntro:()=>'Beban, bentang dan material sama. Baris ketiga menaikkan tinggi B ke nilai minimum (dibulatkan ke atas) agar δ ≤ batas, dengan lebar tetap. Rasio terhadap A dalam kurung.',
-  variantColumns:[{title:'Massa',value:x=>x.result.mass_kg,unit:'kg'},{title:'n luluh',value:x=>x.result.n_yield,unit:''},{title:'δ',value:x=>x.result.deltaMax_mm,unit:'mm',missing:x=>x.result.slender?'Tidak dihitung (σ ≥ Sᵧ)':`Tidak dihitung (L/h = ${f(x.result.slenderness,3)} &lt; 10)`}],
+  variantColumns:[{title:'Massa',value:x=>x.result.mass_kg,unit:'kg'},{title:'n luluh',value:x=>x.result.n_yield,unit:''},{title:'δ',value:x=>x.result.deltaMax_mm,unit:'mm',missing:x=>x.result.slender?'Tidak dihitung (di luar domain model)':`Tidak dihitung (L/h = ${f(x.result.slenderness,3)} &lt; 10)`}],
   variantNote:'Membuat B memenuhi lendutan dengan orientasi rebah membutuhkan material jauh lebih banyak daripada sekadar memutar balok ke orientasi tegak. Balok tinggi dan sempit perlu diperiksa terhadap tekuk lateral-torsional.',
   steps(e,raw,units){
     const d=e.data,{alternative_A:A,alternative_B:B}=e.result,dl=a=>a.deltaMax_mm===null?'tidak dihitung':`${f(a.deltaMax_mm)} mm`;

@@ -1,4 +1,5 @@
 import {readNumber} from './model.js';
+import {beamDomain} from './beam-domain.js';
 
 // Canonical units: N, N/mm, mm, MPa. Defaults are teaching assumptions, not data for a specific structure.
 const field=(label,units,{positive=false,max=1e7}={})=>({label,units,positive,max});
@@ -68,8 +69,11 @@ export function evaluateBending(input){
   const reasons=[];
   if(reachedYield)reasons.push('Tegangan lentur maksimum mencapai atau melampaui batas luluh latihan; model elastis tidak berlaku.');
   if(stocky)reasons.push(`L/h = ${new Intl.NumberFormat('id-ID',{maximumSignificantDigits:4}).format(L/h)} < ${slendernessLimit}: balok terlalu pendek untuk klaim lendutan Euler–Bernoulli; deformasi geser tidak lagi kecil.`);
-  const deflectionShown=!reachedYield&&!stocky;
-  return {status:reasons.length?'outside':'valid',data:d,errors:{},reason:reasons.join(' '),checks:{elastic:!reachedYield,slender:!stocky},
+  const domain=beamDomain(sigma,E,delta,L);
+  if(!domain.smallStrain)reasons.push('Regangan nominal |σ|/E > 1%: di luar batas regangan kecil latihan.');
+  if(!domain.smallDeflection)reasons.push('Lendutan nominal |δ|/L > 2%: di luar batas lendutan kecil latihan.');
+  const deflectionShown=!reachedYield&&!stocky&&domain.smallStrain&&domain.smallDeflection;
+  return {status:reasons.length?'outside':'valid',data:d,errors:{},reason:reasons.join(' '),checks:{elastic:!reachedYield,slender:!stocky,...domain},
     result:{load:d.load,A_mm2:A,I_mm4:I,c_mm:c,Z_mm3:Z,total_N:total,R_N:R,Vmax_N:R,Mmax_Nmm:M,sigmaMax_MPa:sigma,sigmaTop_MPa:sigma===0?0:-sigma,sigmaBottom_MPa:sigma,slenderness:L/h,
       deltaMax_mm:deflectionShown?delta:null,spanOverDeflection:deflectionShown&&delta>0?L/delta:null}};
 }

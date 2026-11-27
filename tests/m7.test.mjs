@@ -15,7 +15,8 @@ test('progress store records attempts per module and context, keeping the best e
   let m=s.module('05');assert.ok(m.predictionAnswered);assert.ok(!m.predictionCorrect);assert.equal(m.exerciseBest,1);assert.ok(!m.complete);
   assert.match(progressLabel(m),/latihan 1\/2/);
   s.record('05','mesin','prediction',true);s.record('05','mesin','prediction',false);s.record('05','kapal','exercise',2);s.record('05','mesin','exercise',0);
-  m=s.module('05');assert.ok(m.predictionCorrect,'a correct prediction is not erased by a later wrong one');assert.equal(m.exerciseBest,2);assert.ok(m.complete);assert.equal(progressLabel(m),'Tuntas dipelajari');
+  m=s.module('05');assert.ok(m.predictionCorrect,'a correct prediction is not erased by a later wrong one');assert.equal(m.exerciseBest,2);assert.ok(!m.complete,'prediction and exercise must be in the same context');
+  s.record('05','kapal','prediction',false);m=s.module('05');assert.ok(m.complete);assert.equal(progressLabel(m),'Tuntas dipelajari');
   assert.equal(m.contexts.find(c=>c.context==='mesin').exerciseBest,1);
   s.record('05','kapal','reflection',true);assert.ok(s.module('05').reflection);
 });

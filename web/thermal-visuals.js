@@ -32,7 +32,7 @@ export function pipeDiagram(e,scale=200){
   body+=text(295,60,`ΔT = ${f(d.deltaT_C)} °C · ${heat?'dipanaskan':cool?'didinginkan':'tanpa perubahan temperatur'}`,'text-anchor="middle"');
   body+=`<path d="M${x0} 288H${x1}M${x0} 282v12M${x1} 282v12" stroke="#93a487"/>`+text(275,312,`L = ${f(d.L_mm)} mm`,'text-anchor="middle"');
   return svg(body,fixed?`Pipa terkekang di kedua ujung, ΔT ${f(d.deltaT_C)} derajat Celsius. ${e.fixedElastic?`Tegangan ${f(r.sigma_fully_fixed_MPa)} MPa, reaksi ${f(r.reactionMagnitude_N)} newton.`:'Di luar domain elastis.'}`:`Pipa bebas memuai, ΔT ${f(d.deltaT_C)} derajat Celsius; perubahan panjang ${f(r.delta_free_mm)} mm tanpa tegangan.`,325)+
-    `<p class="figure-caption">Garis putus-putus: panjang awal. Warna hangat menandai pemanasan, warna dingin pendinginan. ${fixed?'Panah hijau: gaya pipa pada tumpuan (mendorong saat dipanaskan, menarik saat didinginkan); tumpuan memberi reaksi yang sama besar dan berlawanan arah.':'Tanpa penahan, pipa berubah panjang dengan bebas sehingga tidak ada tegangan aksial termal.'} Skema tidak berskala.</p>`;
+    `<p class="figure-caption">Garis putus-putus: panjang awal. Warna hangat menandai pemanasan, warna dingin pendinginan. ${fixed?'Panah hijau: gaya tumpuan pada pipa (menekan ke dalam saat dipanaskan, menarik ke luar saat didinginkan). Gaya pipa pada tumpuan sama besar dan berlawanan arah.':'Tanpa penahan, pipa berubah panjang dengan bebas sehingga tidak ada tegangan aksial termal.'} Skema tidak berskala.</p>`;
 }
 
 export function stressTemperatureGraph(e){
