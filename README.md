@@ -2,9 +2,9 @@
 
 Ruang belajar Ilmu Kekuatan Bahan, Politeknik Negeri Batam, untuk konteks **Teknik Mesin** dan **Perkapalan**.
 
-**Status 27 November 2026: M0 dan M1 selesai. M2–M8 belum dimulai.** Fondasi situs dapat dijalankan lokal; belum diterbitkan. Publikasi mengikuti tahap kesiapan rilis yang disepakati.
+**Status 27 November 2026: M0, M1 dan M2 selesai. M3–M8 belum dimulai.** Fondasi situs dapat dijalankan lokal; belum diterbitkan. Publikasi mengikuti tahap kesiapan rilis yang disepakati.
 
-## Tersedia pada M1
+## Fondasi M1 dan modul aktif M2
 
 - Beranda visual, peta 10 modul, navigasi dan pilihan konteks Mesin–Kapal.
 - Templat modul dengan tujuan, konsep awal dan pertanyaan eksplorasi.
@@ -12,7 +12,9 @@ Ruang belajar Ilmu Kekuatan Bahan, Politeknik Negeri Batam, untuk konteks **Tekn
 - Kerangka solusi yang dapat dibuka/tutup; konteks dan input dipisahkan dalam sesi browser.
 - Tampilan responsif, menu ponsel, navigasi keyboard dan status pengembangan yang jelas.
 
-**Belum tersedia:** perhitungan numerik, grafik respons, simulasi interaktif, latihan bernilai, progres belajar, LMS atau akun. Input baru memperbarui data, belum menjalankan analisis.
+**Modul 02 — Tegangan–Regangan sudah aktif** untuk Mesin dan Kapal: hitungan variabel, konversi satuan, enam langkah penyelesaian beserta penjelasan, visual deformasi aksial, grafik elastis, kontrol beban, prediksi, latihan dengan umpan balik, dan pembahasan setelah mencoba. Data contoh dipisahkan dari soal latihan.
+
+Modul lain masih berupa kerangka M1. Progres belajar, penilaian kelas, LMS dan akun belum tersedia. Situs belum dipublikasikan.
 
 ## Menjalankan
 
@@ -36,10 +38,13 @@ Output `dist/` dapat disajikan pada hosting statis. Tiap rute memiliki `index.ht
 | `web/app.js` | Halaman, konteks, form dan keadaan sesi |
 | `web/model.js` | Isi modul, rute, parser angka dan validasi |
 | `web/figures.js` | Ikon dan ilustrasi SVG konseptual |
+| `web/axial-model.js` | Model hitung aksial, satuan, batas model dan penilaian latihan |
+| `web/axial-view.js` | Laboratorium dan halaman perhitungan modul 02 |
+| `web/axial-visuals.js`, `web/axial.css` | Diagram, grafik dan tampilan modul aktif |
 | `web/styles.css` | Identitas visual dan responsif |
 | `scripts/build.mjs` | Build 32 halaman dan 404 |
 | `scripts/serve.mjs` | Server pengembangan |
-| `tests/foundation.test.mjs` | Pemeriksaan fondasi |
+| `tests/foundation.test.mjs`, `tests/axial.test.mjs` | Pemeriksaan fondasi dan model aksial |
 | `docs/m0/reference_cases.json` | Data acuan, bukan fungsi hitung aplikasi |
 
 Contoh rute: `/modul/02/`, `/modul/02/perhitungan/mesin/`, dan `/modul/02/perhitungan/kapal/`. Pola tersedia untuk modul 01–10. Konteks modul dapat dipilih lewat `?kasus=mesin` atau `?kasus=kapal`.
@@ -52,10 +57,11 @@ Contoh rute: `/modul/02/`, `/modul/02/perhitungan/mesin/`, dan `/modul/02/perhit
 | [Register 20 kasus](docs/m0/02_register_kasus.md) | Input, model dan hasil acuan Mesin–Kapal |
 | [Spesifikasi perhitungan](docs/m0/03_perhitungan_dan_validasi.md) | Solusi bertahap dan validasi |
 | [Milestone dasar](docs/m0/04_milestone_dan_serah_terima.md) | Baseline historis M0–M8 |
-| [Serah terima M1](docs/m1/serah_terima.md) | Cakupan aktual, pemeriksaan dan tindak lanjut |
+| [Serah terima M1](docs/m1/serah_terima.md) | Cakupan fondasi dan pemeriksaan historis |
+| [Serah terima M2](docs/m2/serah_terima.md) | Fitur aktif modul 02, hasil uji dan batas model |
 
 Nilai default adalah asumsi latihan. Model ideal tidak menyatakan kelayakan desain industri atau kepatuhan aturan klasifikasi kapal. Identitas institusi memakai teks; tanda kubus adalah identitas laboratorium, bukan logo resmi Polibatam.
 
 ## Langkah berikutnya
 
-**M2 — Tegangan–Regangan lengkap:** dua kasus, perhitungan variabel dengan penjelasan langkah, deformasi elastis, grafik, prediksi dan latihan dengan umpan balik. Verifikasi terhadap 02-M dan 02-K sebelum memperluas fungsi.
+**M3 — Dasar dan sambungan:** lengkapi Membaca Beban, Elastisitas/Hukum Hooke serta Geser dan Sambungan; pertahankan pola dua konteks, solusi bertahap, validasi model dan umpan balik yang sudah digunakan pada modul 02.
