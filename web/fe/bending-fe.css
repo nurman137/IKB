@@ -5,3 +5,5 @@
 .family-subrun+ .family-subrun{margin-top:32px;padding-top:24px;border-top:2px solid #d9ded4}.family-subrun{min-width:0}.family-subrun svg{width:100%;height:auto}
 
 .fe-actions .button{flex:1 1 100px;min-width:100px}
+
+#axis-element{max-width:130px;min-height:42px;padding:8px;border:1px solid #aeb8ac;border-radius:6px;margin-bottom:8px}

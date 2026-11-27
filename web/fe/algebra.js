@@ -29,12 +29,14 @@ export async function pcg(A,b,{cancel=()=>false,progress=()=>{},maxIterations=Ma
  fail('solver_failed','Iterasi tidak konvergen. Hasil tidak digunakan.');
 }
 // SPD direct fallback for narrow-band frame systems. Storage O(n*bandwidth).
-export function bandedCholesky(A,b,maxBand=32){
+export function bandedCholesky(A,b,maxBand=32,refinements=0){
  let band=0,maxDiag=0;for(let i=0;i<A.n;i++)for(let k=A.ptr[i];k<A.ptr[i+1];k++){band=Math.max(band,Math.abs(i-A.cols[k]));if(A.cols[k]===i)maxDiag=Math.max(maxDiag,A.values[k]);}
  if(band>maxBand)return null;const width=band+1,n=A.n,L=new Float64Array(n*width);
  const at=(i,j)=>i>=j&&i-j<=band?L[i*width+i-j]:0;
  for(let i=0;i<n;i++)for(let k=A.ptr[i];k<A.ptr[i+1];k++){const j=A.cols[k];if(j<=i)L[i*width+i-j]=A.values[k];}
  for(let i=0;i<n;i++)for(let j=Math.max(0,i-band);j<=i;j++){let v=at(i,j);for(let k=Math.max(0,i-band,j-band);k<j;k++)v-=at(i,k)*at(j,k);if(i===j){if(!Number.isFinite(v)||v<=maxDiag*1e-13)fail('underconstrained','Pivot banded tidak positif atau sistem ill-conditioned.');L[i*width]=Math.sqrt(v);}else L[i*width+i-j]=v/at(j,j);}
- const x=Float64Array.from(b);for(let i=0;i<n;i++){for(let j=Math.max(0,i-band);j<i;j++)x[i]-=at(i,j)*x[j];x[i]/=at(i,i);}
- for(let i=n-1;i>=0;i--){for(let j=i+1;j<=Math.min(n-1,i+band);j++)x[i]-=at(j,i)*x[j];x[i]/=at(i,i);}return x;
+ function solve(rhs){const x=Float64Array.from(rhs);for(let i=0;i<n;i++){for(let j=Math.max(0,i-band);j<i;j++)x[i]-=at(i,j)*x[j];x[i]/=at(i,i);}
+ for(let i=n-1;i>=0;i--){for(let j=i+1;j<=Math.min(n-1,i+band);j++)x[i]-=at(j,i)*x[j];x[i]/=at(i,i);}return x;}
+ const x=solve(b);for(let step=0;step<refinements;step++){const product=multiplyCompensated(A,x),error=Float64Array.from(b,(v,i)=>v-product[i]),correction=solve(error);for(let i=0;i<n;i++)x[i]+=correction[i];}return x;
 }
+export function multiplyCompensated(A,x){const y=new Float64Array(A.n);for(let i=0;i<A.n;i++){let sum=0,c=0;for(let k=A.ptr[i];k<A.ptr[i+1];k++){const v=A.values[k]*x[A.cols[k]]-c,t=sum+v;c=(t-sum)-v;sum=t;}y[i]=sum;}return y;}
