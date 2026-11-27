@@ -11,7 +11,7 @@ export function validateBendingFE(input){
  if(a.status==='outside')return {status:'outside_model',message:a.reason,analytic:a,data:p};
  return {status:'ready',data:p,analytic:a};
 }
-export function makeBendingModel(input,kernel='BEAM2',level='coarse'){
+export function makeBendingModel(input,kernel='BEAM2',level='coarse',{axialDivisions}={}){
  const v=validateBendingFE(input);if(v.status!=='ready')return v;
  if(!['BEAM2','PS2'].includes(kernel)||!Object.hasOwn(LEVELS,level))return {status:'invalid_input',errors:{model:'Pilih model dan mesh yang tersedia.'}};
  const p=v.data,L=p.L_mm,h=p.h_mm,b=p.b_mm,n=LEVELS[level].beam,A=b*h,I=b*h**3/12;
@@ -19,7 +19,8 @@ export function makeBendingModel(input,kernel='BEAM2',level='coarse'){
   const nodes=Array.from({length:n+1},(_,i)=>[L*i/n,0]),elements=Array.from({length:n},(_,i)=>({nodes:[i,i+1],E:p.E_MPa,A,I}));
   return {...v,model:{kernel,nodes,elements,constraints:[{node:0,dof:0,value:0},{node:0,dof:1,value:0},{node:n,dof:1,value:0}],loads:p.load==='point'?[{node:n/2,dof:1,value:-p.P_N}]:[],distributedLoads:p.load==='udl'?elements.map((_,element)=>({element,qx:0,qy:-p.w_N_per_mm})):[]},meta:{level,kernel,strip_mm:0,probe_x_mm:L/4}};
  }
- const s=Math.min(.02*L,.25*h)*p.stripFactor,ny=LEVELS[level].layers,nx=Math.ceil(L/h*ny/2)*2;
+ if(axialDivisions!==undefined&&(!Number.isInteger(axialDivisions)||axialDivisions<4||axialDivisions>400))return {status:'invalid_mesh',message:'Jumlah pembagian aksial tidak sah.'};
+ const s=Math.min(.02*L,.25*h)*p.stripFactor,ny=LEVELS[level].layers,nx=axialDivisions??Math.ceil(L/h*ny/2)*2;
  if(nx>400)return {status:'invalid_mesh',message:'Mesh melampaui batas peramban; kurangi L/h atau pilih mesh lebih kasar.'};
  const coordinates=Array.from({length:nx+1},(_,i)=>L*i/nx).concat([s,L-s,L/2-s/2,L/2+s/2,L/4,L/2,3*L/4]).sort((a,b)=>a-b),xs=coordinates.filter((x,i)=>i===0||x-coordinates[i-1]>1e-9*L);
  if(nx>400||2*ny*(xs.length-1)>8000||2*(2*ny+1)*(2*xs.length-1)-3>10000)return {status:'invalid_mesh',message:'Mesh melampaui batas 10.000 DOF; kurangi L/h atau pilih mesh lebih kasar.'};

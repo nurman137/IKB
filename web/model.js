@@ -19,7 +19,7 @@ export function parseRoute(pathname,base='/') {
   if(parts.length===1&&parts[0]==='progres')return {type:'progress'};
   if(parts.length===1&&parts[0]==='glosarium')return {type:'glossary'};
   if(parts[0]==='modul'&&modules.some(m=>m.id===parts[1])) {
-    if(parts.length===4&&parts[1]==='06'&&parts[2]==='fe'&&['mesin','kapal'].includes(parts[3]))return {type:'fe',id:'06',context:parts[3]};
+    if(parts.length===4&&(['01','06','07'].includes(parts[1])||parts[1]==='10'&&parts[3]==='kapal')&&parts[2]==='fe'&&['mesin','kapal'].includes(parts[3]))return {type:'fe',id:parts[1],context:parts[3]};
     if(parts.length===2)return {type:'module',id:parts[1]};
     if(parts.length===4&&parts[2]==='perhitungan'&&['mesin','kapal'].includes(parts[3]))return {type:'calculation',id:parts[1],context:parts[3]};
   }

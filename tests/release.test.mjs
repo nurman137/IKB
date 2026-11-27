@@ -46,7 +46,7 @@ test('release gate: every module has one Machine and one Ship case and an active
 });
 test('release gate: build output is static, self-contained and small',async()=>{
   const files=[];const walk=async d=>{for(const n of await readdir(d)){const p=`${d}/${n}`;(await stat(p)).isDirectory()?await walk(p):files.push(p);}};await walk('dist');
-  const html=files.filter(f=>f.endsWith('.html')&&!f.startsWith('dist/assets/'));assert.equal(html.length,37,'36 routes + 404');
+  const html=files.filter(f=>f.endsWith('.html')&&!f.startsWith('dist/assets/'));assert.equal(html.length,42,'41 routes + 404');
   let assets=0;for(const f of files.filter(f=>f.startsWith('dist/assets/')))assets+=(await stat(f)).size;
   assert.ok(assets<600*1024,`assets ${assets} bytes should stay below 600 KiB uncompressed`);
   for(const f of files.filter(f=>/\.(js|css|html)$/.test(f))){
