@@ -2,9 +2,9 @@
 
 Ruang belajar Ilmu Kekuatan Bahan, Politeknik Negeri Batam, untuk konteks **Teknik Mesin** dan **Perkapalan**.
 
-**Status 27 November 2026: M0, M1 dan M2 selesai. M3–M8 belum dimulai.** Fondasi situs dapat dijalankan lokal; belum diterbitkan. Publikasi mengikuti tahap kesiapan rilis yang disepakati.
+**Status 27 November 2026: M0–M3 selesai. M4–M8 belum dimulai.** Fondasi situs dapat dijalankan lokal; belum diterbitkan. Publikasi mengikuti tahap kesiapan rilis yang disepakati.
 
-## Fondasi M1 dan modul aktif M2
+## Modul yang sudah aktif
 
 - Beranda visual, peta 10 modul, navigasi dan pilihan konteks Mesin–Kapal.
 - Templat modul dengan tujuan, konsep awal dan pertanyaan eksplorasi.
@@ -12,9 +12,18 @@ Ruang belajar Ilmu Kekuatan Bahan, Politeknik Negeri Batam, untuk konteks **Tekn
 - Kerangka solusi yang dapat dibuka/tutup; konteks dan input dipisahkan dalam sesi browser.
 - Tampilan responsif, menu ponsel, navigasi keyboard dan status pengembangan yang jelas.
 
-**Modul 02 — Tegangan–Regangan sudah aktif** untuk Mesin dan Kapal: hitungan variabel, konversi satuan, enam langkah penyelesaian beserta penjelasan, visual deformasi aksial, grafik elastis, kontrol beban, prediksi, latihan dengan umpan balik, dan pembahasan setelah mencoba. Data contoh dipisahkan dari soal latihan.
+Empat modul sudah aktif untuk Mesin dan Kapal, masing-masing dengan halaman perhitungan tersendiri, input variabel, konversi satuan, langkah beserta penjelasan, prediksi, latihan, umpan balik dan pembahasan:
 
-Modul lain masih berupa kerangka M1. Progres belajar, penilaian kelas, LMS dan akun belum tersedia. Situs belum dipublikasikan.
+| Modul | Fitur inti |
+| --- | --- |
+| 01 — Membaca Beban | Lima jenis pembebanan, diagram benda bebas, reaksi, potongan, gaya geser dan momen |
+| 02 — Tegangan–Regangan | Tegangan, regangan, pertambahan panjang dan grafik elastis |
+| 03 — Elastisitas/Hukum Hooke | Kekakuan, Poisson, kontraksi lateral, modulus geser, energi dan pembanding E |
+| 04 — Geser dan Sambungan | Satu/dua bidang geser pin, tumpu pelat tengah dan luar, pembagian gaya |
+
+Data contoh dipisahkan dari soal latihan. Hasil dan visual mengikuti satu model hitung per kasus.
+
+Modul 05–10 masih berupa kerangka M1. Progres belajar, penilaian kelas, LMS dan akun belum tersedia. Situs belum dipublikasikan.
 
 ## Menjalankan
 
@@ -42,9 +51,11 @@ Output `dist/` dapat disajikan pada hosting statis. Tiap rute memiliki `index.ht
 | `web/axial-view.js` | Laboratorium dan halaman perhitungan modul 02 |
 | `web/axial-visuals.js`, `web/axial.css` | Diagram, grafik dan tampilan modul aktif |
 | `web/styles.css` | Identitas visual dan responsif |
+| `web/foundation-model.js`, `web/foundation-content.js` | Model dan isi pembelajaran 01/03/04 |
+| `web/foundation-view.js`, `web/foundation-visuals.js`, `web/foundation.css` | Antarmuka dan diagram M3 |
 | `scripts/build.mjs` | Build 32 halaman dan 404 |
 | `scripts/serve.mjs` | Server pengembangan |
-| `tests/foundation.test.mjs`, `tests/axial.test.mjs` | Pemeriksaan fondasi dan model aksial |
+| `tests/foundation.test.mjs`, `tests/axial.test.mjs`, `tests/foundation-models.test.mjs` | Pemeriksaan fondasi, aksial dan model M3 |
 | `docs/m0/reference_cases.json` | Data acuan, bukan fungsi hitung aplikasi |
 
 Contoh rute: `/modul/02/`, `/modul/02/perhitungan/mesin/`, dan `/modul/02/perhitungan/kapal/`. Pola tersedia untuk modul 01–10. Konteks modul dapat dipilih lewat `?kasus=mesin` atau `?kasus=kapal`.
@@ -58,10 +69,11 @@ Contoh rute: `/modul/02/`, `/modul/02/perhitungan/mesin/`, dan `/modul/02/perhit
 | [Spesifikasi perhitungan](docs/m0/03_perhitungan_dan_validasi.md) | Solusi bertahap dan validasi |
 | [Milestone dasar](docs/m0/04_milestone_dan_serah_terima.md) | Baseline historis M0–M8 |
 | [Serah terima M1](docs/m1/serah_terima.md) | Cakupan fondasi dan pemeriksaan historis |
-| [Serah terima M2](docs/m2/serah_terima.md) | Fitur aktif modul 02, hasil uji dan batas model |
+| [Serah terima M2](docs/m2/serah_terima.md) | Fitur modul 02 dan hasil uji historis |
+| [Serah terima M3](docs/m3/serah_terima.md) | Tiga modul baru, enam kasus dan hasil pemeriksaan terbaru |
 
 Nilai default adalah asumsi latihan. Model ideal tidak menyatakan kelayakan desain industri atau kepatuhan aturan klasifikasi kapal. Identitas institusi memakai teks; tanda kubus adalah identitas laboratorium, bukan logo resmi Polibatam.
 
 ## Langkah berikutnya
 
-**M3 — Dasar dan sambungan:** lengkapi Membaca Beban, Elastisitas/Hukum Hooke serta Geser dan Sambungan; pertahankan pola dua konteks, solusi bertahap, validasi model dan umpan balik yang sudah digunakan pada modul 02.
+**M4 — Torsi, Lentur dan Penampang:** lengkapi modul 05–07: poros pejal/berongga, hubungan daya–rpm, balok dengan beban titik/merata, serta properti dan orientasi penampang. Pertahankan pola dua konteks dan validasi terpisah untuk setiap konfigurasi.
