@@ -48,3 +48,14 @@ Keterbatasan tinjauan: belum menguji perangkat fisik mahasiswa, pembaca layar le
 5. Simpan versi sebelumnya sebagai titik rollback. Setelah terbit, periksa rute FE dan contoh perhitungan pada versi terbit.
 
 Dokumen F0–F7 tetap menyimpan riwayat keputusan, termasuk status planned pada F0 dan keterbatasan masing-masing model; tidak ditulis ulang seolah solver sudah ada saat F0.
+
+## Perbaikan pasca-audit browser (28 November 2026)
+
+Uji browser ulang pada 20 rute FE menemukan dua hal yang kini diperbaiki:
+
+1. **Wilayah gulir tabel tidak dapat dijangkau keyboard** (axe `scrollable-region-focusable`, serius, di semua rute FE pada desktop; contoh tabel "Kasus aktif" 1323 px di wadah 646 px). `web/scroll-regions.js` dipasang sekali dari `web/app.js` dan memantau setiap `.table-scroll`: hanya yang benar-benar meluap diberi `tabindex="0"`, `role="region"` dan label dari judul terdekat. Pemantauan diperbarui setelah render, saat `<details>` dibuka dan saat ukuran layar berubah. Atribut yang dipasang penulis tidak ditimpa, dan tabel yang tidak meluap tidak menambah langkah Tab. Gaya fokus terlihat ditambahkan.
+2. **Input pelat 04 tidak ditautkan ke pesan error**, dan isian bukan angka dilaporkan sebagai "di luar rentang". Kini setiap input pelat memiliki `aria-describedby`, elemen error dan `aria-invalid`, yang diperbarui di setiap jalur render. Isian bukan angka melaporkan "Masukkan angka yang sah"; pesan rentang dan dimensi tetap.
+
+Bukti: 184/184 kelompok tes lulus (+5 di `tests/fe-a11y-fixes.test.mjs`). axe-core WCAG 2.1 A/AA pada 52 tampilan (20 rute FE × 2 lebar layar setelah solve, ditambah sampel halaman analitis): 0 pelanggaran. Tabel dapat difokus dengan Tab dan digeser dengan tombol panah. Rumus, solver, preset dan hasil numerik tidak berubah.
+
+Belum diubah: ukuran ekspor JSON besar (mis. modul 08 ±17,9 MB karena data medan mentah). Ini keputusan isi ekspor yang menunggu pengguna.

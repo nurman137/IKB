@@ -18,6 +18,7 @@ import {combinedConfig} from './combined-lab.js';
 import {designConfig} from './design-lab.js';
 import {progress,progressLabel} from './progress.js';
 import {glossary} from './glossary.js';
+import {watchScrollRegions} from './scroll-regions.js';
 const labConfigs={'07':sectionConfig,'08':thermalConfig,'09':combinedConfig,'10':designConfig};
 const labConfig=(id,c)=>typeof labConfigs[id]==='function'?labConfigs[id](c):labConfigs[id];
 
@@ -27,6 +28,7 @@ const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 const fmt=n=>new Intl.NumberFormat('id-ID',{maximumSignificantDigits:8}).format(n);
 const session={get(k){try{return sessionStorage.getItem(k);}catch{return null;}},set(k,v){try{sessionStorage.setItem(k,v);}catch{/* Page remains usable without storage. */}}};
 const route=parseRoute(location.pathname,base);
+watchScrollRegions();
 if(session.get('ikb-presenting')==='1')document.documentElement.classList.add('presenting');
 const mod=modules.find(m=>m.id===route.id);
 let context=route.context||new URLSearchParams(location.search).get('kasus')||session.get('ikb-context')||'mesin';

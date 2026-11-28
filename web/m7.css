@@ -1,5 +1,6 @@
 @layer components {
  .topbar-tools{display:flex;align-items:center;gap:18px}.present-toggle{border:1px solid var(--line);border-radius:7px;padding:8px 12px;min-height:40px;font-size:.8rem;background:#fff;color:var(--green);white-space:nowrap}.present-toggle[aria-pressed=true]{background:var(--green);color:#fff;border-color:var(--green)}
+ .table-scroll:focus-visible{outline:3px solid #b65a32;outline-offset:2px}
  .card-progress{display:block;font-size:.75rem;color:#5e7055;margin:10px 0 2px}
  .print-header{display:none}
  .progress-table th a{text-decoration:underline;text-underline-offset:3px}.progress-table small{color:var(--muted);font-weight:400}.progress-table td{text-align:center}
