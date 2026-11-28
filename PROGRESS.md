@@ -16,7 +16,8 @@
 | Status publik terakhir yang tercatat | Versi pembelajaran analitis M0–M8 sudah publik; pengembangan FE belum diterbitkan |
 | Cakupan FE | **20/20 kasus**, 10 modul × Mesin/Kapal |
 | Kandidat rilis FE | **FE-1.0.0-rc.1**, implementasi F0–F8 selesai untuk ditinjau |
-| Pengujian terakhir | **189/189 kelompok tes lulus** (setelah perbaikan aksesibilitas dan ekspor JSON ringkas, 28 November); audit 20 kasus /29 submodel |
+| Pengujian terakhir | **194/194 kelompok tes lulus** di Node 20 dan 22, dijalankan otomatis oleh CI GitHub Actions; audit 20 kasus /29 submodel |
+| Lembar tinjauan dosen | [docs/tinjauan_dosen.md](docs/tinjauan_dosen.md), dihasilkan dari kode oleh `node scripts/review-sheet.mjs` |
 
 Commit di atas adalah baseline implementasi sebelum commit dokumentasi serah terima ini. Periksa HEAD terbaru sebelum melanjutkan. Permintaan saat ini hanya membuat dokumentasi progres; tidak ada merge atau deploy pada tahap serah terima ini.
 
@@ -132,7 +133,8 @@ Ini ringkasan run yang sudah dilakukan, bukan klaim pengujian ulang pada setiap 
 
 | Bukti | Hasil |
 | --- | --- |
-| Seluruh tes | 189/189 kelompok lulus (179 + 5 aksesibilitas + 5 ekspor ringkas) |
+| Seluruh tes | 194/194 kelompok lulus (179 + 5 aksesibilitas + 5 ekspor ringkas + 5 pemeliharaan rilis) |
+| Pemuatan per rute | Halaman analitis 357 KiB (sebelumnya 570 KiB); kode FE hanya dimuat di rute /fe/ |
 | Ekspor JSON ringkas | 20 rute: 6–36 KB (lengkap hingga 17,9 MB); input dan ringkasan identik dengan ekspor lengkap; lihat F8 |
 | Audit browser ulang | 20 rute FE: solve, invalidasi, cancel, studi mesh, ekspor JSON/CSV, progres, keyboard, 320 px lulus; axe WCAG 2.1 AA 0 pelanggaran setelah perbaikan; lihat F8 |
 | Regresi analitis | 133 keluaran acuan M0 tetap diuji |

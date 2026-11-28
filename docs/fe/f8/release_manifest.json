@@ -3,7 +3,7 @@
   "publicDeployment": false,
   "routes": 54,
   "htmlIncluding404": 55,
-  "assetBytes": 601891,
+  "assetBytes": 603968,
   "referenceHashes": {
     "docs/fe/f6/reference_scipy.py": "faa29b7e3a57f6ec08387ef8481fdb3457d0d2e2d80b3d7324ef9bf6c43982c1",
     "docs/fe/f6/reference_scipy.json": "1d7c15d8199d263fd22c4c36c2b8279929ab7c16dc93152de40708173a583743"
@@ -23,9 +23,8 @@
       "elements": [
         8
       ],
-      "elapsedMs": 9.562607999999997,
-      "jsonBytes": 6417,
-      "compactJsonBytes": 6420,
+      "jsonBytes": 6385,
+      "compactJsonBytes": 6388,
       "csvBytes": 957
     },
     {
@@ -42,9 +41,8 @@
       "elements": [
         8
       ],
-      "elapsedMs": 3.166339999999998,
-      "jsonBytes": 6428,
-      "compactJsonBytes": 6425,
+      "jsonBytes": 6396,
+      "compactJsonBytes": 6393,
       "csvBytes": 848
     },
     {
@@ -61,9 +59,8 @@
       "elements": [
         20
       ],
-      "elapsedMs": 74.912305,
-      "jsonBytes": 472919,
-      "compactJsonBytes": 19974,
+      "jsonBytes": 472903,
+      "compactJsonBytes": 19958,
       "csvBytes": 1096
     },
     {
@@ -80,9 +77,8 @@
       "elements": [
         40
       ],
-      "elapsedMs": 91.84608099999998,
-      "jsonBytes": 943048,
-      "compactJsonBytes": 4793,
+      "jsonBytes": 943014,
+      "compactJsonBytes": 4759,
       "csvBytes": 1094
     },
     {
@@ -99,9 +95,8 @@
       "elements": [
         20
       ],
-      "elapsedMs": 32.47949299999999,
-      "jsonBytes": 476692,
-      "compactJsonBytes": 20278,
+      "jsonBytes": 476658,
+      "compactJsonBytes": 20244,
       "csvBytes": 1189
     },
     {
@@ -118,9 +113,8 @@
       "elements": [
         32
       ],
-      "elapsedMs": 61.92178199999998,
-      "jsonBytes": 761430,
-      "compactJsonBytes": 4977,
+      "jsonBytes": 761398,
+      "compactJsonBytes": 4945,
       "csvBytes": 1187
     },
     {
@@ -137,9 +131,8 @@
       "elements": [
         528
       ],
-      "elapsedMs": 483.56398699999994,
-      "jsonBytes": 847825,
-      "compactJsonBytes": 3811,
+      "jsonBytes": 847807,
+      "compactJsonBytes": 3793,
       "csvBytes": 1181
     },
     {
@@ -160,9 +153,8 @@
         528,
         528
       ],
-      "elapsedMs": 839.3645809999999,
-      "jsonBytes": 1694386,
-      "compactJsonBytes": 6985,
+      "jsonBytes": 1694318,
+      "compactJsonBytes": 6917,
       "csvBytes": 2296
     },
     {
@@ -179,9 +171,8 @@
       "elements": [
         384
       ],
-      "elapsedMs": 95.13070100000004,
-      "jsonBytes": 428179,
-      "compactJsonBytes": 4294,
+      "jsonBytes": 428147,
+      "compactJsonBytes": 4262,
       "csvBytes": 633
     },
     {
@@ -198,9 +189,8 @@
       "elements": [
         384
       ],
-      "elapsedMs": 47.63777300000015,
-      "jsonBytes": 427980,
-      "compactJsonBytes": 4299,
+      "jsonBytes": 427946,
+      "compactJsonBytes": 4265,
       "csvBytes": 634
     },
     {
@@ -217,9 +207,8 @@
       "elements": [
         4
       ],
-      "elapsedMs": 2.2925579999998718,
-      "jsonBytes": 3990,
-      "compactJsonBytes": 4255,
+      "jsonBytes": 3956,
+      "compactJsonBytes": 4221,
       "csvBytes": 394
     },
     {
@@ -236,9 +225,8 @@
       "elements": [
         4
       ],
-      "elapsedMs": 1.1298699999999826,
-      "jsonBytes": 3963,
-      "compactJsonBytes": 4228,
+      "jsonBytes": 3929,
+      "compactJsonBytes": 4194,
       "csvBytes": 355
     },
     {
@@ -259,9 +247,8 @@
         8,
         8
       ],
-      "elapsedMs": 3.007957000000033,
-      "jsonBytes": 11224,
-      "compactJsonBytes": 10981,
+      "jsonBytes": 11158,
+      "compactJsonBytes": 10915,
       "csvBytes": 1159
     },
     {
@@ -282,9 +269,8 @@
         8,
         8
       ],
-      "elapsedMs": 3.278583000000026,
-      "jsonBytes": 11313,
-      "compactJsonBytes": 11060,
+      "jsonBytes": 11245,
+      "compactJsonBytes": 10992,
       "csvBytes": 1254
     },
     {
@@ -305,9 +291,8 @@
         200,
         200
       ],
-      "elapsedMs": 698.2589210000001,
-      "jsonBytes": 9524856,
-      "compactJsonBytes": 8535,
+      "jsonBytes": 9524804,
+      "compactJsonBytes": 8483,
       "csvBytes": 1990
     },
     {
@@ -328,9 +313,8 @@
         200,
         200
       ],
-      "elapsedMs": 609.1713599999998,
-      "jsonBytes": 9520241,
-      "compactJsonBytes": 8562,
+      "jsonBytes": 9520175,
+      "compactJsonBytes": 8496,
       "csvBytes": 2030
     },
     {
@@ -350,9 +334,8 @@
         4,
         384
       ],
-      "elapsedMs": 72.87068399999998,
-      "jsonBytes": 432486,
-      "compactJsonBytes": 8835,
+      "jsonBytes": 432420,
+      "compactJsonBytes": 8769,
       "csvBytes": 1968
     },
     {
@@ -372,9 +355,8 @@
         4,
         384
       ],
-      "elapsedMs": 47.96160599999985,
-      "jsonBytes": 431720,
-      "compactJsonBytes": 8300,
+      "jsonBytes": 431654,
+      "compactJsonBytes": 8234,
       "csvBytes": 1933
     },
     {
@@ -395,9 +377,8 @@
         384,
         512
       ],
-      "elapsedMs": 115.29586500000005,
-      "jsonBytes": 1002949,
-      "compactJsonBytes": 7906,
+      "jsonBytes": 1002883,
+      "compactJsonBytes": 7840,
       "csvBytes": 1208
     },
     {
@@ -418,9 +399,8 @@
         8,
         8
       ],
-      "elapsedMs": 4.5473729999998795,
-      "jsonBytes": 11284,
-      "compactJsonBytes": 11042,
+      "jsonBytes": 11216,
+      "compactJsonBytes": 10974,
       "csvBytes": 1245
     }
   ]
