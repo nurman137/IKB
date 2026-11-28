@@ -2,6 +2,17 @@
 
 **Diperbarui: 28 November 2026 (WIB), setelah perbaikan aksesibilitas, ekspor JSON ringkas dan pemeliharaan rilis.** Dokumen ini menjadi titik awal untuk melanjutkan proyek di Claude atau lingkungan pengembangan lain.
 
+## Pembaruan publikasi — 28 November 2026
+
+**FE sudah terbit dan tetap publik:** https://ikb-polibatam.sleekdune.chatgpt.site/.
+
+- Perubahan Claude sampai `56aacdf` diperiksa; 194/194 tes dan audit 20 kasus /29 submodel lulus.
+- PR #2 sudah dikeluarkan dari draft dan di-merge ke `main` pada `55dbf4d9c74c1c280b1aad5ecd0b58e0ca0c73d8`.
+- Site versi 2 berhasil diterbitkan. Torsi, pelat Kapal, termal, transfer input, JSON ringkas/lengkap dan 404 diperiksa pada hosting publik.
+- [Catatan penerbitan dan rollback](docs/deployments/2026-11-28.md).
+
+Pembaruan ini menggantikan status belum merge/belum deploy pada tabel serah terima dan catatan historis berikut. Tinjauan perangkat fisik/pembaca layar/printer tetap tindak lanjut yang disarankan.
+
 ## 1. Posisi saat serah terima
 
 | Bagian | Posisi terverifikasi |

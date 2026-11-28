@@ -2,7 +2,7 @@
 
 Ruang belajar Ilmu Kekuatan Bahan, Politeknik Negeri Batam, untuk konteks **Teknik Mesin** dan **Perkapalan**.
 
-**Status 27 November 2026: M0–M8 telah diterbitkan di [IKB Polibatam](https://ikb-polibatam.sleekdune.chatgpt.site/). Pengembangan FE F0–F8 tersedia di branch `feat/fem-f0`, belum digabung atau diterbitkan.**
+**Status 28 November 2026: M0–M8 dan FE F0–F8 sudah diterbitkan di [IKB Polibatam](https://ikb-polibatam.sleekdune.chatgpt.site/). Seluruh 20 kasus FE tersedia; PR #2 sudah digabung ke main.** Lihat [catatan penerbitan](docs/deployments/2026-11-28.md). Catatan milestone di bawah tetap menyimpan riwayat pengembangan.
 
 ## Modul yang sudah aktif
 
@@ -94,7 +94,7 @@ Nilai default adalah asumsi latihan. Model ideal tidak menyatakan kelayakan desa
 
 ## Langkah berikutnya
 
-Pengembangan FE F0–F8 selesai sebagai kandidat **FE-1.0.0-rc.1** untuk 20 dari 20 kasus. Berikutnya tinjauan dosen/perangkat kelas dan keputusan penerbitan; sumber belum digabung atau diterbitkan. Lihat [audit F8](docs/fe/f8/README.md).
+Pengembangan FE F0–F8 untuk 20 dari 20 kasus sudah digabung dan diterbitkan. Berikutnya tinjauan pemakaian di kelas; lihat [catatan penerbitan](docs/deployments/2026-11-28.md) dan [audit F8](docs/fe/f8/README.md).
 
 
 ## Koreksi sebelum penerbitan Sleekdune
@@ -107,4 +107,4 @@ Versi rc.2 memperkuat batas regangan/lendutan kecil modul 06/07/10, menyelaraska
 
 Total **20 dari 20 kasus** memiliki halaman FE. Elemen garis BEAM2, solid plane stress PS2, axisymmetric AX2, torsi penampang TOR2 dan superposisi COMB diberi label berbeda. Pelat sambungan memakai traction ditetapkan; pin dan kontak tidak diselesaikan FE. Semua view memiliki prediksi, cek pemahaman, refleksi, progres FE lokal, cetak dan ekspor numerik JSON/CSV.
 
-**179 kelompok tes lulus**; audit 20 kasus /29 submodel menguji hasil dan ekspor. Pelat dibandingkan solver SciPy independen dan benchmark Kirsch. [Manifest rilis](docs/fe/f8/release_manifest.json) menyimpan ukuran aset, waktu, kernel dan hash referensi. Perubahan masih di draft PR pengembangan; situs publik belum diperbarui. Uji perangkat fisik, pembaca layar lengkap dan keluaran cetak tetap bagian tinjauan sebelum publikasi.
+**179 kelompok tes lulus**; audit 20 kasus /29 submodel menguji hasil dan ekspor. Pelat dibandingkan solver SciPy independen dan benchmark Kirsch. [Manifest rilis](docs/fe/f8/release_manifest.json) menyimpan ukuran aset, waktu, kernel dan hash referensi. PR #2 sudah digabung dan situs publik sudah diperbarui pada 28 November 2026. Uji perangkat fisik, pembaca layar lengkap dan keluaran cetak tetap bagian tinjauan sebelum publikasi.
