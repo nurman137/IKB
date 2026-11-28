@@ -1,6 +1,6 @@
 # Progres keseluruhan dan serah terima IKB Polibatam
 
-**Diperbarui: 28 November 2026 (WIB).** Dokumen ini menjadi titik awal untuk melanjutkan proyek di Claude atau lingkungan pengembangan lain.
+**Diperbarui: 28 November 2026 (WIB), setelah perbaikan aksesibilitas, ekspor JSON ringkas dan pemeliharaan rilis.** Dokumen ini menjadi titik awal untuk melanjutkan proyek di Claude atau lingkungan pengembangan lain.
 
 ## 1. Posisi saat serah terima
 
@@ -8,18 +8,35 @@
 | --- | --- |
 | Repository | https://github.com/nurman137/IKB |
 | Branch pengembangan FE | `feat/fem-f0` — lanjutkan dari branch ini, bukan hanya `main` |
-| Commit implementasi terakhir | `8d15507382dcc5cf234c63ee362d8ec5e1c5d27c` |
+| Commit implementasi terakhir | `7715e46` (CI, pemuatan FE per rute, manifest stabil, lembar tinjauan); sebelumnya `14da228` ekspor JSON ringkas dan `d55a86b` perbaikan aksesibilitas |
 | Branch main | `8aa939defe0b41d832186b6b7eeece6477ad1568` |
 | Pull request | [PR #2](https://github.com/nurman137/IKB/pull/2), open, **draft**, belum merge |
-| Hasil cek GitHub saat dokumen dibuat | PR mergeable=true, mergeable_state=clean; dapat berubah jika branch berubah |
+| Hasil cek GitHub saat dokumen dibuat | PR mergeable_state=clean; CI GitHub Actions hijau di Node 20 dan 22 pada `7715e46`; dapat berubah jika branch berubah |
 | Situs yang sudah ada | https://ikb-polibatam.sleekdune.chatgpt.site/ |
-| Status publik terakhir yang tercatat | Versi pembelajaran analitis M0–M8 sudah publik; pengembangan FE belum diterbitkan |
+| Status publik terakhir yang tercatat | Versi analitis M0–M8 (`main` `8aa939d`, rc.2) sudah publik; rute FE (`/modul/{id}/fe/...`) masih 404 di situs publik |
 | Cakupan FE | **20/20 kasus**, 10 modul × Mesin/Kapal |
 | Kandidat rilis FE | **FE-1.0.0-rc.1**, implementasi F0–F8 selesai untuk ditinjau |
 | Pengujian terakhir | **194/194 kelompok tes lulus** di Node 20 dan 22, dijalankan otomatis oleh CI GitHub Actions; audit 20 kasus /29 submodel |
 | Lembar tinjauan dosen | [docs/tinjauan_dosen.md](docs/tinjauan_dosen.md), dihasilkan dari kode oleh `node scripts/review-sheet.mjs` |
 
-Commit di atas adalah baseline implementasi sebelum commit dokumentasi serah terima ini. Periksa HEAD terbaru sebelum melanjutkan. Permintaan saat ini hanya membuat dokumentasi progres; tidak ada merge atau deploy pada tahap serah terima ini.
+Periksa HEAD terbaru sebelum melanjutkan. Tidak ada merge atau deploy yang dilakukan pada tahap ini.
+
+### Catatan untuk penerbitan ke Site Sleekdune
+
+Langkah berikutnya direncanakan di alat lain (Codex). Hal yang perlu dipegang:
+
+1. **Sumber yang diterbitkan.** Terbitkan dari commit yang sudah disetujui. Jalur yang disarankan: PR #2 dikeluarkan dari draft dan di-merge ke `main`, lalu build dari `main`. Jangan menerbitkan dari working tree yang belum di-commit.
+2. **Build untuk akar domain.** Situs berada di akar `https://ikb-polibatam.sleekdune.chatgpt.site/`, jadi cukup `npm test` (sekaligus build) atau `npm run build` tanpa `IKB_BASE`. `IKB_BASE` hanya untuk subdirektori dan hanya memengaruhi `404.html`.
+3. **Yang diunggah.** Seluruh isi `dist/`: 54 halaman dengan `index.html` per rute, `404.html`, dan `assets/` termasuk `assets/fe/worker.js`. Hosting harus menyajikan `404.html` untuk jalur tak dikenal. Tidak perlu aturan SPA, server aplikasi atau dependensi npm. `dist/` dan `.cache/` tidak di-commit.
+4. **Titik rollback.** Versi publik saat ini setara dengan `main` `8aa939d` (rc.2). Simpan build atau versi Site lama sebelum mengganti.
+5. **Pemeriksaan setelah terbit** (jangan menyatakan selesai hanya karena build berhasil):
+   - beranda dan satu halaman perhitungan analitis tampil;
+   - beberapa rute FE (mis. `/modul/05/fe/mesin/`, `/modul/04/fe/kapal/`, `/modul/08/fe/mesin/`) bisa solve; ini sekaligus menguji Web Worker dan pemuatan modul per rute di hosting;
+   - ekspor JSON ringkas dan lengkap terunduh;
+   - tautan "Eksplorasi FE" dari halaman perhitungan berpindah dan membawa nilai;
+   - URL salah bertingkat (mis. `/modul/99/`) menampilkan halaman 404 situs.
+6. **CI.** `.github/workflows/ci.yml` menjalankan tes, audit FE dan generator lembar tinjauan di setiap PR dan push ke `main`. Bila mengubah kode yang memengaruhi ekspor atau isi latihan, jalankan `node scripts/audit-fe-release.mjs` dan `node scripts/review-sheet.mjs` lalu commit hasilnya, karena CI memeriksa keduanya mutakhir.
+7. **Belum dilakukan dan tidak bisa dari lingkungan Claude:** uji perangkat fisik (Android kelas bawah untuk studi mesh pelat, iPhone/Safari), pembaca layar, cetak printer, dan tinjauan dosen. Branch lama `ccr-997cc054-d7x6z7` sudah sepenuhnya ada di `main` dan dapat dihapus lewat GitHub (proxy sesi Claude menolak penghapusan branch).
 
 ## 2. Tujuan produk dan keputusan pengguna
 
