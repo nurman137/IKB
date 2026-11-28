@@ -16,7 +16,7 @@
 | Status publik terakhir yang tercatat | Versi pembelajaran analitis M0–M8 sudah publik; pengembangan FE belum diterbitkan |
 | Cakupan FE | **20/20 kasus**, 10 modul × Mesin/Kapal |
 | Kandidat rilis FE | **FE-1.0.0-rc.1**, implementasi F0–F8 selesai untuk ditinjau |
-| Pengujian terakhir | **184/184 kelompok tes lulus** (setelah perbaikan aksesibilitas 28 November); audit 20 kasus /29 submodel |
+| Pengujian terakhir | **189/189 kelompok tes lulus** (setelah perbaikan aksesibilitas dan ekspor JSON ringkas, 28 November); audit 20 kasus /29 submodel |
 
 Commit di atas adalah baseline implementasi sebelum commit dokumentasi serah terima ini. Periksa HEAD terbaru sebelum melanjutkan. Permintaan saat ini hanya membuat dokumentasi progres; tidak ada merge atau deploy pada tahap serah terima ini.
 
@@ -132,11 +132,12 @@ Ini ringkasan run yang sudah dilakukan, bukan klaim pengujian ulang pada setiap 
 
 | Bukti | Hasil |
 | --- | --- |
-| Seluruh tes | 184/184 kelompok lulus (179 + 5 tes perbaikan aksesibilitas) |
+| Seluruh tes | 189/189 kelompok lulus (179 + 5 aksesibilitas + 5 ekspor ringkas) |
+| Ekspor JSON ringkas | 20 rute: 6–36 KB (lengkap hingga 17,9 MB); input dan ringkasan identik dengan ekspor lengkap; lihat F8 |
 | Audit browser ulang | 20 rute FE: solve, invalidasi, cancel, studi mesh, ekspor JSON/CSV, progres, keyboard, 320 px lulus; axe WCAG 2.1 AA 0 pelanggaran setelah perbaikan; lihat F8 |
 | Regresi analitis | 133 keluaran acuan M0 tetap diuji |
 | Audit rilis | 20 kasus /29 submodel, solve dan serialisasi JSON/CSV lulus |
-| Ukuran aset | 597090 byte, di bawah batas 600 KiB |
+| Ukuran aset | 601891 byte, di bawah batas 600 KiB (sisa ±12,5 KiB) |
 | Benchmark F4 | 21 perhitungan, seri lingkaran konvergen; nonlingkaran dibanding pembanding independen |
 | Benchmark F5 | 6 kombinasi /12 solve kernel; kedua seri konvergen |
 | Benchmark F6 | 9 run pelat +2 Kirsch; ketiga seri pelat konvergen |

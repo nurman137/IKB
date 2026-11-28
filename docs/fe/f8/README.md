@@ -58,4 +58,14 @@ Uji browser ulang pada 20 rute FE menemukan dua hal yang kini diperbaiki:
 
 Bukti: 184/184 kelompok tes lulus (+5 di `tests/fe-a11y-fixes.test.mjs`). axe-core WCAG 2.1 A/AA pada 52 tampilan (20 rute FE × 2 lebar layar setelah solve, ditambah sampel halaman analitis): 0 pelanggaran. Tabel dapat difokus dengan Tab dan digeser dengan tombol panah. Rumus, solver, preset dan hasil numerik tidak berubah.
 
-Belum diubah: ukuran ekspor JSON besar (mis. modul 08 ±17,9 MB karena data medan mentah). Ini keputusan isi ekspor yang menunggu pengguna.
+## Ekspor JSON ringkas (28 November 2026)
+
+Ekspor JSON lengkap pada kasus dengan medan mentah terlalu besar untuk ponsel (modul 08 ±17,9 MB, 04-Kapal ±3,7 MB). Kini tersedia tombol **Ekspor JSON ringkas** (`IKB-FE-{id}-{konteks}-ringkas.json`) di samping **Ekspor JSON lengkap** yang tidak berubah.
+
+- `makeCompactExport` memanggil `makeExport` lebih dahulu, sehingga validasi domain, status `solved_unverified` dan penolakan angka tidak finite sama persis.
+- `input` dan `summaries` disalin utuh tanpa pembulatan. Di `models`/`results`, array lebih dari 24 nilai (node, elemen, perpindahan, tegangan per titik integrasi) dan teks lebih dari 512 karakter (mis. `inputSnapshot` serialisasi model dari Worker) diganti penanda `{_omitted, length}`, dan setiap penggantian dicatat di `omittedArrays`. Skalar seperti reaksi, energi dan diagnostik tetap ikut.
+- Tombol ringkas aktif dan terkunci bersama ekspor lain; tidak memakai hasil lama setelah input berubah atau dibatalkan.
+
+Ukuran unduhan nyata di browser (20 rute): ringkas **6–36 KB**, misalnya 08-M 17,9 MB → 13,4 KB, 04-K 3,7 MB → 11,2 KB, 10-M 2,3 MB → 12,4 KB. Kasus balok tanpa medan panjang (06) hampir tidak berubah. `scripts/audit-fe-release.mjs` kini juga memeriksa bahwa ekspor ringkas setiap kasus memiliki `input` dan `summaries` identik dengan ekspor lengkap dan tanpa NaN/Infinity, dan mencatat `compactJsonBytes` di manifest.
+
+Bukti: 189/189 kelompok tes lulus (+5 di `tests/fe-compact-export.test.mjs`, termasuk bentuk hasil Worker dengan `inputSnapshot`); audit 20 kasus/29 submodel lulus; browser 20/20 rute; axe WCAG 2.1 A/AA 52 tampilan 0 pelanggaran. Ukuran aset 601.891 byte, masih di bawah batas 600 KiB dengan sisa ±12,5 KiB.
