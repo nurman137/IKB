@@ -1,0 +1,22 @@
+{
+  "status": "F0_data_checks_passed_not_FE_validation",
+  "cases": 20,
+  "numeric_m0_outputs": 133,
+  "families": {
+    "beam": 7,
+    "axisymmetric": 6,
+    "pin_plate": 2,
+    "torsion": 3,
+    "combined": 2
+  },
+  "m0_sha256": "35f4fe7b9ac621580bc5b93455afdcf68112c668cf5b8fa77add78fe8088c34c",
+  "checks": [
+    "20 unique IDs exactly match M0",
+    "7+6+3+2+2 case coverage",
+    "baseline inputs preserved",
+    "133 independently recomputed analytic outputs match M0",
+    "extra input provenance explicit",
+    "routes unique",
+    "no solver result claimed"
+  ]
+}

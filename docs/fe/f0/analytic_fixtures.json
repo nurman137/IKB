@@ -1,0 +1,319 @@
+{
+  "version": "0.1",
+  "units": "N, mm, MPa, rad, kg; derived independently in SI",
+  "generator": "prepare_f0.py; no production model imports and no FE assembly",
+  "status": "analytic_reference_only_not_fe",
+  "cases": [
+    {
+      "id": "01-M",
+      "status": "analytic_reference_only_not_fe",
+      "expected": {
+        "RA_N": 6666.666666666666,
+        "RB_N": 3333.3333333333335,
+        "M_at_load_Nmm": 2666666.6666666665
+      },
+      "supplemental_analytic": {
+        "delta_at_load_mm": 0.1646090534979424,
+        "A_mm2": 7200.0,
+        "I_mm4": 8639999.999999998
+      }
+    },
+    {
+      "id": "01-K",
+      "status": "analytic_reference_only_not_fe",
+      "expected": {
+        "RA_N": 12000.0,
+        "RB_N": 8000.0,
+        "M_at_load_Nmm": 9600000.0
+      },
+      "supplemental_analytic": {
+        "delta_at_load_mm": 0.23039999999999997,
+        "A_mm2": 20000.000000000004,
+        "I_mm4": 66666666.66666669
+      }
+    },
+    {
+      "id": "02-M",
+      "status": "analytic_reference_only_not_fe",
+      "expected": {
+        "A_mm2": 314.1592653589794,
+        "sigma_MPa": 63.661977236758126,
+        "epsilon": 0.00031830988618379065,
+        "delta_mm": 0.15915494309189532
+      },
+      "supplemental_analytic": {}
+    },
+    {
+      "id": "02-K",
+      "status": "analytic_reference_only_not_fe",
+      "expected": {
+        "A_mm2": 452.3893421169302,
+        "sigma_MPa": 66.31455962162306,
+        "epsilon": 0.0003315727981081153,
+        "delta_mm": 0.3978873577297384
+      },
+      "supplemental_analytic": {}
+    },
+    {
+      "id": "03-M",
+      "status": "analytic_reference_only_not_fe",
+      "expected": {
+        "A_mm2": 314.1592653589794,
+        "sigma_MPa": 31.830988618379063,
+        "epsilon": 0.00015915494309189532,
+        "delta_mm": 0.07957747154594766,
+        "k_N_per_mm": 125663.70614359174,
+        "epsilon_lateral": -4.7746482927568594e-05,
+        "delta_d_mm": -0.0009549296585513718,
+        "G_MPa": 76923.07692307692,
+        "delta_if_E70000_mm": 0.22736420441699332
+      },
+      "supplemental_analytic": {
+        "U_J": 0.3978873577297383
+      }
+    },
+    {
+      "id": "03-K",
+      "status": "analytic_reference_only_not_fe",
+      "expected": {
+        "A_mm2": 490.87385212340524,
+        "sigma_MPa": 30.557749073643905,
+        "epsilon": 0.0001527887453682195,
+        "delta_mm": 0.15278874536821951,
+        "k_N_per_mm": 98174.77042468103,
+        "epsilon_lateral": -4.583662361046585e-05,
+        "delta_d_mm": -0.0011459155902616464,
+        "G_MPa": 76923.07692307692,
+        "delta_if_E70000_mm": 0.4365392724806271
+      },
+      "supplemental_analytic": {
+        "U_J": 1.1459155902616462
+      }
+    },
+    {
+      "id": "04-M",
+      "status": "analytic_reference_only_not_fe",
+      "expected": {
+        "A_pin_mm2": 113.09733552923255,
+        "tau_avg_MPa": 106.10329539459688,
+        "bearing_center_MPa": 125.0
+      },
+      "supplemental_analytic": {
+        "center_force_N": 12000,
+        "center_p0_MPa": 159.15494309189535,
+        "center_sigma_net_MPa": 24.999999999999993
+      }
+    },
+    {
+      "id": "04-K",
+      "status": "analytic_reference_only_not_fe",
+      "expected": {
+        "A_pin_mm2": 314.1592653589794,
+        "tau_avg_MPa": 63.661977236758126,
+        "bearing_center_MPa": 166.66666666666666,
+        "bearing_each_outer_MPa": 100.0
+      },
+      "supplemental_analytic": {
+        "center_force_N": 40000,
+        "center_p0_MPa": 212.20659078919377,
+        "center_sigma_net_MPa": 33.333333333333336,
+        "outer_each_force_N": 20000.0,
+        "outer_each_p0_MPa": 127.32395447351625
+      }
+    },
+    {
+      "id": "05-M",
+      "status": "analytic_reference_only_not_fe",
+      "expected": {
+        "J_mm4": 79521.56404399163,
+        "tauMax_MPa": 37.72561614030112,
+        "theta_rad": 0.019617320392956585,
+        "theta_deg": 1.123989663872334
+      },
+      "supplemental_analytic": {}
+    },
+    {
+      "id": "05-K",
+      "status": "analytic_reference_only_not_fe",
+      "expected": {
+        "J_mm4": 1272345.024703866,
+        "tauMax_MPa": 35.3677651315323,
+        "theta_rad": 0.03065206311399466,
+        "theta_deg": 1.7562338498005217
+      },
+      "supplemental_analytic": {}
+    },
+    {
+      "id": "06-M",
+      "status": "analytic_reference_only_not_fe",
+      "expected": {
+        "A_mm2": 7200.0,
+        "I_mm4": 8639999.999999998,
+        "R_N": 4000.0,
+        "Mmax_Nmm": 3000000.0,
+        "sigmaMax_MPa": 20.833333333333336,
+        "deltaMax_mm": 0.3255208333333334
+      },
+      "supplemental_analytic": {}
+    },
+    {
+      "id": "06-K",
+      "status": "analytic_reference_only_not_fe",
+      "expected": {
+        "A_mm2": 20000.000000000004,
+        "I_mm4": 66666666.66666669,
+        "R_N": 10000.0,
+        "Mmax_Nmm": 15000000.0,
+        "sigmaMax_MPa": 22.499999999999993,
+        "deltaMax_mm": 0.8437499999999998
+      },
+      "supplemental_analytic": {}
+    },
+    {
+      "id": "07-M",
+      "status": "analytic_reference_only_not_fe",
+      "expected": {
+        "orientation_A": {
+          "A_mm2": 4000.0,
+          "I_mm4": 3333333.333333334,
+          "R_N": 1000.0,
+          "Mmax_Nmm": 500000.0,
+          "sigmaMax_MPa": 7.499999999999998,
+          "deltaMax_mm": 0.062499999999999986
+        },
+        "orientation_B": {
+          "A_mm2": 4000.0,
+          "I_mm4": 533333.3333333335,
+          "R_N": 1000.0,
+          "Mmax_Nmm": 500000.0,
+          "sigmaMax_MPa": 18.749999999999996,
+          "deltaMax_mm": 0.3906249999999999
+        }
+      },
+      "supplemental_analytic": {}
+    },
+    {
+      "id": "07-K",
+      "status": "analytic_reference_only_not_fe",
+      "expected": {
+        "orientation_A": {
+          "A_mm2": 9600.0,
+          "I_mm4": 20480000.000000004,
+          "R_N": 2500.0,
+          "Mmax_Nmm": 2500000.0,
+          "sigmaMax_MPa": 9.765624999999998,
+          "deltaMax_mm": 0.20345052083333331
+        },
+        "orientation_B": {
+          "A_mm2": 9600.0,
+          "I_mm4": 2879999.9999999995,
+          "R_N": 2500.0,
+          "Mmax_Nmm": 2500000.0,
+          "sigmaMax_MPa": 26.04166666666667,
+          "deltaMax_mm": 1.4467592592592593
+        }
+      },
+      "supplemental_analytic": {}
+    },
+    {
+      "id": "08-M",
+      "status": "analytic_reference_only_not_fe",
+      "expected": {
+        "A_mm2": 452.3893421169303,
+        "delta_free_mm": 0.9600000000000001,
+        "sigma_fully_fixed_MPa": -96.0,
+        "reactionMagnitude_N": 43429.37684322531,
+        "delta_fully_fixed_mm": 0
+      },
+      "supplemental_analytic": {}
+    },
+    {
+      "id": "08-K",
+      "status": "analytic_reference_only_not_fe",
+      "expected": {
+        "A_mm2": 1319.4689145077132,
+        "delta_free_mm": 1.8000000000000003,
+        "sigma_fully_fixed_MPa": -120.00000000000001,
+        "reactionMagnitude_N": 158336.2697409256,
+        "delta_fully_fixed_mm": 0
+      },
+      "supplemental_analytic": {}
+    },
+    {
+      "id": "09-M",
+      "status": "analytic_reference_only_not_fe",
+      "expected": {
+        "A_mm2": 1256.6370614359175,
+        "I_mm4": 125663.70614359173,
+        "J_mm4": 251327.41228718346,
+        "sigma_edge_A_MPa": 47.7464829275686,
+        "sigma_edge_B_MPa": -47.7464829275686,
+        "tau_surface_MPa": 15.915494309189533,
+        "sigma_vm_max_MPa": 55.13288954217921,
+        "n_yield": 4.534498410585544
+      },
+      "supplemental_analytic": {}
+    },
+    {
+      "id": "09-K",
+      "status": "analytic_reference_only_not_fe",
+      "expected": {
+        "A_mm2": 3848.4510006474975,
+        "I_mm4": 1178588.1189482962,
+        "J_mm4": 2357176.2378965924,
+        "sigma_edge_A_MPa": -12.992240252399618,
+        "sigma_edge_B_MPa": -12.992240252399618,
+        "tau_surface_MPa": 29.696549148341976,
+        "sigma_vm_max_MPa": 53.05142223103679,
+        "n_yield": 4.71240900783508
+      },
+      "supplemental_analytic": {}
+    },
+    {
+      "id": "10-M",
+      "status": "analytic_reference_only_not_fe",
+      "expected": {
+        "alternative_A": {
+          "J_mm4": 147323.51486853702,
+          "tauMax_MPa": 17.817929489005188,
+          "theta_rad": 0.01058894095346594,
+          "theta_deg": 0.6067016261468322,
+          "mass_kg": 6.042068071016571,
+          "n_yield": 8.100692473077304
+        },
+        "alternative_B": {
+          "J_mm4": 131615.55160058808,
+          "tauMax_MPa": 19.94445160983751,
+          "theta_rad": 0.011852702670989146,
+          "theta_deg": 0.679109838871116,
+          "mass_kg": 4.06914788456218,
+          "n_yield": 7.236978490108626
+        }
+      },
+      "supplemental_analytic": {}
+    },
+    {
+      "id": "10-K",
+      "status": "analytic_reference_only_not_fe",
+      "expected": {
+        "alternative_A": {
+          "A_mm2": 14400.0,
+          "I_mm4": 38880000.0,
+          "R_N": 7500.0,
+          "Mmax_Nmm": 9375000.0,
+          "sigmaMax_MPa": 21.70138888888889,
+          "deltaMax_mm": 0.6279337062757202
+        },
+        "alternative_B": {
+          "A_mm2": 14400.0,
+          "I_mm4": 7680000.000000001,
+          "R_N": 7500.0,
+          "Mmax_Nmm": 9375000.0,
+          "sigmaMax_MPa": 48.82812499999999,
+          "deltaMax_mm": 3.1789143880208326
+        }
+      },
+      "supplemental_analytic": {}
+    }
+  ]
+}

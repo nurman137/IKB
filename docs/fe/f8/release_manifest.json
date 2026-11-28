@@ -1,0 +1,407 @@
+{
+  "release": "FE-1.0.0-rc.1",
+  "publicDeployment": false,
+  "routes": 54,
+  "htmlIncluding404": 55,
+  "assetBytes": 603968,
+  "referenceHashes": {
+    "docs/fe/f6/reference_scipy.py": "faa29b7e3a57f6ec08387ef8481fdb3457d0d2e2d80b3d7324ef9bf6c43982c1",
+    "docs/fe/f6/reference_scipy.json": "1d7c15d8199d263fd22c4c36c2b8279929ab7c16dc93152de40708173a583743"
+  },
+  "cases": [
+    {
+      "caseId": "01-M",
+      "kernels": [
+        "BEAM2"
+      ],
+      "status": [
+        "solved_unverified"
+      ],
+      "nodes": [
+        9
+      ],
+      "elements": [
+        8
+      ],
+      "jsonBytes": 6385,
+      "compactJsonBytes": 6388,
+      "csvBytes": 957
+    },
+    {
+      "caseId": "01-K",
+      "kernels": [
+        "BEAM2"
+      ],
+      "status": [
+        "solved_unverified"
+      ],
+      "nodes": [
+        9
+      ],
+      "elements": [
+        8
+      ],
+      "jsonBytes": 6396,
+      "compactJsonBytes": 6393,
+      "csvBytes": 848
+    },
+    {
+      "caseId": "02-M",
+      "kernels": [
+        "AX2"
+      ],
+      "status": [
+        "solved_unverified"
+      ],
+      "nodes": [
+        63
+      ],
+      "elements": [
+        20
+      ],
+      "jsonBytes": 472903,
+      "compactJsonBytes": 19958,
+      "csvBytes": 1096
+    },
+    {
+      "caseId": "02-K",
+      "kernels": [
+        "AX2"
+      ],
+      "status": [
+        "solved_unverified"
+      ],
+      "nodes": [
+        123
+      ],
+      "elements": [
+        40
+      ],
+      "jsonBytes": 943014,
+      "compactJsonBytes": 4759,
+      "csvBytes": 1094
+    },
+    {
+      "caseId": "03-M",
+      "kernels": [
+        "AX2"
+      ],
+      "status": [
+        "solved_unverified"
+      ],
+      "nodes": [
+        63
+      ],
+      "elements": [
+        20
+      ],
+      "jsonBytes": 476658,
+      "compactJsonBytes": 20244,
+      "csvBytes": 1189
+    },
+    {
+      "caseId": "03-K",
+      "kernels": [
+        "AX2"
+      ],
+      "status": [
+        "solved_unverified"
+      ],
+      "nodes": [
+        99
+      ],
+      "elements": [
+        32
+      ],
+      "jsonBytes": 761398,
+      "compactJsonBytes": 4945,
+      "csvBytes": 1187
+    },
+    {
+      "caseId": "04-M",
+      "kernels": [
+        "PS2"
+      ],
+      "status": [
+        "solved_unverified"
+      ],
+      "nodes": [
+        1188
+      ],
+      "elements": [
+        528
+      ],
+      "jsonBytes": 847807,
+      "compactJsonBytes": 3793,
+      "csvBytes": 1181
+    },
+    {
+      "caseId": "04-K",
+      "kernels": [
+        "PS2",
+        "PS2"
+      ],
+      "status": [
+        "solved_unverified",
+        "solved_unverified"
+      ],
+      "nodes": [
+        1188,
+        1188
+      ],
+      "elements": [
+        528,
+        528
+      ],
+      "jsonBytes": 1694318,
+      "compactJsonBytes": 6917,
+      "csvBytes": 2296
+    },
+    {
+      "caseId": "05-M",
+      "kernels": [
+        "TOR2"
+      ],
+      "status": [
+        "solved_unverified"
+      ],
+      "nodes": [
+        897
+      ],
+      "elements": [
+        384
+      ],
+      "jsonBytes": 428147,
+      "compactJsonBytes": 4262,
+      "csvBytes": 633
+    },
+    {
+      "caseId": "05-K",
+      "kernels": [
+        "TOR2"
+      ],
+      "status": [
+        "solved_unverified"
+      ],
+      "nodes": [
+        897
+      ],
+      "elements": [
+        384
+      ],
+      "jsonBytes": 427946,
+      "compactJsonBytes": 4265,
+      "csvBytes": 634
+    },
+    {
+      "caseId": "06-M",
+      "kernels": [
+        "BEAM2"
+      ],
+      "status": [
+        "solved_unverified"
+      ],
+      "nodes": [
+        5
+      ],
+      "elements": [
+        4
+      ],
+      "jsonBytes": 3956,
+      "compactJsonBytes": 4221,
+      "csvBytes": 394
+    },
+    {
+      "caseId": "06-K",
+      "kernels": [
+        "BEAM2"
+      ],
+      "status": [
+        "solved_unverified"
+      ],
+      "nodes": [
+        5
+      ],
+      "elements": [
+        4
+      ],
+      "jsonBytes": 3929,
+      "compactJsonBytes": 4194,
+      "csvBytes": 355
+    },
+    {
+      "caseId": "07-M",
+      "kernels": [
+        "BEAM2",
+        "BEAM2"
+      ],
+      "status": [
+        "solved_unverified",
+        "solved_unverified"
+      ],
+      "nodes": [
+        9,
+        9
+      ],
+      "elements": [
+        8,
+        8
+      ],
+      "jsonBytes": 11158,
+      "compactJsonBytes": 10915,
+      "csvBytes": 1159
+    },
+    {
+      "caseId": "07-K",
+      "kernels": [
+        "BEAM2",
+        "BEAM2"
+      ],
+      "status": [
+        "solved_unverified",
+        "solved_unverified"
+      ],
+      "nodes": [
+        9,
+        9
+      ],
+      "elements": [
+        8,
+        8
+      ],
+      "jsonBytes": 11245,
+      "compactJsonBytes": 10992,
+      "csvBytes": 1254
+    },
+    {
+      "caseId": "08-M",
+      "kernels": [
+        "AX2",
+        "AX2"
+      ],
+      "status": [
+        "solved_unverified",
+        "solved_unverified"
+      ],
+      "nodes": [
+        603,
+        603
+      ],
+      "elements": [
+        200,
+        200
+      ],
+      "jsonBytes": 9524804,
+      "compactJsonBytes": 8483,
+      "csvBytes": 1990
+    },
+    {
+      "caseId": "08-K",
+      "kernels": [
+        "AX2",
+        "AX2"
+      ],
+      "status": [
+        "solved_unverified",
+        "solved_unverified"
+      ],
+      "nodes": [
+        603,
+        603
+      ],
+      "elements": [
+        200,
+        200
+      ],
+      "jsonBytes": 9520175,
+      "compactJsonBytes": 8496,
+      "csvBytes": 2030
+    },
+    {
+      "caseId": "09-M",
+      "kernels": [
+        "BEAM2",
+        "TOR2"
+      ],
+      "status": [
+        "solved_unverified"
+      ],
+      "nodes": [
+        5,
+        897
+      ],
+      "elements": [
+        4,
+        384
+      ],
+      "jsonBytes": 432420,
+      "compactJsonBytes": 8769,
+      "csvBytes": 1968
+    },
+    {
+      "caseId": "09-K",
+      "kernels": [
+        "BEAM2",
+        "TOR2"
+      ],
+      "status": [
+        "solved_unverified"
+      ],
+      "nodes": [
+        5,
+        897
+      ],
+      "elements": [
+        4,
+        384
+      ],
+      "jsonBytes": 431654,
+      "compactJsonBytes": 8234,
+      "csvBytes": 1933
+    },
+    {
+      "caseId": "10-M",
+      "kernels": [
+        "TOR2",
+        "TOR2"
+      ],
+      "status": [
+        "solved_unverified",
+        "solved_unverified"
+      ],
+      "nodes": [
+        897,
+        1280
+      ],
+      "elements": [
+        384,
+        512
+      ],
+      "jsonBytes": 1002883,
+      "compactJsonBytes": 7840,
+      "csvBytes": 1208
+    },
+    {
+      "caseId": "10-K",
+      "kernels": [
+        "BEAM2",
+        "BEAM2"
+      ],
+      "status": [
+        "solved_unverified",
+        "solved_unverified"
+      ],
+      "nodes": [
+        9,
+        9
+      ],
+      "elements": [
+        8,
+        8
+      ],
+      "jsonBytes": 11216,
+      "compactJsonBytes": 10974,
+      "csvBytes": 1245
+    }
+  ]
+}

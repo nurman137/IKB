@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Tes, audit FE dan berkas turunan (Node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      # Tanpa dependensi npm; npm test membangun dist/ lalu menjalankan seluruh tes.
+      - name: Build dan tes
+        run: npm test
+      - name: Audit rilis FE (20 kasus, ekspor JSON/CSV)
+        run: node scripts/audit-fe-release.mjs
+      - name: Buat ulang lembar tinjauan dosen
+        run: node scripts/review-sheet.mjs
+      # Manifest audit dan lembar tinjauan dihasilkan dari kode; keduanya harus sudah di-commit dalam keadaan mutakhir.
+      - name: Berkas turunan mutakhir
+        run: git diff --exit-code -- docs/fe/f8/release_manifest.json docs/tinjauan_dosen.md

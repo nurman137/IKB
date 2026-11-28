@@ -1,0 +1,1112 @@
+{
+  "runs": [
+    {
+      "context": "mesin",
+      "key": "center",
+      "level": "coarse",
+      "nodes": 1188,
+      "elements": 528,
+      "summary": {
+        "status": "solved_unverified",
+        "message": "Submodel pelat dengan traction ditetapkan; bukan kontak pin.",
+        "key": "center",
+        "path": [
+          {
+            "x_mm": 12,
+            "y_mm": 0,
+            "stress": [
+              21.848615886859704,
+              2.5127336736807964,
+              -0.03243577726856124
+            ],
+            "displacement": [
+              0.0011951045423995459,
+              5.714621433543964e-8
+            ]
+          },
+          {
+            "x_mm": 18,
+            "y_mm": 0,
+            "stress": [
+              20.49858502816236,
+              2.0771571907038244,
+              -0.13546886744093126
+            ],
+            "displacement": [
+              0.0018157244407807599,
+              8.773715387982656e-7
+            ]
+          },
+          {
+            "x_mm": 24,
+            "y_mm": 12,
+            "stress": [
+              27.08745999658125,
+              -1.4493594041927507,
+              -2.9603658901903684
+            ],
+            "displacement": [
+              0.0027184389373679486,
+              -0.00045712726781224784
+            ]
+          },
+          {
+            "x_mm": 36,
+            "y_mm": 12,
+            "stress": [
+              29.50969982410612,
+              6.2633636650319175,
+              -4.221723808650539
+            ],
+            "displacement": [
+              0.004489304695641016,
+              -0.00042680281531101217
+            ]
+          },
+          {
+            "x_mm": 48,
+            "y_mm": 0,
+            "stress": [
+              -54.43018136123699,
+              19.469485884070593,
+              -0.9380696289159552
+            ],
+            "displacement": [
+              0.008646385224184056,
+              0.0000022675633764876752
+            ]
+          }
+        ],
+        "maxVM_MPa": 155.913500122914,
+        "maxStrain": 0.0007200233929750364,
+        "maxDisplacement_mm": 0.011730686316371971,
+        "energy_Nmm": 67.10175526133779,
+        "reactionX_N": -12000.00000151767,
+        "reactionY_N": 9.599648365110625e-8,
+        "reactionMoment_Nmm": -0.00001706182592897676,
+        "pinTau_MPa": 106.1032953945969,
+        "bearing_MPa": 125,
+        "diagnostics": {
+          "elasticEnergy_Nmm": 67.10175526133779,
+          "solverMethod": "pcg",
+          "constraintResidual": 0,
+          "freeDofs": 2310,
+          "totalDofs": 2376,
+          "nonzeros": 50630,
+          "iterations": 864,
+          "balanceTolerance": {
+            "force": 0.03350302484755834,
+            "moment": 0.5591659351748548
+          },
+          "residual": 9.587319547949717e-10,
+          "symmetry": 4.274084229276041e-17,
+          "balance": {
+            "Fx": -0.0000015176697161223274,
+            "Fy": 9.59962562774308e-8,
+            "Mz": -0.000017061840480891988
+          },
+          "energy_Nmm": 67.10175526133779,
+          "halfWork_Nmm": 67.10175526133766,
+          "denseDifference": null,
+          "elapsedMs": 849.058734
+        }
+      },
+      "comparison": {
+        "energy": 0.004051912132671507,
+        "displacement": 0.0006137945977006772,
+        "stressPath": 0.03176609861731687
+      }
+    },
+    {
+      "context": "mesin",
+      "key": "center",
+      "level": "medium",
+      "nodes": 2548,
+      "elements": 1176,
+      "summary": {
+        "status": "solved_unverified",
+        "message": "Submodel pelat dengan traction ditetapkan; bukan kontak pin.",
+        "key": "center",
+        "path": [
+          {
+            "x_mm": 12,
+            "y_mm": 0,
+            "stress": [
+              21.55201169649562,
+              2.6468416490091444,
+              -0.029292702525149934
+            ],
+            "displacement": [
+              0.001194553058022171,
+              3.114153622263504e-7
+            ]
+          },
+          {
+            "x_mm": 18,
+            "y_mm": 0,
+            "stress": [
+              20.547078260643964,
+              2.0534030384301962,
+              -0.06797013743132085
+            ],
+            "displacement": [
+              0.0018146196648353222,
+              2.686795977972142e-7
+            ]
+          },
+          {
+            "x_mm": 24,
+            "y_mm": 12,
+            "stress": [
+              27.856414524989287,
+              -1.4079193382883322,
+              -2.531919233170675
+            ],
+            "displacement": [
+              0.002718242450855457,
+              -0.0004597859539361076
+            ]
+          },
+          {
+            "x_mm": 36,
+            "y_mm": 12,
+            "stress": [
+              29.71118181047811,
+              6.650711739462345,
+              -3.9085414436747343
+            ],
+            "displacement": [
+              0.004497764900617341,
+              -0.00043557600069172805
+            ]
+          },
+          {
+            "x_mm": 48,
+            "y_mm": 0,
+            "stress": [
+              -56.677763650718624,
+              19.366845711903203,
+              -0.6293360875066368
+            ],
+            "displacement": [
+              0.008644580143105887,
+              9.888012247333325e-7
+            ]
+          }
+        ],
+        "maxVM_MPa": 166.34331791585575,
+        "maxStrain": 0.0007750985918909007,
+        "maxDisplacement_mm": 0.011774480978354976,
+        "energy_Nmm": 67.30712107194321,
+        "reactionX_N": -12000.000000396654,
+        "reactionY_N": 0.0000023553688777155912,
+        "reactionMoment_Nmm": 0.000026439043722348288,
+        "pinTau_MPa": 106.1032953945969,
+        "bearing_MPa": 125,
+        "diagnostics": {
+          "elasticEnergy_Nmm": 67.30712107194321,
+          "solverMethod": "pcg",
+          "constraintResidual": 0,
+          "freeDofs": 4998,
+          "totalDofs": 5096,
+          "nonzeros": 111181,
+          "iterations": 1306,
+          "balanceTolerance": {
+            "force": 0.03349081650225848,
+            "moment": 0.5591722635062842
+          },
+          "residual": 9.683321917031723e-10,
+          "symmetry": 5.498407104564653e-17,
+          "balance": {
+            "Fx": -3.9665246731601655e-7,
+            "Fy": 0.0000023553684229682403,
+            "Mz": 0.00002643902917043306
+          },
+          "energy_Nmm": 67.30712107194321,
+          "halfWork_Nmm": 67.3071210719423,
+          "denseDifference": null,
+          "elapsedMs": 1785.6769090000003
+        }
+      },
+      "comparison": {
+        "energy": 0.0010037998204195844,
+        "displacement": 0.00015205852698124624,
+        "stressPath": 0.01119497528853313
+      }
+    },
+    {
+      "context": "mesin",
+      "key": "center",
+      "level": "fine",
+      "nodes": 4420,
+      "elements": 2080,
+      "summary": {
+        "status": "solved_unverified",
+        "message": "Submodel pelat dengan traction ditetapkan; bukan kontak pin.",
+        "key": "center",
+        "path": [
+          {
+            "x_mm": 12,
+            "y_mm": 0,
+            "stress": [
+              21.640439632670386,
+              2.6310208199731338,
+              -0.014136943297999855
+            ],
+            "displacement": [
+              0.001193925853700022,
+              9.951558528504472e-8
+            ]
+          },
+          {
+            "x_mm": 18,
+            "y_mm": 0,
+            "stress": [
+              20.711018163287626,
+              2.0192749940115196,
+              -0.04014138202818286
+            ],
+            "displacement": [
+              0.0018140449053926937,
+              8.249116556242267e-8
+            ]
+          },
+          {
+            "x_mm": 24,
+            "y_mm": 12,
+            "stress": [
+              28.07691476291484,
+              -1.4334363325213832,
+              -2.4301268592547887
+            ],
+            "displacement": [
+              0.002718625710486915,
+              -0.00046094357756972724
+            ]
+          },
+          {
+            "x_mm": 36,
+            "y_mm": 12,
+            "stress": [
+              29.45332309409777,
+              6.708644495955378,
+              -3.8182874048427635
+            ],
+            "displacement": [
+              0.004499682980057471,
+              -0.00043846307730908073
+            ]
+          },
+          {
+            "x_mm": 48,
+            "y_mm": 0,
+            "stress": [
+              -56.841464535710394,
+              20.125047150124082,
+              -0.30521966826647284
+            ],
+            "displacement": [
+              0.00865893400138694,
+              4.129537806384773e-7
+            ]
+          }
+        ],
+        "maxVM_MPa": 170.90220657082833,
+        "maxStrain": 0.000798582382312461,
+        "maxDisplacement_mm": 0.011784261752351586,
+        "energy_Nmm": 67.35040922706216,
+        "reactionX_N": -12000.000000090142,
+        "reactionY_N": 1.4361751254909905e-7,
+        "reactionMoment_Nmm": 0.0000017510592442704365,
+        "pinTau_MPa": 106.1032953945969,
+        "bearing_MPa": 125,
+        "diagnostics": {
+          "elasticEnergy_Nmm": 67.35040922706216,
+          "solverMethod": "pcg",
+          "constraintResidual": 0,
+          "freeDofs": 8710,
+          "totalDofs": 8840,
+          "nonzeros": 195334,
+          "iterations": 3475,
+          "balanceTolerance": {
+            "force": 0.033485665583345106,
+            "moment": 0.5591345876801207
+          },
+          "residual": 9.636840309270504e-10,
+          "symmetry": 6.693783657052131e-17,
+          "balance": {
+            "Fx": -9.0141213604511e-8,
+            "Fy": 1.4361694411491044e-7,
+            "Mz": 0.0000017510883481008932
+          },
+          "energy_Nmm": 67.35040922706216,
+          "halfWork_Nmm": 67.3504092270921,
+          "denseDifference": null,
+          "elapsedMs": 4902.044581
+        }
+      },
+      "comparison": {
+        "energy": 0.00036130164507221815,
+        "displacement": 0.00037307486052435754,
+        "stressPath": 0.011127128209619128
+      }
+    },
+    {
+      "context": "kapal",
+      "key": "center",
+      "level": "coarse",
+      "nodes": 1188,
+      "elements": 528,
+      "summary": {
+        "status": "solved_unverified",
+        "message": "Submodel pelat dengan traction ditetapkan; bukan kontak pin.",
+        "key": "center",
+        "path": [
+          {
+            "x_mm": 20,
+            "y_mm": 0,
+            "stress": [
+              29.13148784797159,
+              3.350311567479365,
+              -0.043247700246799914
+            ],
+            "displacement": [
+              0.0026557878719583082,
+              1.2699160097887676e-7
+            ]
+          },
+          {
+            "x_mm": 30,
+            "y_mm": 0,
+            "stress": [
+              27.331446705444073,
+              2.7695429229784443,
+              -0.18062515660508316
+            ],
+            "displacement": [
+              0.004034943201720971,
+              0.0000019497145955993726
+            ]
+          },
+          {
+            "x_mm": 40,
+            "y_mm": 20,
+            "stress": [
+              36.11661333031215,
+              -1.9324792041679517,
+              -3.9471545181191066
+            ],
+            "displacement": [
+              0.006040975416412279,
+              -0.0010158383729254
+            ]
+          },
+          {
+            "x_mm": 60,
+            "y_mm": 20,
+            "stress": [
+              39.34626643545401,
+              8.351151553552084,
+              -5.628965076903639
+            ],
+            "displacement": [
+              0.009976232656949215,
+              -0.0009484507006802738
+            ]
+          },
+          {
+            "x_mm": 80,
+            "y_mm": 0,
+            "stress": [
+              -72.57357514709685,
+              25.959314516740598,
+              -1.2507595058420817
+            ],
+            "displacement": [
+              0.01921418938709972,
+              0.000005039029714611775
+            ]
+          }
+        ],
+        "maxVM_MPa": 207.88466682976642,
+        "maxStrain": 0.0009600311906355137,
+        "maxDisplacement_mm": 0.02606819181412256,
+        "energy_Nmm": 497.050038972878,
+        "reactionX_N": -40000.00000533601,
+        "reactionY_N": 6.27823510512826e-7,
+        "reactionMoment_Nmm": -0.00012310293095652014,
+        "pinTau_MPa": 63.66197723675813,
+        "bearing_MPa": 166.66666666666666,
+        "diagnostics": {
+          "elasticEnergy_Nmm": 497.050038972878,
+          "solverMethod": "pcg",
+          "constraintResidual": 0,
+          "freeDofs": 2310,
+          "totalDofs": 2376,
+          "nonzeros": 50635,
+          "iterations": 863,
+          "balanceTolerance": {
+            "force": 0.11167674949236231,
+            "moment": 3.106477417645949
+          },
+          "residual": 9.96356362689863e-10,
+          "symmetry": 2.849389486184014e-17,
+          "balance": {
+            "Fx": -0.00000533601587449084,
+            "Fy": 6.278239652601769e-7,
+            "Mz": -0.00012310287274885923
+          },
+          "energy_Nmm": 497.050038972878,
+          "halfWork_Nmm": 497.0500389728667,
+          "denseDifference": null,
+          "elapsedMs": 531.8405669999993
+        }
+      },
+      "comparison": {
+        "energy": 0.004051912132660532,
+        "displacement": 0.0006137945823727925,
+        "stressPath": 0.03176609863358186
+      }
+    },
+    {
+      "context": "kapal",
+      "key": "outer",
+      "level": "coarse",
+      "nodes": 1188,
+      "elements": 528,
+      "summary": {
+        "status": "solved_unverified",
+        "message": "Submodel pelat dengan traction ditetapkan; bukan kontak pin.",
+        "key": "outer",
+        "path": [
+          {
+            "x_mm": 20,
+            "y_mm": 0,
+            "stress": [
+              17.478892708272497,
+              2.0101869400796843,
+              -0.025948619492250226
+            ],
+            "displacement": [
+              0.0015934727231673054,
+              7.619496581146371e-8
+            ]
+          },
+          {
+            "x_mm": 30,
+            "y_mm": 0,
+            "stress": [
+              16.398868023654295,
+              1.6617257544751882,
+              -0.10837509426233974
+            ],
+            "displacement": [
+              0.0024209659210307957,
+              0.0000011698287655589315
+            ]
+          },
+          {
+            "x_mm": 40,
+            "y_mm": 20,
+            "stress": [
+              21.669967996707598,
+              -1.1594875242781457,
+              -2.368292711565684
+            ],
+            "displacement": [
+              0.0036245852498522965,
+              -0.0006095030237563623
+            ]
+          },
+          {
+            "x_mm": 60,
+            "y_mm": 20,
+            "stress": [
+              23.607759861614916,
+              5.010690932123156,
+              -3.377379045916549
+            ],
+            "displacement": [
+              0.005985739594165561,
+              -0.000569070420407552
+            ]
+          },
+          {
+            "x_mm": 80,
+            "y_mm": 0,
+            "stress": [
+              -43.54414508819714,
+              15.575588710437351,
+              -0.7504557035772534
+            ],
+            "displacement": [
+              0.011528513632262413,
+              0.000003023417827317158
+            ]
+          }
+        ],
+        "maxVM_MPa": 124.7308000972563,
+        "maxStrain": 0.0005760187143806478,
+        "maxDisplacement_mm": 0.01564091508847002,
+        "energy_Nmm": 149.1150116918575,
+        "reactionX_N": -20000.000002651446,
+        "reactionY_N": 2.9503223686333513e-7,
+        "reactionMoment_Nmm": -0.00006062519969418645,
+        "pinTau_MPa": 63.66197723675813,
+        "bearing_MPa": 100,
+        "diagnostics": {
+          "elasticEnergy_Nmm": 149.1150116918575,
+          "solverMethod": "pcg",
+          "constraintResidual": 0,
+          "freeDofs": 2310,
+          "totalDofs": 2376,
+          "nonzeros": 50624,
+          "iterations": 863,
+          "balanceTolerance": {
+            "force": 0.055838374746222656,
+            "moment": 1.5532387088215556
+          },
+          "residual": 9.055101766920097e-10,
+          "symmetry": 3.419267383420817e-17,
+          "balance": {
+            "Fx": -0.0000026514576347835828,
+            "Fy": 2.9503246423701057e-7,
+            "Mz": -0.000060625141486525536
+          },
+          "energy_Nmm": 149.1150116918575,
+          "halfWork_Nmm": 149.11501169185888,
+          "denseDifference": null,
+          "elapsedMs": 376.02131700000064
+        }
+      },
+      "comparison": {
+        "energy": 0.004051912132700021,
+        "displacement": 0.0006137945775505411,
+        "stressPath": 0.03176609863493765
+      }
+    },
+    {
+      "context": "kapal",
+      "key": "center",
+      "level": "medium",
+      "nodes": 2548,
+      "elements": 1176,
+      "summary": {
+        "status": "solved_unverified",
+        "message": "Submodel pelat dengan traction ditetapkan; bukan kontak pin.",
+        "key": "center",
+        "path": [
+          {
+            "x_mm": 20,
+            "y_mm": 0,
+            "stress": [
+              28.736015595909315,
+              3.5291221992950734,
+              -0.0390569370782612
+            ],
+            "displacement": [
+              0.002654562351165431,
+              6.920341273969701e-7
+            ]
+          },
+          {
+            "x_mm": 30,
+            "y_mm": 0,
+            "stress": [
+              27.396104347738508,
+              2.7378707191915277,
+              -0.09062684982084644
+            ],
+            "displacement": [
+              0.00403248814409095,
+              5.970657586699822e-7
+            ]
+          },
+          {
+            "x_mm": 40,
+            "y_mm": 20,
+            "stress": [
+              37.14188603524869,
+              -1.8772257827271925,
+              -3.3758923100181244
+            ],
+            "displacement": [
+              0.006040538779675685,
+              -0.0010217465643091413
+            ]
+          },
+          {
+            "x_mm": 60,
+            "y_mm": 20,
+            "stress": [
+              39.61490908099968,
+              8.867615652177763,
+              -5.211388591533141
+            ],
+            "displacement": [
+              0.009995033112493966,
+              -0.0009679466681915506
+            ]
+          },
+          {
+            "x_mm": 80,
+            "y_mm": 0,
+            "stress": [
+              -75.57035153466362,
+              25.822460948424705,
+              -0.8391147827651645
+            ],
+            "displacement": [
+              0.01921017809579003,
+              0.000002197336060672854
+            ]
+          }
+        ],
+        "maxVM_MPa": 221.79109055472827,
+        "maxStrain": 0.001033464789187766,
+        "maxDisplacement_mm": 0.026165513285240822,
+        "energy_Nmm": 498.57126719960354,
+        "reactionX_N": -40000.00000145921,
+        "reactionY_N": 0.000007997153147698555,
+        "reactionMoment_Nmm": 0.00014183933672029525,
+        "pinTau_MPa": 63.66197723675813,
+        "bearing_MPa": 166.66666666666666,
+        "diagnostics": {
+          "elasticEnergy_Nmm": 498.57126719960354,
+          "solverMethod": "pcg",
+          "constraintResidual": 0,
+          "freeDofs": 4998,
+          "totalDofs": 5096,
+          "nonzeros": 111207,
+          "iterations": 1306,
+          "balanceTolerance": {
+            "force": 0.11163605500770576,
+            "moment": 3.106512575038717
+          },
+          "residual": 9.75332874765297e-10,
+          "symmetry": 7.3312094727528e-17,
+          "balance": {
+            "Fx": -0.0000014592201296181884,
+            "Fy": 0.000007997151783456502,
+            "Mz": 0.00014183968596626073
+          },
+          "energy_Nmm": 498.57126719960354,
+          "halfWork_Nmm": 498.57126719961417,
+          "denseDifference": null,
+          "elapsedMs": 1160.6754330000003
+        }
+      },
+      "comparison": {
+        "energy": 0.0010037998203711572,
+        "displacement": 0.0001520585288843501,
+        "stressPath": 0.011194975280834898
+      }
+    },
+    {
+      "context": "kapal",
+      "key": "outer",
+      "level": "medium",
+      "nodes": 2548,
+      "elements": 1176,
+      "summary": {
+        "status": "solved_unverified",
+        "message": "Submodel pelat dengan traction ditetapkan; bukan kontak pin.",
+        "key": "outer",
+        "path": [
+          {
+            "x_mm": 20,
+            "y_mm": 0,
+            "stress": [
+              17.24160935735101,
+              2.1174733178991763,
+              -0.023434162766767443
+            ],
+            "displacement": [
+              0.0015927374107123182,
+              4.1522043443113386e-7
+            ]
+          },
+          {
+            "x_mm": 30,
+            "y_mm": 0,
+            "stress": [
+              16.437662609765184,
+              1.64272243472046,
+              -0.054376109869901414
+            ],
+            "displacement": [
+              0.0024194928865059963,
+              3.582393981331148e-7
+            ]
+          },
+          {
+            "x_mm": 40,
+            "y_mm": 20,
+            "stress": [
+              22.285131619400925,
+              -1.1263354710483955,
+              -2.025535386983355
+            ],
+            "displacement": [
+              0.0036243232677867724,
+              -0.0006130479386271734
+            ]
+          },
+          {
+            "x_mm": 60,
+            "y_mm": 20,
+            "stress": [
+              23.768945445521084,
+              5.320569387542632,
+              -3.1268331566190963
+            ],
+            "displacement": [
+              0.005997019867563151,
+              -0.0005807680008690446
+            ]
+          },
+          {
+            "x_mm": 80,
+            "y_mm": 0,
+            "stress": [
+              -45.34221091990707,
+              15.49347657243081,
+              -0.5034688669274431
+            ],
+            "displacement": [
+              0.011526106857466311,
+              0.0000013184016524563155
+            ]
+          }
+        ],
+        "maxVM_MPa": 133.07465433273327,
+        "maxStrain": 0.000620078873524738,
+        "maxDisplacement_mm": 0.01569930797117319,
+        "energy_Nmm": 149.57138015987596,
+        "reactionX_N": -20000.000001330987,
+        "reactionY_N": 0.000004464761673261819,
+        "reactionMoment_Nmm": 0.00006578575994353741,
+        "pinTau_MPa": 63.66197723675813,
+        "bearing_MPa": 100,
+        "diagnostics": {
+          "elasticEnergy_Nmm": 149.57138015987596,
+          "solverMethod": "pcg",
+          "constraintResidual": 0,
+          "freeDofs": 4998,
+          "totalDofs": 5096,
+          "nonzeros": 111219,
+          "iterations": 1304,
+          "balanceTolerance": {
+            "force": 0.05581802750466875,
+            "moment": 1.5532562875372744
+          },
+          "residual": 9.880472721080524e-10,
+          "symmetry": 4.3987256836516797e-17,
+          "balance": {
+            "Fx": -0.0000013309927453519776,
+            "Fy": 0.000004464760991140793,
+            "Mz": 0.00006578587635885924
+          },
+          "energy_Nmm": 149.57138015987596,
+          "halfWork_Nmm": 149.57138015987397,
+          "denseDifference": null,
+          "elapsedMs": 1266.3419780000004
+        }
+      },
+      "comparison": {
+        "energy": 0.0010037998204052148,
+        "displacement": 0.00015205853708516933,
+        "stressPath": 0.011194975220094664
+      }
+    },
+    {
+      "context": "kapal",
+      "key": "center",
+      "level": "fine",
+      "nodes": 4420,
+      "elements": 2080,
+      "summary": {
+        "status": "solved_unverified",
+        "message": "Submodel pelat dengan traction ditetapkan; bukan kontak pin.",
+        "key": "center",
+        "path": [
+          {
+            "x_mm": 20,
+            "y_mm": 0,
+            "stress": [
+              28.85391950985433,
+              3.5080277599910668,
+              -0.01884925763174846
+            ],
+            "displacement": [
+              0.0026531685637186777,
+              2.2114586082130925e-7
+            ]
+          },
+          {
+            "x_mm": 30,
+            "y_mm": 0,
+            "stress": [
+              27.61469088501314,
+              2.692366657634851,
+              -0.053521842855192556
+            ],
+            "displacement": [
+              0.004031210900835822,
+              1.8331381356125105e-7
+            ]
+          },
+          {
+            "x_mm": 40,
+            "y_mm": 20,
+            "stress": [
+              37.43588635257609,
+              -1.911248441746884,
+              -3.240169144050416
+            ],
+            "displacement": [
+              0.006041390467734839,
+              -0.001024319061173159
+            ]
+          },
+          {
+            "x_mm": 60,
+            "y_mm": 20,
+            "stress": [
+              39.271097457627654,
+              8.944859326502053,
+              -5.091049872523298
+            ],
+            "displacement": [
+              0.009999295511358853,
+              -0.0009743623939692263
+            ]
+          },
+          {
+            "x_mm": 80,
+            "y_mm": 0,
+            "stress": [
+              -75.7886193807986,
+              26.83339620091189,
+              -0.4069595574773501
+            ],
+            "displacement": [
+              0.019242075558684936,
+              9.176748975474253e-7
+            ]
+          }
+        ],
+        "maxVM_MPa": 227.86960875864503,
+        "maxStrain": 0.001064776509742447,
+        "maxDisplacement_mm": 0.026187248338572864,
+        "energy_Nmm": 498.8919202016291,
+        "reactionX_N": -40000.00000064074,
+        "reactionY_N": 2.837585952875088e-7,
+        "reactionMoment_Nmm": 0.000004779882146976888,
+        "pinTau_MPa": 63.66197723675813,
+        "bearing_MPa": 166.66666666666666,
+        "diagnostics": {
+          "elasticEnergy_Nmm": 498.8919202016291,
+          "solverMethod": "pcg",
+          "constraintResidual": 0,
+          "freeDofs": 8710,
+          "totalDofs": 8840,
+          "nonzeros": 195374,
+          "iterations": 3457,
+          "balanceTolerance": {
+            "force": 0.11161888527801574,
+            "moment": 3.10630326489935
+          },
+          "residual": 9.931351096332638e-10,
+          "symmetry": 4.462522438033103e-17,
+          "balance": {
+            "Fx": -6.40746748103993e-7,
+            "Fy": 2.837585952875088e-7,
+            "Mz": 0.000004779882146976888
+          },
+          "energy_Nmm": 498.8919202016291,
+          "halfWork_Nmm": 498.8919202011595,
+          "denseDifference": null,
+          "elapsedMs": 4859.864685999999
+        }
+      },
+      "comparison": {
+        "energy": 0.0003613016427305139,
+        "displacement": 0.0003730748828096347,
+        "stressPath": 0.011127128207636673
+      }
+    },
+    {
+      "context": "kapal",
+      "key": "outer",
+      "level": "fine",
+      "nodes": 4420,
+      "elements": 2080,
+      "summary": {
+        "status": "solved_unverified",
+        "message": "Submodel pelat dengan traction ditetapkan; bukan kontak pin.",
+        "key": "outer",
+        "path": [
+          {
+            "x_mm": 20,
+            "y_mm": 0,
+            "stress": [
+              17.312351706293484,
+              2.1048166552338974,
+              -0.011309554461963581
+            ],
+            "displacement": [
+              0.0015919011382632881,
+              1.3268745332230658e-7
+            ]
+          },
+          {
+            "x_mm": 30,
+            "y_mm": 0,
+            "stress": [
+              16.568814530942873,
+              1.6154199954210715,
+              -0.03211310554925505
+            ],
+            "displacement": [
+              0.0024187265405166726,
+              1.0998822546403199e-7
+            ]
+          },
+          {
+            "x_mm": 40,
+            "y_mm": 20,
+            "stress": [
+              22.461531810469257,
+              -1.1467490664093614,
+              -1.9441014872226647
+            ],
+            "displacement": [
+              0.003624834280648339,
+              -0.0006145914367520901
+            ]
+          },
+          {
+            "x_mm": 60,
+            "y_mm": 20,
+            "stress": [
+              23.562658475783273,
+              5.366915596506095,
+              -3.0546299240110373
+            ],
+            "displacement": [
+              0.005999577306746724,
+              -0.000584617436405319
+            ]
+          },
+          {
+            "x_mm": 80,
+            "y_mm": 0,
+            "stress": [
+              -45.47317162814707,
+              16.1000377200701,
+              -0.24417573457800346
+            ],
+            "displacement": [
+              0.011545245335176067,
+              5.50605011413144e-7
+            ]
+          }
+        ],
+        "maxVM_MPa": 136.72176525482325,
+        "maxStrain": 0.0006388659058443368,
+        "maxDisplacement_mm": 0.015712349003121587,
+        "energy_Nmm": 149.66757606008233,
+        "reactionX_N": -20000.000000127937,
+        "reactionY_N": 2.3738914478599327e-7,
+        "reactionMoment_Nmm": 0.0000012771270121447742,
+        "pinTau_MPa": 63.66197723675813,
+        "bearing_MPa": 100,
+        "diagnostics": {
+          "elasticEnergy_Nmm": 149.66757606008233,
+          "solverMethod": "pcg",
+          "constraintResidual": 0,
+          "freeDofs": 8710,
+          "totalDofs": 8840,
+          "nonzeros": 195362,
+          "iterations": 3471,
+          "balanceTolerance": {
+            "force": 0.055809442638874954,
+            "moment": 1.5531516324435688
+          },
+          "residual": 7.61312714432952e-10,
+          "symmetry": 5.355026925639725e-17,
+          "balance": {
+            "Fx": -1.2793577752745477e-7,
+            "Fy": 2.3738869003864238e-7,
+            "Mz": 0.0000012771852198056877
+          },
+          "energy_Nmm": 149.66757606008233,
+          "halfWork_Nmm": 149.66757606011666,
+          "denseDifference": null,
+          "elapsedMs": 4343.623933999999
+        }
+      },
+      "comparison": {
+        "energy": 0.00036130164544492663,
+        "displacement": 0.00037307486266415266,
+        "stressPath": 0.011127128200252426
+      }
+    }
+  ],
+  "convergence": [
+    {
+      "context": "mesin",
+      "key": "center",
+      "converged": true,
+      "energy": 0.0006427303948964015,
+      "displacement": 0.0005253293746888214,
+      "stress": 0.013338879362345478,
+      "message": "Path tetap dan energi memenuhi ambang konvergensi."
+    },
+    {
+      "context": "kapal",
+      "key": "center",
+      "converged": true,
+      "energy": 0.0006427303971889507,
+      "displacement": 0.0005253293988979774,
+      "stress": 0.013338879382506713,
+      "message": "Path tetap dan energi memenuhi ambang konvergensi."
+    },
+    {
+      "context": "kapal",
+      "key": "outer",
+      "converged": true,
+      "energy": 0.0006427303945094373,
+      "displacement": 0.0005253293869381957,
+      "stress": 0.013338879297872456,
+      "message": "Path tetap dan energi memenuhi ambang konvergensi."
+    }
+  ],
+  "kirsch": [
+    {
+      "segments": 64,
+      "layers": 14,
+      "nodes": 3712,
+      "elapsedMs": 1378.7037380000002,
+      "boundaryRadial": 0.04002346511477587,
+      "boundaryShear": 0.018673118688578207,
+      "peak": 2.9535952524580673,
+      "peakError": 0.01546824918064423,
+      "stressL2": 0.003979636978463068,
+      "probe": -0.0000029821139245326998
+    },
+    {
+      "segments": 64,
+      "layers": 18,
+      "nodes": 4736,
+      "elapsedMs": 1410.7143209999995,
+      "boundaryRadial": 0.02447895757399073,
+      "boundaryShear": 0.016083806986863652,
+      "peak": 2.973138884796315,
+      "peakError": 0.00895370506789502,
+      "stressL2": 0.0026756386975264885,
+      "probe": -0.0000029826958391867717
+    }
+  ]
+}

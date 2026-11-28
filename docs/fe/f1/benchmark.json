@@ -1,0 +1,148 @@
+{
+  "note": "Node execution benchmark, not browser/device performance or F8 qualification",
+  "node": "v24.22.3",
+  "platform": "linux",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "results": [
+    {
+      "name": "beam-24",
+      "nodes": 9,
+      "elements": 8,
+      "status": "solved_unverified",
+      "diagnostics": {
+        "solverMethod": "banded-cholesky",
+        "freeDofs": 24,
+        "totalDofs": 27,
+        "nonzeros": 111,
+        "iterations": 0,
+        "balanceTolerance": {
+          "force": 0.002,
+          "moment": 2.0000000000000564
+        },
+        "residual": 4.074536263941058e-13,
+        "symmetry": 0,
+        "balance": {
+          "Fx": 0,
+          "Fy": 0,
+          "Mz": 5.634501576423645e-8
+        },
+        "energy_Nmm": 100.00000000002906,
+        "halfWork_Nmm": 100.0000000000075,
+        "denseDifference": 0,
+        "elapsedMs": 10.974494000000007
+      }
+    },
+    {
+      "name": "beam-384",
+      "nodes": 129,
+      "elements": 128,
+      "status": "solved_unverified",
+      "diagnostics": {
+        "solverMethod": "banded-cholesky",
+        "freeDofs": 384,
+        "totalDofs": 387,
+        "nonzeros": 1671,
+        "iterations": 0,
+        "balanceTolerance": {
+          "force": 0.0019999999950769125,
+          "moment": 1.9999999971174833
+        },
+        "residual": 3.0100345611572268e-9,
+        "symmetry": 0,
+        "balance": {
+          "Fx": 0,
+          "Fy": -0.000004923087544739246,
+          "Mz": -0.0028825164772570133
+        },
+        "energy_Nmm": 99.99999951604079,
+        "halfWork_Nmm": 99.99999979465755,
+        "denseDifference": null,
+        "elapsedMs": 21.330664999999982
+      }
+    },
+    {
+      "name": "patch-medium",
+      "nodes": 289,
+      "elements": 512,
+      "status": "solved_unverified",
+      "diagnostics": {
+        "solverMethod": "pcg",
+        "freeDofs": 450,
+        "totalDofs": 578,
+        "nonzeros": 7556,
+        "iterations": 104,
+        "balanceTolerance": {
+          "force": 0.459615384725212,
+          "moment": 22.980769245193716
+        },
+        "residual": 9.875047085067535e-11,
+        "symmetry": 4.144465172715906e-17,
+        "balance": {
+          "Fx": 0.0002494009386282414,
+          "Fy": -0.000027030318506149342,
+          "Mz": -0.013049825560301542
+        },
+        "energy_Nmm": 10153.846153846192,
+        "halfWork_Nmm": 10153.846153852941,
+        "denseDifference": null,
+        "elapsedMs": 45.65101999999999
+      }
+    },
+    {
+      "name": "patch-large",
+      "nodes": 2401,
+      "elements": 4608,
+      "status": "solved_unverified",
+      "diagnostics": {
+        "solverMethod": "pcg",
+        "freeDofs": 4418,
+        "totalDofs": 4802,
+        "nonzeros": 65668,
+        "iterations": 313,
+        "balanceTolerance": {
+          "force": 0.46089743679503103,
+          "moment": 23.04487182628285
+        },
+        "residual": 9.248319855341664e-11,
+        "symmetry": 4.1312910001484735e-17,
+        "balance": {
+          "Fx": -0.0002482398654137796,
+          "Fy": 0.000041775645854613686,
+          "Mz": -0.035195082280552015
+        },
+        "energy_Nmm": 10153.846153846052,
+        "halfWork_Nmm": 10153.84615384613,
+        "denseDifference": null,
+        "elapsedMs": 530.151114
+      }
+    },
+    {
+      "name": "patch-near-element-cap",
+      "nodes": 3721,
+      "elements": 7200,
+      "status": "solved_unverified",
+      "diagnostics": {
+        "solverMethod": "pcg",
+        "freeDofs": 6962,
+        "totalDofs": 7442,
+        "nonzeros": 102244,
+        "iterations": 384,
+        "balanceTolerance": {
+          "force": 0.4610256418739382,
+          "moment": 23.051282052268387
+        },
+        "residual": 9.643845463016934e-11,
+        "symmetry": 4.13129100014849e-17,
+        "balance": {
+          "Fx": -0.0006067803751648171,
+          "Fy": -0.00006814189396209258,
+          "Mz": -0.035155874298652634
+        },
+        "energy_Nmm": 10153.846153845889,
+        "halfWork_Nmm": 10153.846153845938,
+        "denseDifference": null,
+        "elapsedMs": 638.2712799999999
+      }
+    }
+  ]
+}

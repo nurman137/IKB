@@ -2,7 +2,7 @@
 
 Ruang belajar Ilmu Kekuatan Bahan, Politeknik Negeri Batam, untuk konteks **Teknik Mesin** dan **Perkapalan**.
 
-**Status 27 November 2026: M0–M8 selesai — versi `1.0.0-rc.2` siap ditinjau sebelum publikasi.** Kesepuluh modul aktif, dengan progres per perangkat, glosarium, mode presentasi dan cetak ringkasan. Situs belum dipublikasikan. Fondasi situs dapat dijalankan lokal; belum diterbitkan. Publikasi mengikuti tahap kesiapan rilis yang disepakati.
+**Status 27 November 2026: M0–M8 telah diterbitkan di [IKB Polibatam](https://ikb-polibatam.sleekdune.chatgpt.site/). Pengembangan FE F0–F8 tersedia di branch `feat/fem-f0`, belum digabung atau diterbitkan.**
 
 ## Modul yang sudah aktif
 
@@ -66,7 +66,7 @@ Server default: `http://127.0.0.1:5173/`. Host/port opsional: `npm run dev -- --
 | `web/section-*.js`, `web/thermal-*.js`, `web/combined-*.js`, `web/design-*.js` | Model, visual dan konfigurasi modul 07, 08, 09, 10 |
 | `web/m4.css` | Gaya bersama modul 05–10 |
 | `web/progress.js`, `web/glossary.js`, `web/m7.css` | Progres per perangkat, glosarium, mode presentasi dan gaya cetak |
-| `scripts/build.mjs` | Build 34 halaman dan 404 (`IKB_BASE` untuk subdirektori) |
+| `scripts/build.mjs` | Build 54 halaman dan 404 (`IKB_BASE` untuk subdirektori) |
 | `scripts/serve.mjs` | Server pengembangan |
 | `tests/foundation.test.mjs`, `tests/axial.test.mjs`, `tests/foundation-models.test.mjs`, `tests/torsion.test.mjs`, `tests/bending.test.mjs`, `tests/m5-modules.test.mjs`, `tests/design.test.mjs`, `tests/m7.test.mjs`, `tests/release.test.mjs` | Pemeriksaan semua model, fitur M7, dan gerbang rilis (20 kasus/133 keluaran M0, build statis, rujukan) |
 | `docs/m0/reference_cases.json` | Data acuan, bukan fungsi hitung aplikasi |
@@ -94,9 +94,17 @@ Nilai default adalah asumsi latihan. Model ideal tidak menyatakan kelayakan desa
 
 ## Langkah berikutnya
 
-Pengembangan M0–M8 selesai. Sebelum publikasi: tinjauan dosen atas isi dan preset latihan, uji perangkat fisik dan pembaca layar, serta keputusan domain, akses dan logo. Lihat [daftar periksa M8](docs/m8/serah_terima.md#daftar-periksa-sebelum-publikasi) dan panduan publikasinya.
+Pengembangan FE F0–F8 selesai sebagai kandidat **FE-1.0.0-rc.1** untuk 20 dari 20 kasus. Berikutnya tinjauan dosen/perangkat kelas dan keputusan penerbitan; sumber belum digabung atau diterbitkan. Lihat [audit F8](docs/fe/f8/README.md).
 
 
 ## Koreksi sebelum penerbitan Sleekdune
 
 Versi rc.2 memperkuat batas regangan/lendutan kecil modul 06/07/10, menyelaraskan keterangan panah termal, dan mensyaratkan prediksi serta latihan pada konteks yang sama untuk ketuntasan. Lihat [catatan koreksi](docs/m8/koreksi_prarilis.md).
+
+## Pengembangan FE (branch pengembangan)
+
+[F0 — Spesifikasi 20 kasus](docs/fe/f0/README.md), [F1 — Fondasi solver](docs/fe/f1/README.md), [F2a — Modul 06](docs/fe/f2a/README.md), [F2b — Kasus balok](docs/fe/f2b/README.md), [F3 — Axisymmetric](docs/fe/f3/README.md), [F4 — Torsi](docs/fe/f4/README.md), [F5 — Gabungan](docs/fe/f5/README.md), [F6 — Pelat sambungan](docs/fe/f6/README.md), [F7 — Pembelajaran dan ekspor](docs/fe/f7/README.md), [F8 — Kandidat rilis](docs/fe/f8/README.md).
+
+Total **20 dari 20 kasus** memiliki halaman FE. Elemen garis BEAM2, solid plane stress PS2, axisymmetric AX2, torsi penampang TOR2 dan superposisi COMB diberi label berbeda. Pelat sambungan memakai traction ditetapkan; pin dan kontak tidak diselesaikan FE. Semua view memiliki prediksi, cek pemahaman, refleksi, progres FE lokal, cetak dan ekspor numerik JSON/CSV.
+
+**179 kelompok tes lulus**; audit 20 kasus /29 submodel menguji hasil dan ekspor. Pelat dibandingkan solver SciPy independen dan benchmark Kirsch. [Manifest rilis](docs/fe/f8/release_manifest.json) menyimpan ukuran aset, waktu, kernel dan hash referensi. Perubahan masih di draft PR pengembangan; situs publik belum diperbarui. Uji perangkat fisik, pembaca layar lengkap dan keluaran cetak tetap bagian tinjauan sebelum publikasi.
